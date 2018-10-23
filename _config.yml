@@ -1,0 +1,55 @@
+title: "Linux Tech Blog"
+description: My Personal Tech Blog
+author: truongnh1992
+github: https://github.com/truongnh1992
+about: ""
+disqus_shortname: truongnh-bk55-github-io
+google_analytics: UA-126117321-1
+avatar_url: /static/img/nht.jpg
+
+enableTags: true
+tagarray: []
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-facebook
+      link: "https://facebook.com/haitruong.bkhn"
+    - icon: fa-twitter
+      link: "https://twitter.com/truongnh92"
+    - icon: fa-linkedin
+      link: "https://www.linkedin.com/in/nguyen-hai-truong-hp"
+    - icon: fa-github
+      link: "https://github.com/truongnh1992"
+    - icon: fa-email
+      link: "haitruong-hust@bka.vn"
+
+share:
+  twitter_username: truongnh92
+#  fb_appid: 1749788565247320
+
+urls:
+    - text: About Me
+      url: /about/
+    - text: My Flickr
+      url: https://www.flickr.com/photos/haitruonghp
+
+url: "https://truongnh1992.github.io"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page/:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: ['development']
