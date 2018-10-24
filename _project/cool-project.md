@@ -1,6 +1,6 @@
 ---
 layout: project_single
-title:  "Cool Project"
+title:  "Python programming"
 slug: "cool-project"
 ---
-Just a demo text for now, which signifies there is lot of scope for improvement.
+Articles about Python programming.

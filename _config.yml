@@ -34,6 +34,8 @@ share:
 urls:
     - text: About Me
       url: /about/
+    - text: Python programming
+      url: /projects/
     - text: My Flickr
       url: https://www.flickr.com/photos/haitruonghp
 
