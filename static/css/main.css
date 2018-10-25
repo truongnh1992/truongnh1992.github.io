@@ -1,5 +1,5 @@
 body {
-  font-family: -apple-system, Arial, sans-serif;
+  font-family: Georgia, Arial, sans-serif;
   background: url("/static/img/subtle_dots.png");
   line-height: 1.5em;
   text-align: justify;
@@ -16,7 +16,7 @@ blockquote {
 .post-title {
  color:#204081;
  text-align:left;
- font-family:-apple-system, sans-serif;
+ font-family: Georgia, sans-serif;
  font-size:33px
 }
 hr {
