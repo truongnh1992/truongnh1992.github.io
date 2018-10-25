@@ -19,8 +19,7 @@ Bài viết sẽ trình bày một cách tổng quan về tín hiệu (**signals
 <a name="1-what-is-a-signal-in-linux"><a/>
 ## 1. Signals trên hệ thống Linux là gì?
 **Signals** được dịch một cách đơn giản sang Tiếng Việt là **tín hiệu**, còn theo định nghĩa trong Chương 9 của cuốn sách [Linux System Programming](https://www.oreilly.com/library/view/linux-system-programming/0596009585/ch09.html) (NXB: O'Reilly):
-> 
-	Signals are software interrupts that provide a mechanism for handling asynchronous events. These events can originate from outside the system—such as when the user generates the interrupt character (usually via Ctrl-C)—or from activities within the program or kernel, such as when the process executes code that divides by zero. As a primitive form of interprocess communication (IPC), one process can also send a signal to another process.
+> Signals are software interrupts that provide a mechanism for handling asynchronous events. These events can originate from outside the system—such as when the user generates the interrupt character (usually via Ctrl-C)—or from activities within the program or kernel, such as when the process executes code that divides by zero. As a primitive form of interprocess communication (IPC), one process can also send a signal to another process.
 
 <a name="2-singal-disposition"><a/>
 ## 2. Signal disposition
