@@ -97,7 +97,7 @@ filename = 'username.json'
 
 with open(filename) as f_obj:
 	username = json.load(f_obj)
-	print("Wellcome back, " + username + "!")
+	print("Welcome back, " + username + "!")
 ```
 ```
 $ python3 greet_user.py
@@ -123,7 +123,7 @@ except FileNotFoundError:
 		json.dump(username, f_obj)
 		print("We'll remember you when you come back, " + username + "!")
 else:
-	print("Wellcome back, " + username + "!")
+	print("Welcome back, " + username + "!")
 ```
 Nếu lần đầu chương trình trên được chạy: `$ python3 remember_me.py`
 ```
