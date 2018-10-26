@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Lưu trữ dữ liệu với Python
+title: Python: Storing Data using the JSON
 date: 2018-10-26
 categories: [python]
 tags: [python]
 ---
 
-Khi lập trình, rất nhiều chương trình sẽ đòi hỏi người phát triển phải truyền vào một loại thông tin cụ thể nào đó, chẳng hạn như cho phép người dùng lưu trữ các tùy chọn trong game hoặc cung cấp dữ liệu điểm số, số lượt chơi còn lại... Bất kể chương trình là gì đi chăng nữa thì thông tin cũng sẽ được lưu trong các cấu trúc dữ liệu như danh sách (**lists**) hoặc từ điển (**dictionaries**). Khi người dùng đóng chương trình, những thông tin được tạo ra trong quá trình chạy chương trình (phải) được lưu lại. Một cách đơn giản để thực hiện việc này là lưu trữ data bằng cách sử dụng mô-đun (module) **json**.  
+Dữ liệu của một chương trình viết bằng [Python](https://www.python.org/) có thể chứa nhiều loại thông tin khác nhau, chẳng hạn như một game sẽ yêu cầu người chơi nhập vào username và chương trình này sẽ lưu lại điểm số sau mỗi lượt chơi, các tuỳ chọn thiết lập trong game... Dù thông tin ở dạng nào đi nữa thì chúng cũng sẽ được lưu trong các cấu trúc dữ liệu mà ngôn ngữ lập trình Python hỗ trợ như: danh sách (**lists**) hoặc từ điển (**dictionaries**). Khi người dùng đóng chương trình, những thông tin được tạo ra trong quá trình chạy chương trình (phải) được lưu lại. Một biện pháp đơn giản để thực hiện việc này là lưu trữ data bằng cách sử dụng mô-đun (module) **json**.  
 
 Mô-đun **json** cho phép ***dump*** (từ này mình không biết nên Việt hóa như thế nào nữa? :D) một cấu trúc dữ liệu Python đơn giản vào một file và tải (load) dữ liệu từ file đó vào lần chạy tiếp theo của chương trình. Người phát triển có thể dùng **json** để chia sẻ dữ liệu giữa các chương trình Python khác nhau. Một ưu điểm vượt trội khác là kiểu dữ liệu **JSON** được thiết kế để không chỉ dùng riêng cho Python nên người phát triển có thể chia sẻ dữ liệu lưu trữ ở định dạng JSON với những người phát triển ngôn ngữ lập trình khác, nó rất hữu ích và khả chuyển (portable).
 
@@ -18,7 +18,6 @@ Mô-đun **json** cho phép ***dump*** (từ này mình không biết nên Việ
 <!-- MarkdownTOC -->
 [1. json.dump() và json.load()](#1-json-dump-load)  
 [2. Lưu trữ và đọc dữ liệu User-Generated](#2-saving-reading-user-generated-data)  
-[3. Refactoring](#3-Refactoring)  
 <!-- /MarkdownTOC -->
 
 <a name="1-json-dump-load"><a/>
@@ -64,6 +63,7 @@ $ python number_reader.py
 [2, 3, 5, 7, 11, 13]
 ```
 Nội dung trên đã trình bày một cách đơn giản để chia sẻ dữ liệu giữa 2 chương trình.
+
 <a name="2-saving-reading-user-generated-data"><a/>
 ## 2. Lưu trữ và đọc dữ liệu User-Generated
 Lưu dữ liệu bằng **json** thực sự hữu ích khi làm việc với dữ liệu do người dùng tạo ra (User-Generated Data), bởi vì nếu không lưu thông tin của người dùng bằng một cách nào đó sẽ dẫn đến sự mất mát thông tin khi chương trình ngừng chạy. Ví dụ dưới đây sẽ lưu tên của người dùng nhập vào ở lần chạy đầu tiên và sau đó nhớ tên của họ ở những lần chạy tiếp theo.  
@@ -104,7 +104,35 @@ $ python3 greet_user.py
 Wellcome back, TruongNH!
 ```
 
-<a name="3-Refactoring"><a/>
-## 3. Refactoring
+Gộp hai chương trình trên vào một file mã nguồn, khi chạy chương trình *remember_me.py*, người dùng muốn lấy username từ bộ nhớ nếu có thể; do đó người phát triển sẽ dùng một khối `try`. Nếu file *username.json* không tồn tại, sẽ có khối `except` nhắc lệnh truyền một username vào và lưu tại file *username.json* dùng cho lần sau:
+
+*remember_me.py*
+```python
+import json
+
+# Load the username, if it has been stored previously.
+# Otherwise, prompt for the username and store it
+
+filename = 'username.json'
+try:
+	with open(filename) as f_obj:
+		username = json.load(f_obj)
+except FileNotFoundError:
+	username = input("What's your name? ")
+	with open(filename, 'w') as f_obj:
+		json.dump(username, f_obj)
+		print("We'll remember you when you come back, " + username + "!")
+else:
+	print("Wellcome back, " + username + "!")
+```
+Nếu lần đầu chương trình trên được chạy: `$ python3 remember_me.py`
+```
+What's your name? Nguyen Hai Truong
+We'll remember you when you come back, Nguyen Hai Truong!
+```
+Hoặc:
+```
+Wellcome back, Nguyen Hai Truong!
+```
 
 *Nguồn: [Python Crash Course: A Hands-On, Project-Based Introduction to Programming](https://www.amazon.com/Python-Crash-Course-Hands-Project-Based/dp/1593276036)*
