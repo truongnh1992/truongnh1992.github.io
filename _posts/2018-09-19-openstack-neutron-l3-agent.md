@@ -2,7 +2,8 @@
 layout: post
 title: OpenStack Neutron L3 Agent
 date: 2018-09-19
-tags: OpenStack Neutron Networking L3-Agent
+categories: [openstack, networking]
+tags: [OpenStack, Neutron, Networking, L3-Agent]
 ---
 
 **Contents:**

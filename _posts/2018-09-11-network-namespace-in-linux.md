@@ -2,7 +2,8 @@
 layout: post
 title: Linux Network Namespace
 date: 2018-09-11
-tags: Linux Networking Namespace
+categories: [linux, networking]
+tags: [Linux, Networking, Namespace]
 ---
 **Những nội dung chính:**
 
