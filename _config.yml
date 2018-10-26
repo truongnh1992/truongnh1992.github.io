@@ -20,14 +20,14 @@ social:
       link: "https://facebook.com/haitruong.bkhn"
     - icon: fa-twitter
       link: "https://twitter.com/truongnh92"
+    - icon: fa-youtube
+      link: "https://www.youtube.com/user/nhtbkhn"
     - icon: fa-linkedin
       link: "https://www.linkedin.com/in/nguyen-hai-truong-hp"
     - icon: fa-github
       link: "https://github.com/truongnh1992"
     - icon: fa-envelope
       link: "mailto:haitruong-hust@bka.vn"
-    - icon: fa-youtube
-      link: "https://www.youtube.com/user/nhtbkhn"
 
 share:
   twitter_username: truongnh92
@@ -36,8 +36,8 @@ share:
 urls:
     - text: About Me
       url: /about/
-    - text: Python programming
-      url: /projects/
+    - text: Categories
+      url: /category/
     - text: My Flickr
       url: https://www.flickr.com/photos/haitruonghp
 
