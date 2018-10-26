@@ -29,7 +29,7 @@ except FileNotFoundError:
 else:
 	print("Wellcome back, " + username + "!")
 ```
-Chương trình trên sẽ được chạy thành công, nếu lần đầu chương trình được chạy: `$ python3 remember_me.py`, ta được:
+Chương trình trên sẽ được chạy thành công, nếu lần đầu chương trình được chạy, ta được:
 ```
 What's your name? Nguyen Hai Truong
 We'll remember you when you come back, Nguyen Hai Truong!
