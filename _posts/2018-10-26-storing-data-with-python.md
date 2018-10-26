@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Python] Storing Data using the JSON
+title: Python, storing Data using the JSON
 date: 2018-10-26
 categories: [python]
 tags: [python]
