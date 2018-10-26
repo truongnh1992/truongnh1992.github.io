@@ -36,8 +36,12 @@ share:
 urls:
     - text: About Me
       url: /about/
-    - text: Categories
-      url: /category/
+    - text: Linux
+      url: /category/linux
+    - text: OpenStack
+      url: /category/openstack
+    - text: Networking
+      url: /category/networking
     - text: My Flickr
       url: https://www.flickr.com/photos/haitruonghp
 
