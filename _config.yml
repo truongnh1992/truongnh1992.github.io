@@ -24,8 +24,10 @@ social:
       link: "https://www.linkedin.com/in/nguyen-hai-truong-hp"
     - icon: fa-github
       link: "https://github.com/truongnh1992"
-    - icon: fa-email
-      link: "haitruong-hust@bka.vn"
+    - icon: fa-envelope
+      link: "mailto:haitruong-hust@bka.vn"
+    - icon: fa-youtube
+      link: "https://www.youtube.com/user/nhtbkhn"
 
 share:
   twitter_username: truongnh92
