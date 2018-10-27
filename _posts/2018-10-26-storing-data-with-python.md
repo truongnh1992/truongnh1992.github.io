@@ -101,7 +101,7 @@ with open(filename) as f_obj:
 ```
 ```
 $ python3 greet_user.py
-Wellcome back, TruongNH!
+Welcome back, TruongNH!
 ```
 
 Gộp hai chương trình trên vào một file mã nguồn, khi chạy chương trình *remember_me.py*, người dùng muốn lấy username từ bộ nhớ nếu có thể; do đó người phát triển sẽ dùng một khối `try`. Nếu file *username.json* không tồn tại, sẽ có khối `except` nhắc lệnh truyền một username vào và lưu tại file *username.json* dùng cho lần sau:
@@ -132,7 +132,7 @@ We'll remember you when you come back, Nguyen Hai Truong!
 ```
 Hoặc:
 ```
-Wellcome back, Nguyen Hai Truong!
+Welcome back, Nguyen Hai Truong!
 ```
 
 *Nguồn: [Python Crash Course: A Hands-On, Project-Based Introduction to Programming](https://www.amazon.com/Python-Crash-Course-Hands-Project-Based/dp/1593276036)*
