@@ -18,7 +18,7 @@ Chiếc Pi của mình trông nó như thế này:
 
 Để thực hiện việc điều kiển nháy LED bằng code Python, thì việc đầu tiên cần làm là chuẩn bị những phần cứng và phần mềm cấn thiết.
 
-## Phần cứng:
+## Phần cứng
 * Board mạch Raspberry Pi
 * Board trắng để cắm đèn LED, dây nối và jump
 * Điện trở 220 Ohm 
