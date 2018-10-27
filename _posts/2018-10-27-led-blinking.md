@@ -31,9 +31,60 @@ Mình sẽ cài [Rasbian](https://www.raspberrypi.org/downloads/raspbian/) lên 
 ## Lập trình
 Giờ đến công đoạn cuối cùng là code và cài cắm đèn LED vào Pi.  
 
-Raspberry Pi 2 có 40 chân GPIO (general-purpose input/output)
-
 ![pins-gpio](/static/img/raspberrypi/gpio-pins-pi2.jpg)
 
 {:.image-caption}
+*Raspberry Pi 2 có 40 chân GPIO (general-purpose input/output). Ảnh: rasberrypi.org*
+
+Sơ đồ chân GPIO phục vụ cho việc lập trình như hình dưới đây:
+
+![pins-gpio](/static/img/raspberrypi/gpio-numbers-pi2.jpg)
+
+{:.image-caption}
 *Ảnh: rasberrypi.org*
+
+Mình sẽ cắm dây nối đèn LED vào board trắng thông qua jumb để kết nối với chân GPIO trên Pi theo sơ đồ sau:
+
+![noiday](/static/img/raspberrypi/noiday.jpg)
+
+Đèn LED được mắc nối tiếp với điện trở, cực dương của LED nối với **chân số 19** tức GPIO10 của Raspberry Pi còn cực âm được nối với **chân số 9** tức Ground nối đất của Raspberry Pi
+
+## Mã nguồn chương trình
+
+*blink.py*
+```python
+import RPi.GPIO as GPIO
+import time
+
+numTimes = int(input("Enter total number of times to blink: "))
+speed = float(input("Enter length of each blink (seconds): "))
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(19, GPIO.OUT)
+
+def Blink(numTimes, speed):
+    for i in range (0, numTimes):
+        GPIO.output(19, True)
+        print "Iteration ", (i+1)
+        time.sleep(speed)
+        GPIO.output(19, False)
+        time.sleep(speed)
+
+Blink(numTimes, speed)
+print("Done")
+```
+
+Chạy chương trình trên, nhập vào số lần nháy mong muốn và *"tần số nháy"*
+```
+$ python blink.py
+Enter total number of times to blink: 50
+Enter length of each blink (seconds): 0.5
+```
+Và đây là kết quả:
+
+![Demo](/static/img/raspberrypi/demo_led.gif)
+
+Hi vọng bài viết sẽ giúp các bạn DIY được một ứng dụng nho nhỏ và thú vị này.
+
+Hải Phòng, 27-10-2018.
