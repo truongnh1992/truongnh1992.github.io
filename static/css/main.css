@@ -83,7 +83,7 @@ div.content pre {
   color: #FFF;
   overflow-x: auto;
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 14px;
+  font-size: 12px;
   border: none;
 }
 div.content .highlight {
@@ -182,8 +182,8 @@ div.col-sm-3 img.profile-avatar {
 
 .image-caption {
   text-align: center;
-  font-size: .8rem;
-  color: light-grey;
+  font-size: 14px;
+  color: grey;
 }
 
 /* Responsive Conditional */
