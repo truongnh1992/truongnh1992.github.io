@@ -27,7 +27,7 @@ except FileNotFoundError:
 		json.dump(username, f_obj)
 		print("We'll remember you when you come back, " + username + "!")
 else:
-	print("Wellcome back, " + username + "!")
+	print("Welcome back, " + username + "!")
 ```
 Chương trình trên sẽ được chạy thành công, nếu lần đầu chương trình được chạy, ta được:
 ```
@@ -36,7 +36,7 @@ We'll remember you when you come back, Nguyen Hai Truong!
 ```
 Hoặc:
 ```
-Wellcome back, Nguyen Hai Truong!
+Welcome back, Nguyen Hai Truong!
 ```
 Thử thay đổi mã nguồn trên một chút bằng cách chuyển toàn bộ logic của chương trình vào hàm `greet_user()`:
 
@@ -56,7 +56,7 @@ def greet_user():
 			json.dump(username, f_obj)
 			print("We'll remember you when you come back, " + username + "!")
 	else:
-		print("Wellcome back, " + username + "!")
+		print("Welcome back, " + username + "!")
 
 greet_user()
 ```
