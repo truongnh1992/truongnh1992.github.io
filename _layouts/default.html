@@ -139,9 +139,9 @@ layout: compress
           <ul class="sidebar-nav">
             <li><a href="/">Home</a></li>
             {% for i in site.urls %}
+            <hr>
               <li><a class="about" href="{{ i.url }}">{{ i.text }}</a></li>
             {% endfor %}
-            <hr>
           </ul>
         </div>
         <!-- end /.fixed-condition -->
