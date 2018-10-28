@@ -47,7 +47,7 @@ urls:
     - text: Tutorials
       url: /category/tutorials
     - text: My Flickr
-      url: https://www.flickr.com/photos/haitruonghp
+      url: https://www.flickr.com/photos/haitruonghp/albums
 
 url: "https://truongnh1992.github.io"
 baseurl: ""
