@@ -17,7 +17,7 @@ blockquote {
 .post-title {
  color:#204081;
  text-align:left;
- font-family: Georgia, sans-serif;
+ font-family: Montserrat, sans-serif;
  font-size:33px
 }
 hr {
@@ -85,6 +85,13 @@ img {
 .sidebar-nav li::before {
   content: "»";
   margin-right: .5em;
+}
+
+.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open .dropdown-toggle.btn-default {
+ color:#204081;
+ font-weight: bold;
+ background-color:#ebebeb;
+ border-color:#adadad
 }
 
 /* Content */
