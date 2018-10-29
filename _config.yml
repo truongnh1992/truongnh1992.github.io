@@ -46,8 +46,8 @@ urls:
       url: /category/python
     - text: Tutorials
       url: /category/tutorials
-    - text: My Flickr
-      url: https://www.flickr.com/photos/haitruonghp/albums
+    - text: Raspberry Pi
+      url: /category/raspberry
 
 url: "https://truongnh1992.github.io"
 baseurl: ""
