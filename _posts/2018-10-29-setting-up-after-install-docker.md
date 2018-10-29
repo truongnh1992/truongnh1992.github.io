@@ -51,7 +51,8 @@ Dòng lệnh trên sẽ download một test image về và chạy nó trong mộ
 
 Hầu hết các bản phần phối Linux (RHEL, CentOS, Fedora, Ubuntu 16.04 hoặc mới hơn) dùng `systemd` để quản lý các service khởi động cùng với hệ thống. Bản Ubuntu 14.10 hoặc cũ hơn dùng `upstart`.
 
-* Dùng `systemd`
+* Dùng `systemd`:
+
 ```sh
 $ sudo systemctl enable docker
 
@@ -64,7 +65,8 @@ Executing /lib/systemd/systemd-sysv-install enable docker
 $ sudo systemctl disable docker
 ```
 
-* Dùng `upstart`
+* Dùng `upstart`:
+
 Docker được tự động cấu hình để khởi động cùng với hệ thống dùng `upstart`. Để vô hiệu hóa, ta dùng lệnh sau đây:
 ```sh
 $ echo manual | sudo tee /etc/init/docker.override
@@ -97,6 +99,7 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker.service
 ```
 * Kiểm tra lại thay đổi đã được áp dụng chưa bằng cách xem đầu ra của `netstat` để xác nhận rằng `dockerd` đang được lắng nghe trên cổng đã được cấu hình.
+
 ```sh
 $ sudo netstat -lntp | grep dockerd
 
@@ -121,6 +124,7 @@ $ sudo vi /etc/docker/daemon.json
 $ sudo systemctl restart docker.service
 ```
 * Kiểm tra lại thay đổi đã được áp dụng chưa bằng cách xem đầu ra của `netstat` để xác nhận rằng `dockerd` đang được lắng nghe trên cổng đã được cấu hình.
+
 ```sh
 $ sudo netstat -lntp | grep dockerd
 
