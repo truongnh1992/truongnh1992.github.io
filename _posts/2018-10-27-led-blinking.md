@@ -27,7 +27,7 @@ Chiếc Pi của mình trông nó như thế này:
 ![Hardware](/static/img/raspberrypi/hardware.jpg)
 
 ## Phần mềm
-Mình sẽ cài [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) lên Pi, **Raspbian** là hệ điều hành nhân Linux được tuỳ biến riêng cho Rasberry Pi. [Hướng dẫn này](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) sẽ nêu chi tiết các bước cài đặt. Remote đến Pi thông qua giao thức ssh để bắt tay vào lập trình, chi tiết [tại đây](https://truongnh1992.github.io/linux/networking/2018/10/30/remote-to-raspberrypi.html).
+Mình sẽ cài [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) lên Pi, **Raspbian** là hệ điều hành nhân Linux được tuỳ biến riêng cho Rasberry Pi. [Hướng dẫn này](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) sẽ nêu chi tiết các bước cài đặt. Remote đến Pi thông qua giao thức ssh để bắt tay vào lập trình, chi tiết [tại đây](https://truongnh1992.github.io/linux/networking/raspberry/2018/10/30/remote-to-raspberrypi.html).
 
 ## Lập trình
 Giờ đến công đoạn cuối cùng là code và cài cắm đèn LED vào Pi.  
