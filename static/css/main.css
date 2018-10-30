@@ -11,14 +11,16 @@ blockquote {
  padding:10px 20px;
  margin:0 0 20px;
  font-family: Georgia;
+ font-style: italic;
  font-size:15px;
  border-left:5px solid #eee
 }
 .post-title {
  color:#204081;
  text-align:left;
- font-family: Montserrat, sans-serif;
- font-size:33px
+ font-family: "Open Sans", sans-serif;
+ font-size: 30px;
+ font-weight: bold;
 }
 hr {
   margin-top: 3px;
@@ -38,7 +40,7 @@ h1, h2, h3 {
 }
 h1 {
   margin-bottom: 10px;
-  font-size: 38px;
+  font-size: 35px;
   font-family: Montserrat;
 }
 h2, h3 {
