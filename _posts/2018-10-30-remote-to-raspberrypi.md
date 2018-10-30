@@ -39,7 +39,7 @@ All 1000 scanned ports on 192.168.2.101 are closed (500) or open|filtered (500)
 
 Nmap done: 256 IP addresses (3 hosts up) scanned in 16.01 seconds
 ```
-Dễ thấy địa chỉ IP của Raspberry Pi là `192.168.2.102`, ssh đến nó theo cú pháp `ssh hostname@IP-address`
+Dễ thấy địa chỉ IP của Raspberry Pi là `192.168.2.102`, ssh đến nó theo cú pháp: `ssh hostname@IP-address`
 
 ```sh
 ssh pi@192.168.2.102
