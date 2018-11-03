@@ -34,7 +34,7 @@ share:
 #  fb_appid: 1749788565247320
 
 urls:
-    - text: About Me
+    - text: About me
       url: /about/
     - text: Linux
       url: /category/linux
@@ -42,8 +42,10 @@ urls:
       url: /category/openstack
     - text: Networking
       url: /category/networking
-    - text: Python programming
+    - text: Python
       url: /category/python
+    - text: Golang
+      url: /category/golang
     - text: Tutorials
       url: /category/tutorials
     - text: Raspberry Pi
