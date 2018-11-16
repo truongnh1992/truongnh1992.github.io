@@ -19,12 +19,14 @@ tags: [linux, tutorials]
 
 <a name="-big-picture"><a/>
 ### 1. Big picture
+
 ![workflow](/static/img/github/github_workflow.png)
 
 <a name="-fork-a-repository"><a/>
 ### 2. Fork a repository
 * Goto https://github.com/kubernetes/kubernetes
 * Hit the `Fork` button to fork your own copy of repo **kubernetes** to your github account
+
 ![Fork](/static/img/github/fork.png)
 
 <a name="-clone-fork-repository-to-local"><a/>
