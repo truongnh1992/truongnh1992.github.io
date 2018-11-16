@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Github workflow for contributing to Kubernetes
-date: 2018-10-26
+date: 2018-11-16
 categories: [linux, tutorials]
 tags: [linux, tutorials]
 ---
 
-### Contents
+#### Contents
 
 <!-- MarkdownTOC -->
 [1. Big picture](#-big-picture)  
@@ -19,13 +19,13 @@ tags: [linux, tutorials]
 
 <a name="-big-picture"><a/>
 ### 1. Big picture
-![workflow](static/img/github/github_workflow.png)
+![workflow](/static/img/github/github_workflow.png)
 
 <a name="-fork-a-repository"><a/>
 ### 2. Fork a repository
 * Goto https://github.com/kubernetes/kubernetes
 * Hit the `Fork` button to fork your own copy of repo **kubernetes** to your github account
-![Fork](static/img/github/fork.png)
+![Fork](/static/img/github/fork.png)
 
 <a name="-clone-fork-repository-to-local"><a/>
 ### 3. Clone the forked repository to local
@@ -96,5 +96,5 @@ $ git push -f $remotename mybranch
 ### 6. Create a Pull Request
 
 - Go to your fork at https://github.com/$user/kubernetes
-- Hit the button ![PR](static/img/github/compare-pullrequest) next to branch `mybranch`
+- Hit the button ![PR](/static/img/github/compare-pullrequest) next to branch `mybranch`
 - Flow the following processes to create a new pull request
