@@ -10,12 +10,12 @@ I can play basketball and the [guitar](https://www.youtube.com/watch?v=WUsfp92Sd
 
 I have a passion for photography as well.
 
-*(Check out my [CV](https://studenthust-my.sharepoint.com/:b:/g/personal/20102395_students_hust_edu_vn/EXBl8Vsn_VVOmj_KmavUyh8BkSMPPTB2iXyhoT4BaQfc_g?e=HC80Te))*
+*(Check out my [CV](https://studenthust-my.sharepoint.com/:b:/g/personal/20102395_students_hust_edu_vn/ETuUnmDnZrlGrk2FSjxoUYwB-Hxs3t3de3zWjCjQRRbY-g?e=JOy1ez))*
 
 ### My background
 
-Software Engineer with **4+ years of experience** in software development, specializes in **Embedded Linux, C/C++, Go** and **Shell
-Scripts**. Having background on **Computer Networking, OpenStack, `Kubernetes`** and **Docker, Container** as well
+Software Engineer with **`4+ years of experience`** in software development, specializes in **`Embedded Linux`, `C/C++`, `Go`** and **`Shell Scripts`**  
+Having background on **`Computer Networking`, `OpenStack`, `Kubernetes`** and **`Docker`, `Container`**
 
 ### Contributing to Open-Source Community
 I'm a founder of [VietKubers (Vietnam Kubernetes Community)](https://vietkubers.github.io/)  
