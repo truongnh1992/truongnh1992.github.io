@@ -292,4 +292,3 @@ $ sudo kubeadm join 10.0.2:6443 --token 7ju4yg.5x2xaj96xqx18qwq --discovery-toke
 
 *Author: [truongnh1992](https://github.com/truongnh1992)* - Email: nguyenhaitruonghp[at]gmail[dot]com
 
-{% include links.html %}
