@@ -4,16 +4,16 @@ body {
   line-height: 1.5em;
   text-align: justify;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 15.5px;
   color: #333333;
 }
 blockquote {
- padding:10px 20px;
- margin:0 0 20px;
+ padding:5px 20px;
+ margin:10px 0 20px;
  font-family: Georgia;
  font-style: italic;
- font-size:15px;
- border-left:5px solid #eee
+ font-size:15.5px;
+ border-left:5px solid #abc
 }
 .post-title {
  color:#204081;
@@ -32,7 +32,7 @@ hr {
 span.time, span.categories {
   color: #ADADAD;
   margin-bottom: 5px;
-  font-size: 11px;
+  font-size: 15px;
 }
 h1, h2, h3 {
   color: #333;
@@ -53,7 +53,7 @@ a, a:active {
   text-decoration: none;
   font-family: Georgia;
   color: #3fa75;
-  font-size: 15px;
+  font-size: 15.5px;
 }
 a:hover {
   color: #B3B3B3;
@@ -61,7 +61,7 @@ a:hover {
 }
 
 .vglnk {
-	font-size: 14px;
+	font-size: 15px;
 }
 .author-name {
   font-family: Georgia;
