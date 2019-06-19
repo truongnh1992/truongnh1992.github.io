@@ -13,13 +13,13 @@ date: 2019-01-31
 
 <!-- MarkdownTOC -->
 [1. Preparation](#-preparation)  
-[1.1. Installing bare-metal server and creating necessary VMs](#installing-bare-metal-server-and-creating-necessary-VMs)  
-[1.2. Installing docker kubelet kubeadm kubectl kubernetes-cni on `master nodes` and `worker nodes`](#installing-docker)  
-[1.3. Installing HAproxy load balancer](#installing-haproxy)  
+[- 1.1. Installing bare-metal server and creating necessary VMs](#installing-bare-metal-server-and-creating-necessary-VMs)  
+[- 1.2. Installing docker kubelet kubeadm kubectl kubernetes-cni on `master nodes` and `worker nodes`](#installing-docker)  
+[- 1.3. Installing HAproxy load balancer](#installing-haproxy)  
 [2. Creating HA cluster with kubeadm](#-creating-HA-cluster-with-kubeadm)  
-[2.1. Steps for the 1st master node](#steps-for-the-1st-master-node)  
-[2.2. Steps for the rest of the master nodes](#steps-for-the-rest-of-the-master-nodes)  
-[2.3. Installing workers](installing-workers)  
+[- 2.1. Steps for the 1st master node](#steps-for-the-1st-master-node)  
+[- 2.2. Steps for the rest of the master nodes](#steps-for-the-rest-of-the-master-nodes)  
+[- 2.3. Installing workers](#installing-workers)  
 [3. Reference](#-reference)  
 <!-- /MarkdownTOC -->
 
