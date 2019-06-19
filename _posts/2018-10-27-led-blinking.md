@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIY, code nháy LED với Python trên Raspberry Pi 2
+title: [DIY] Nháy LED với Python trên Raspberry Pi 2
 date: 2018-10-27
 bigimg: /static/img/raspberrypi/mypi.jpg
 categories: [python, raspberry]
@@ -17,19 +17,32 @@ Chiếc Pi của mình trông nó như thế này:
 
 ![My workingspace](/static/img/raspberrypi/mypi.jpg)
 
+**Contents:**
+
+
+<!-- MarkdownTOC -->
+[1. Phần cứng](#-phancung)  
+[2. Phần mềm](#-phanmem)  
+[3. Lập trình](#-laptrinh)  
+[4. Mã nguồn chương trình](#-manguon)  
+<!-- /MarkdownTOC -->
+
 Để thực hiện việc điều kiển nháy LED bằng code Python, thì việc đầu tiên cần làm là chuẩn bị những phần cứng và phần mềm cấn thiết.
 
-## Phần cứng
+<a name="-phancung"><a/>
+## 1. Phần cứng
 * Board mạch Raspberry Pi
 * Board trắng để cắm đèn LED, dây nối và jump
 * Điện trở 220 Ohm 
 
 ![Hardware](/static/img/raspberrypi/hardware.jpg)
 
-## Phần mềm
+<a name="-phanmem"><a/>
+## 2. Phần mềm
 Mình sẽ cài [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) lên Pi, **Raspbian** là hệ điều hành nhân Linux được tuỳ biến riêng cho Rasberry Pi. [Hướng dẫn này](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) sẽ nêu chi tiết các bước cài đặt. Remote đến Pi thông qua giao thức ssh để bắt tay vào lập trình, chi tiết [tại đây](https://truongnh1992.github.io/linux/networking/raspberry/2018/10/30/remote-to-raspberrypi.html).
 
-## Lập trình
+<a name="-laptrinh"><a/>
+## 3. Lập trình
 Giờ đến công đoạn cuối cùng là code và cài cắm đèn LED vào Pi.  
 
 ![pins-gpio](/static/img/raspberrypi/gpio-pins-pi2.jpg)
@@ -50,9 +63,11 @@ Mình sẽ cắm dây nối đèn LED vào board trắng thông qua jumb để k
 
 Đèn LED được mắc nối tiếp với điện trở, cực dương của LED nối với **chân số 19** tức GPIO10 của Raspberry Pi còn cực âm được nối với **chân số 9** tức Ground nối đất của Raspberry Pi
 
+<a name="-manguon"><a/>
 ## Mã nguồn chương trình
 
-*blink.py*
+`blink.py`
+
 ```python
 import RPi.GPIO as GPIO
 import time
@@ -77,7 +92,7 @@ print("Done")
 ```
 
 Chạy chương trình trên, nhập vào số lần nháy mong muốn và *"tần số nháy"*
-```
+```sh
 $ python blink.py
 Enter total number of times to blink: 50
 Enter length of each blink (seconds): 0.5
