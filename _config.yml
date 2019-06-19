@@ -38,8 +38,8 @@ urls:
       url: /about/
     - text: Linux
       url: /category/linux
-    - text: OpenStack
-      url: /category/openstack
+    - text: Kubernetes
+      url: /category/kubernetes
     - text: Networking
       url: /category/networking
     - text: Python
