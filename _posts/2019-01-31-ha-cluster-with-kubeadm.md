@@ -4,8 +4,9 @@ title: Deploying multi-master nodes (High Availability) K8S
 tags: [tutorials, Kubernetes]
 categories: [tutorials, kubernetes]
 date: 2019-01-31
-summary: "kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm."
 ---
+
+> kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm.
 
 **Contents:**
 
@@ -31,13 +32,18 @@ summary: "kubeadm is a tool which is a part of the Kubernetes project. It helps 
 The bare-metal server runs Ubuntu Server 16.04 and there are 9 Virtual Machines (VMs) will be installed on it. Both of the VMs also run Ubuntu Server 16.04.
 
 * 3 master nodes
-* 5 worker nodes
+* 3 worker nodes
 * 1 HAproxy load balancer
 
 ![nodes_configuration](/static/img/multi-master-ha/Nodes.PNG)
 
 {:.image-caption}
 *The configurations of nodes*
+
+![nodes_configuration](/static/img/multi-master-ha/stacketcd.png)
+
+{:.image-caption}
+*The stacked etcd cluster*
 
 <a name="installing-docker"><a/>
 ### 1.2. Installing docker kubelet kubeadm kubectl kubernetes-cni on `master nodes` and `worker nodes`
