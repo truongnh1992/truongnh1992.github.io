@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [DIY] Nháy LED với Python trên Raspberry Pi 2
+title: "[DIY] Nháy LED với Python trên Raspberry Pi 2"
 date: 2018-10-27
 bigimg: /static/img/raspberrypi/mypi.jpg
 categories: [python, raspberry]
