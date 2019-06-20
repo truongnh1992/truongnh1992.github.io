@@ -5,6 +5,7 @@ date: 2018-10-27
 bigimg: /static/img/raspberrypi/mypi.jpg
 categories: [python, raspberry]
 tags: [python, raspberry]
+image: mypi.jpg
 ---
 
 Nhân một buổi chiều rảnh rỗi, mình ngồi viết bài này hướng dẫn các bạn code một chương trình nho nhỏ bằng Python để điều khiển đèn LED nháy trên [Rasberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/).  

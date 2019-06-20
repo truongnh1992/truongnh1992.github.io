@@ -4,6 +4,7 @@ title: Linux Network Namespace
 date: 2018-09-11
 categories: [linux, networking]
 tags: [Linux, Networking, Namespace]
+image: veth.png
 ---
 **Những nội dung chính:**
 
