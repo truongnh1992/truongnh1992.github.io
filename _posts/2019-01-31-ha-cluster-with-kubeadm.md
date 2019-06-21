@@ -94,7 +94,7 @@ Configuring HAProxy to load balance the traffic between 3 master nodes.
 $ sudo vim /etc/haproxy/haproxy.cfg
 ```
 Modifying content of file `haproxy.cfg` as below:
-```python
+```cfg
 global
         log /dev/log    local0
         log /dev/log    local1 notice
