@@ -88,12 +88,12 @@ WantedBy=multi-user.target
 
 Then,
 ```sh
-$ sudo sytemctl daemon-reload
+$ sudo systemctl daemon-reload
 ```
 
 Enable the service file.
 ```sh
-$ sudo systemctl enable vncserver@1.service
+$ sudo systemctl enable vncserver@\:1.service
 ```
 
 Kill the instance is running
