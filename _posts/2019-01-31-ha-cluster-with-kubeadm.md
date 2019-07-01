@@ -32,7 +32,7 @@ image: stacketcd.png
 <a name="installing-bare-metal-server-and-creating-necessary-VMs"><a/>
 ### 1.1. Installing bare-metal server and creating necessary VMs
 
-The bare-metal server runs Ubuntu Server 16.04 and there are 9 Virtual Machines (VMs) will be installed on it. Both of the VMs also run Ubuntu Server 16.04.
+The bare-metal server runs Ubuntu Server 16.04 and there are 7 Virtual Machines (VMs) will be installed on it. Both of the VMs also run Ubuntu Server 16.04.
 
 * 3 master nodes
 * 3 worker nodes
