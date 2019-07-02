@@ -4,7 +4,7 @@ body {
   line-height: 1.5em;
   text-align: justify;
   font-weight: 300;
-  font-size: 16.5px;
+  font-size: 15px;
   color: #333333;
 }
 blockquote {
@@ -12,7 +12,7 @@ blockquote {
  margin:10px 0 20px;
  font-family: Literata;
  font-style: italic;
- font-size:16.5px;
+ font-size:15px;
  border-left:5px solid #abc
 }
 .post-title {
@@ -63,7 +63,7 @@ a, a:active {
   text-decoration: none;
   font-family: Literata;
   color: #3fa75;
-  font-size: 16.5px;
+  font-size: 15px;
 }
 a:hover {
   color: #B3B3B3;
