@@ -25,7 +25,6 @@ date: 2019-07-02
 [6. References](#-refers)
 <!-- /MarkdownTOC -->
 
----
 <a name="-deploying-ha-cluster"><a/>
 ## 1. Deploying multi-master nodes (High Availability) K8S
 Following [this tutorial guide](https://truongnh1992.github.io/tutorials/kubernetes/2019/01/31/ha-cluster-with-kubeadm.html) to setup cluster.  
