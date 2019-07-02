@@ -155,7 +155,8 @@ sudo kubeadm upgrade apply v1.14.0
 
 <details>
   <summary>Click here to see the the result:</summary>
-
+  
+```txt
 [preflight] Running pre-flight checks.
 [upgrade] Making sure the cluster is healthy:
 [upgrade/config] Making sure the configuration is correct:
@@ -228,6 +229,7 @@ Static pod: kube-scheduler-k8s-master1 hash: 99889e63c907d2d88bde0d0ad2e0df05
 [upgrade/successful] SUCCESS! Your cluster was upgraded to "v1.14.0". Enjoy!
 
 [upgrade/kubelet] Now that your control plane is upgraded, please proceed with upgrading your kubelets if you haven't already done so.
+```
 
 </details>
 
@@ -271,7 +273,8 @@ master2@k8s-master2:~$ sudo kubeadm upgrade node experimental-control-plane
 ```
 <details>
   <summary>Click here to see the the result:</summary>
-
+  
+```txt
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
@@ -311,8 +314,9 @@ Static pod: kube-scheduler-k8s-master2 hash: 58272442e226c838b193bbba4c44091e
 [apiclient] Found 3 Pods for label selector component=kube-scheduler
 [upgrade/staticpods] Component "kube-scheduler" upgraded successfully!
 [upgrade] The control plane instance for this node was successfully updated!
+```
 
-</details>
+</details>  
 
 
 ```sh
@@ -320,7 +324,8 @@ master3@k8s-master3:~$ sudo kubeadm upgrade node experimental-control-plane
 ```
 <details>
   <summary>Click here to see the the result:</summary>
-
+  
+```
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
@@ -351,7 +356,8 @@ Static pod: kube-scheduler-k8s-master3 hash: 58272442e226c838b193bbba4c44091e
 [apiclient] Found 3 Pods for label selector component=kube-scheduler
 [upgrade/staticpods] Component "kube-scheduler" upgraded successfully!
 [upgrade] The control plane instance for this node was successfully updated!
-
+```
+  
 </details>
 
 <a name="-upgrading-worker-nodes"><a/>
