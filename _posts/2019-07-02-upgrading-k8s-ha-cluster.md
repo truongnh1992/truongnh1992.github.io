@@ -25,7 +25,7 @@ date: 2019-07-02
 [6. References](#-refers)
 <!-- /MarkdownTOC -->
 
-
+---
 <a name="-deploying-ha-cluster"><a/>
 ## 1. Deploying multi-master nodes (High Availability) K8S
 Following [this tutorial guide](https://truongnh1992.github.io/tutorials/kubernetes/2019/01/31/ha-cluster-with-kubeadm.html) to setup cluster.  
@@ -157,6 +157,7 @@ sudo kubeadm upgrade apply v1.14.0
   <summary>The result:</summary>
   
 ```console
+
 [preflight] Running pre-flight checks.
 [upgrade] Making sure the cluster is healthy:
 [upgrade/config] Making sure the configuration is correct:
@@ -274,6 +275,7 @@ master2@k8s-master2:~$ sudo kubeadm upgrade node experimental-control-plane
   <summary>The result:</summary>
   
 ```console
+
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
@@ -323,6 +325,7 @@ master3@k8s-master3:~$ sudo kubeadm upgrade node experimental-control-plane
   <summary>The result:</summary>
   
 ```console
+
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
