@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying multi-master nodes (High Availability) K8S
-tags: [tutorials, Kubernetes]
+tags: [tutorials, kubernetes]
 categories: [tutorials, kubernetes]
 date: 2019-01-31
 image: stacketcd.png

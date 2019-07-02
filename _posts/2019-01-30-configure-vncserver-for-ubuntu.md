@@ -2,8 +2,8 @@
 layout: post
 title: Install and configure VNC server on Ubuntu
 date: 2019-01-30
-categories: [linux, tutorial]
-tags: [linux, tutorial]
+categories: [linux, tutorials]
+tags: [linux, tutorials]
 ---
 
 ### 1. Install windows manager and desktop manager for Ubuntu
