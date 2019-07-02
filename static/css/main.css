@@ -1,5 +1,5 @@
 body {
-  font-family: Trocchi, Arial, sans-serif;
+  font-family: Literata, Arial, sans-serif;
   background: url("/static/img/subtle_dots.png");
   line-height: 1.5em;
   text-align: justify;
@@ -10,7 +10,7 @@ body {
 blockquote {
  padding:5px 20px;
  margin:10px 0 20px;
- font-family: Trocchi;
+ font-family: Literata;
  font-style: italic;
  font-size:16.5px;
  border-left:5px solid #abc
@@ -18,7 +18,7 @@ blockquote {
 .post-title {
  color:#204081;
  text-align:left;
- font-family: Trocchi, sans-serif;
+ font-family: "Paytone One", sans-serif;
  font-size: 30px;
  font-weight: bold;
 }
@@ -41,13 +41,13 @@ h1, h2, h3 {
 h1 {
   margin-bottom: 10px;
   font-size: 30px;
-  font-family: Trocchi;
+  font-family: Literata;
 }
 h2, h3 {
   color: #204081;
   margin-bottom: 5px;
   font-size: 20px;
-  font-family: Trocchi;
+  font-family: Literata;
 }
 
 h4 {
@@ -56,12 +56,12 @@ h4 {
   margin-bottom: 5px;
   font-size: 20px;
   font-style: italic;
-  font-family: Trocchi;
+  font-family: Literata;
 }
 
 a, a:active {
   text-decoration: none;
-  font-family: Trocchi;
+  font-family: Literata;
   color: #3fa75;
   font-size: 16.5px;
 }
@@ -74,7 +74,8 @@ a:hover {
 	font-size: 16.2px;
 }
 .author-name {
-  font-family: Trocchi;
+  font-family: "Bungee Shade";
+  font-size: 26px;
 }
 
 img {
