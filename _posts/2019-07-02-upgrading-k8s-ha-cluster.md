@@ -42,15 +42,15 @@ The bare-metal server runs Ubuntu Server 16.04 and there are 7 Virtual Machine (
 
 **The result:**
 
-```console
-master1@k8s-master1:~$ sudo kubectl get node -o wide
-NAME          STATUS   ROLES    AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-k8s-master1   Ready    master   20h   v1.13.5   10.164.178.161   <none>        Ubuntu 16.04.6 LTS   4.4.0-145-generic   docker://18.9.2
-k8s-master2   Ready    master   19h   v1.13.5   10.164.178.162   <none>        Ubuntu 16.04.6 LTS   4.4.0-145-generic   docker://18.9.2
-k8s-master3   Ready    master   19h   v1.13.5   10.164.178.163   <none>        Ubuntu 16.04.6 LTS   4.4.0-145-generic   docker://18.9.2
-k8s-worker1   Ready    <none>   19h   v1.13.5   10.164.178.233   <none>        Ubuntu 16.04.6 LTS   4.4.0-148-generic   docker://18.9.2
-k8s-worker2   Ready    <none>   19h   v1.13.5   10.164.178.234   <none>        Ubuntu 16.04.6 LTS   4.4.0-148-generic   docker://18.9.2
-k8s-worker3   Ready    <none>   19h   v1.13.5   10.164.178.235   <none>        Ubuntu 16.04.6 LTS   4.4.0-148-generic   docker://18.9.2
+```sh
+master1@k8s-master1:~$ sudo kubectl get node
+NAME          STATUS   ROLES    AGE   VERSION
+k8s-master1   Ready    master   20h   v1.13.5
+k8s-master2   Ready    master   19h   v1.13.5
+k8s-master3   Ready    master   19h   v1.13.5
+k8s-worker1   Ready    <none>   19h   v1.13.5
+k8s-worker2   Ready    <none>   19h   v1.13.5
+k8s-worker3   Ready    <none>   19h   v1.13.5
 ```
 
 <a name="-upgrading-master-1"><a/>
@@ -58,14 +58,14 @@ k8s-worker3   Ready    <none>   19h   v1.13.5   10.164.178.235   <none>        U
 
 **2.1. Find the version to upgrade to**
 
-```console
+```sh
 sudo apt update
 sudo apt-cache policy kubeadm
 ```
 
 **2.2. Upgrade the control plane (master) node**
 
-```console
+```sh
 sudo apt-mark unhold kubeadm
 sudo apt update && sudo apt upgrade
 sudo apt-get install kubeadm=1.14.0-00
@@ -74,18 +74,16 @@ sudo apt-mark hold kubeadm
 
 **2.3. Verify that the download works and has the expected version**
 
-```console
+```sh
 sudo kubeadm version
 ```
 
 **2.4. Modify `configmap/kubeadm-config` for this control plane node and remove the `etcd` section completely**
 
-```console
+```sh
 sudo kubectl edit configmap -n kube-system kubeadm-config
 ```
-<details>
-  <summary>Click here to see yaml file</summary>
-  
+
 ```yaml
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be
@@ -140,12 +138,10 @@ metadata:
   selfLink: /api/v1/namespaces/kube-system/configmaps/kubeadm-config
   uid: 52419642-7bb0-11e9-8a89-0800270fde1d
 ```
-</details>
-
 
 **2.5. Upgrade the `kubelet` and `kubectl`**
 
-```console
+```sh
 sudo apt-mark unhold kubelet
 sudo apt-get install kubelet=1.14.0-00 kubectl=1.14.0-00
 sudo systemctl restart kubelet
@@ -153,14 +149,14 @@ sudo systemctl restart kubelet
 
 **2.6. Start the upgrade**
 
-```console
+```sh
 sudo kubeadm upgrade apply v1.14.0
 ```
 
 <details>
   <summary>The result:</summary>
   
-```
+```console
 [preflight] Running pre-flight checks.
 [upgrade] Making sure the cluster is healthy:
 [upgrade/config] Making sure the configuration is correct:
@@ -241,14 +237,14 @@ Static pod: kube-scheduler-k8s-master1 hash: 99889e63c907d2d88bde0d0ad2e0df05
 
 **3.1. Find the version to upgrade to**
 
-```console
+```sh
 sudo apt update
 sudo apt-cache policy kubeadm
 ```
 
 **3.2. Upgrade `kubeadm`**
 
-```console
+```sh
 sudo apt-mark unhold kubeadm
 sudo apt update && sudo apt upgrade
 sudo apt-get install kubeadm=1.14.0-00
@@ -257,13 +253,13 @@ sudo apt-mark hold kubeadm
 
 **3.3. Verify that the download works and has the expected version**
 
-```console
+```sh
 sudo kubeadm version
 ```
 
 **3.4. Upgrade the `kubelet` and `kubectl`**
 
-```console
+```sh
 sudo apt-mark unhold kubelet
 sudo apt-get install kubelet=1.14.0-00 kubectl=1.14.0-00
 sudo systemctl restart kubelet
@@ -271,13 +267,13 @@ sudo systemctl restart kubelet
 
 **3.5. Start the upgrade**
 
-```console
+```sh
 master2@k8s-master2:~$ sudo kubeadm upgrade node experimental-control-plane
 ```
 <details>
   <summary>The result:</summary>
   
-```
+```console
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
@@ -320,13 +316,13 @@ Static pod: kube-scheduler-k8s-master2 hash: 58272442e226c838b193bbba4c44091e
 ```
 </details>
 
-```console
+```sh
 master3@k8s-master3:~$ sudo kubeadm upgrade node experimental-control-plane
 ```
 <details>
   <summary>The result:</summary>
   
-```
+```console
 [upgrade] Reading configuration from the cluster...
 [upgrade] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [upgrade] Upgrading your Static Pod-hosted control plane instance to version "v1.14.0"...
@@ -365,7 +361,7 @@ Static pod: kube-scheduler-k8s-master3 hash: 58272442e226c838b193bbba4c44091e
 
 **4.1. Upgrade `kubeadm` on all worker nodes**
 
-```console
+```sh
 sudo apt-mark unhold kubeadm
 sudo apt update && sudo apt upgrade
 sudo apt-get install kubeadm=1.14.0-00
@@ -374,30 +370,30 @@ sudo apt-mark hold kubeadm
 
 **4.2. Cordon the worker node, on the `Master node`, run:**
 
-```console
+```sh
 sudo kubectl drain $WORKERNODE --ignore-daemonsets
 ```
 **4.3. Upgrade the `kubelet` config on `worker nodes`**
 
-```console
+```sh
 sudo kubeadm upgrade node config --kubelet-version v1.14.0
 ```
 **4.4. Upgrade `kubelet` and `kubectl`**
 
-```console
+```sh
 sudo apt update && sudo apt upgrade
 sudo apt-get install kubelet=1.14.0-00 kubectl=1.14.0-00
 sudo systemctl restart kubelet
 ```
 **4.5. Uncordon the worker nodes, bring the node back online by marking it schedulable**
 
-```console
+```sh
 sudo kubectl uncordon $WORKERNODE
 ```
 <a name="-verify"><a/>
 ## 5. Verify the status of cluster
 
-```console
+```sh
 master1@k8s-master1:~$ sudo kubectl get node
 NAME          STATUS   ROLES    AGE   VERSION
 k8s-master1   Ready    master   21h   v1.14.0
