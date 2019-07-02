@@ -18,7 +18,7 @@ blockquote {
 .post-title {
  color:#204081;
  text-align:left;
- font-family: "Paytone One", sans-serif;
+ font-family: "Google Sans", sans-serif;
  font-size: 30px;
  font-weight: bold;
 }
@@ -41,7 +41,7 @@ h1, h2, h3 {
 h1 {
   margin-bottom: 10px;
   font-size: 26px;
-  font-family: "Paytone One";
+  font-family: "Google Sans";
 }
 h2, h3 {
   color: #204081;
