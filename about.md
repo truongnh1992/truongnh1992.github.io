@@ -10,7 +10,7 @@ I can play basketball and the [guitar](https://www.youtube.com/watch?v=WUsfp92Sd
 
 I have a passion for photography as well.
 
-*(Check out my [CV](https://studenthust-my.sharepoint.com/:b:/g/personal/20102395_students_hust_edu_vn/ETuUnmDnZrlGrk2FSjxoUYwB-Hxs3t3de3zWjCjQRRbY-g?e=JOy1ez))*
+*(Check out my [CV](https://haitruonghust.files.wordpress.com/2019/07/nguyenhaitruong-linuxsystemengineer-cv1.pdf))*
 
 # My background
 
