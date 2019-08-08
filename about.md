@@ -18,11 +18,18 @@ Software Engineer with **`4+ years of experience`** in software development, spe
 Having background on **`Computer Networking`, `OpenStack`, `Kubernetes`** and **`Docker`, `Container`**
 
 # Contributing to Open-Source Community
-Founder of [VietKubers (Vietnam Kubernetes Community)](https://vietkubers.github.io/)  
+**Founder** [VietKubers (Vietnam Kubernetes Community)](https://vietkubers.github.io/)
+> VietKubers was founded on the basis of learning and sharing our knowledge together in a thriving environment. Founded by the former OpenStack Team at Fujitsu, we hope to bridge the gap of knowledge in the open-source community and lay a new foundation for Kubernetes users in Vietnam in the near future.  
 
-Owner and core maintainer of [VietKubers's GitHub repository](https://github.com/vietkubers)  
+**Founder / Community Leader** [GDG Cloud Hanoi](https://www.facebook.com/GDGCloudHanoi)  
+> GDG Cloud Hanoi is a non-profit community of cloud developers who meet/share ideas on everything Google Cloud Platform related. GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we runs meetup for developers interested in resources and technology from Google Developers.
 
-Head of organizers of [Google Cloud Next ’19 Extended Hanoi](https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/events/261417540/) - Photos at the event: https://photos.app.goo.gl/HxS7q7nVDUjYnGtr9
+![GDG](/static/img/gdg.JPG)
+
+{:.image-caption}
+*Vietnam team in GDG/WTM SEA Summit 2019 - Bangkok Thailand*
+
+Head of organizers of [Google Cloud Next ’19 Extended Hanoi](https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/events/261417540/) - [Photos at the event](https://photos.app.goo.gl/HxS7q7nVDUjYnGtr9)
 
 
 # Presentations
