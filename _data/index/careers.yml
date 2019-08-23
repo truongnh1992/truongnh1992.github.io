@@ -1,0 +1,22 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+
+- name: GDG Cloud Hanoi
+  link: https://www.meetup.com/GDG-Cloud-Hanoi/
+  date: June 2019 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Founder / Community Lead
+
+- name: Fujitsu Vietnam
+  link: https://www.fujitsu.com/vn/vi/
+  date: August 2018 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Software Engineer
+
+- name: Toshiba Software Development Vietnam
+  link: http://www.toshiba-tsdv.com/
+  date: July 2015 - August 2018
+  job: Embedded Linux Engineer
+
+- name: Embedded Networking Laboratory (Lab411)
+  link: http://set.hust.edu.vn/
+  date: 2012 - 2015
+  job: Research student
