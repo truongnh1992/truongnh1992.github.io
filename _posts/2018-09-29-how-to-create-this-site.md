@@ -2,10 +2,10 @@
 layout: post
 title: Cách tạo một website cá nhân với Github Pages
 excerpt: "Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng Github Pages. Với những bạn kỹ sư phần mềm hoặc lập trình viên đã quen làm việc với github thì mình tin rằng các bạn sẽ chỉ mất khoảng 30 phút để tạo một website cho riêng mình, còn những bạn học ngành khác thì có thể sẽ mất nhiều thời gian hơn... chắc khoảng một giờ đồng hồ gì đó :)"
-date: 2018-09-30
-categories: [tutorials]
+date: 2018-09-29
+categories: [linux, tutorials]
 comments: true
-tags: [Tutorials]
+tags: [Linux, Tutorials]
 image:
 	feature: https://truongnh1992.github.io/static/img/workingspace.jpg
 ---
@@ -152,6 +152,7 @@ Nền tảng Jekyll hỗ trợ comments dùng công cụ [Disqus](https://disqus
 Mã nguồn của [bài viết này](https://raw.githubusercontent.com/truongnh1992/truongnh1992.github.io/master/_posts/2018-09-30-how-to-create-this-site.md) nằm trong thư mục [\_posts](https://github.com/truongnh1992/truongnh1992.github.io/tree/master/_posts).
 
 Tương tự, để tạo mới một bài viết bất kì, các bạn tạo một file có tên theo cú pháp `yyyy-mm-dd-ten-bai-viet.md` trong thư mục `_posts`, và phần khai báo như sau:  
+
 ```
 ---
 layout: post
