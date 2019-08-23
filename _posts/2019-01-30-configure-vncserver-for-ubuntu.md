@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Install and configure VNC server on Ubuntu
+excerpt: "Tutorial for installing and configuring VNC server on Ubuntu"
 date: 2019-01-30
 categories: [linux, tutorials]
 tags: [linux, tutorials]

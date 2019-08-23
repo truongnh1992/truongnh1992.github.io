@@ -1,8 +1,10 @@
 ---
 layout: post
 title: How to create and apply a patch with Git
+excerpt: "If you are an upstream developer or software engineer who works with Open Source Projects, definitely you have to use [Git](https://git-scm.com/) for collaborating and contributing your codes to upstream source codes. This article will show you the way to create and apply a patch with Git."
 date: 2018-10-10
 categories: [tutorials]
+comments: true
 tags: [tutorials]
 ---
 

@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Upgrading kubeadm HA cluster from v1.13.5 to v1.14.0 (stacked etcd)
+excerpt: "kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster. This article will show you the way to upgrade a Highly Available Kubernetes cluster from v1.13.5 to v1.14.0"
 tags: [tutorials, kubernetes]
 categories: [tutorials, kubernetes]
+comments: true
 date: 2019-07-02
 ---
 
