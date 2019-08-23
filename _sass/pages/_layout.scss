@@ -18,12 +18,12 @@
   }
 }
 .cover-card {
-  color: #0388a6;
   padding: 0 30px;
   .avatar {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    border-radius: 5%;
+    width: 125px;
+    height: 125px;
+    margin-bottom: 12px;
     float: none;
     @include media-query($medium-screen) {
       margin-right: 0;
@@ -62,7 +62,6 @@
       display: inline-block;
       margin-left: 1em;
       a.social-link-item {
-        color: $secondary;
         &:hover,
         &:focus {
           color: lighten($secondary, 14%);
@@ -88,8 +87,7 @@
     & a {
       margin-top: 1em;
       text-transform: lowercase;
-      font-size: 85%;
-      color: $secondary;
+      font-size: 90%;
       &:hover,
       &:focus {
         color: lighten($secondary, 14%);
