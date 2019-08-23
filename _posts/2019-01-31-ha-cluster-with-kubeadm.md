@@ -62,7 +62,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y docker.io kubelet kubeadm kubectl kubernetes-cni --allow-unauthenticated
 ```
 
-{% include note.html content="If your machines (all of the above VMs) run behind the **proxy**, please follow the instructions below. If NO, skip it and go to [section 1.3](#13-installing-haproxy-load-balancer)" %}
+**If your machines (all of the above VMs) run behind the **proxy**, please follow the instructions below. If NO, skip it and go to [section 1.3](#13-installing-haproxy-load-balancer)**
 
 **Configuring proxy for apt**
 ```sh
@@ -117,7 +117,7 @@ backend kubernetes-master-nodes
         server k8s-master3 10.0.2.13:6443 check fall 3 rise 2
 ```
 
-{% include note.html content="  
+  
 
 - The health check for an apiserver is a TCP check on the port which the kube-apiserver listen on. The default value: **6443**    
 
@@ -125,7 +125,7 @@ backend kubernetes-master-nodes
 
 - In backend section: Notice the hostname and IP address of 3 master nodes    
 
-" %}
+
 
 Restart the HAproxy
 ```sh
@@ -149,13 +149,11 @@ apiServer:
 controlPlaneEndpoint: "10.0.2.33:6443"
 ```
 
-{% include note.html content="  
 
 - The `kubernetesVersion` is the Kubernetes version which is using. This configuration uses `stable`    
 
 - The `controlPlaneEndpoint` is the `ha machine`'s IP address with port 6443     
 
-" %}
 
 **Deploying node master1:**
 
@@ -172,7 +170,7 @@ as root:
 kubeadm join 10.0.2.33:6443 --token 7ju4yg.5x2xaj96xqx18qwq --discovery-token-ca-cert-hash sha256:4d7c5ef142e4faca3573984119df92a1a188115723f1e81dbb27eeb039cac1e0
 ```
 
-{% include tip.html content="Save the output **kubeadm join 10.0.2.33:6443 --token...** to a text file in order to join other `master nodes` to the cluster." %}
+Save the output **kubeadm join 10.0.2.33:6443 --token...** to a text file in order to join other `master nodes` to the cluster.
 
 Applying the [Weave](https://www.weave.works/blog/cni-for-docker-containers/) CNI plugin:
 ```sh
@@ -196,7 +194,7 @@ kube-scheduler-k8s-master1            1/1     Running   0          4h37m
 weave-net-cqb88                       2/2     Running   0          4h22m
 ```
 
-{% include tip.html content="Make sure that after the 1st master node has finished initializing, then join new master nodes." %}
+> Make sure that after the 1st master node has finished initializing, then join new master nodes.
 
 **Copy the certificate files from the `1st master node` to the `master2` and `master3`**
 
@@ -218,7 +216,7 @@ for host in ${MASTER_NODE_IPS}; do
 done
 ```
 
-{% include note.html content="Run above script with user `root` of **1st master node**." %}
+Run above script with user `root` of **1st master node**.
 
 ```sh
 root@k8s-master1:~# sh copy.sh
