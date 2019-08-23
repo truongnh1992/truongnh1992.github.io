@@ -7,7 +7,7 @@ categories: [linux, tutorials]
 comments: true
 tags: [linux, tutorials]
 image: 
-	feature: github_workflow.png
+	feature: /static/img/github/github_workflow.png
 ---
 
 #### Contents

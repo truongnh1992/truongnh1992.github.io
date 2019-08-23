@@ -7,7 +7,7 @@ categories: [linux, networking]
 comments: true
 tags: [Networking, Linux]
 image:
-	feature: network-inteface.jpg
+	feature: /static/img/network-inteface.jpg
 ---
 
 Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thường được cấu hình một cách tự động bởi hệ điều hành và chúng ta sẽ có một địa chỉ IP động (*dynamic IP address*) được cấp phát cho mỗi card mạng (*NIC - Network Interface Card*).

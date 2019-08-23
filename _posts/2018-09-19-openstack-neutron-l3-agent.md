@@ -6,7 +6,7 @@ date: 2018-09-19
 categories: [openstack, networking]
 comments: true
 image:
-  feature: FloatingIPs.png
+  feature: /static/img/l3-agent/FloatingIPs.png
 tags: [OpenStack, Neutron, Networking, L3-Agent]
 ---
 
