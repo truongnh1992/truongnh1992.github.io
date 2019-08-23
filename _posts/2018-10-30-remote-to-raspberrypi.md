@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Xác định địa chỉ IP và remote đến Raspberry Pi
-excerpt: "Sau khi cài đặt hệ điều hành Raspbian cho chiếc Raspberry Pi, ta có thể dùng một màn hình rời kết nối với nó qua cáp HDMI và cùng với bộ bàn phím, chuột, ta đã có một bộ "mini PC" sử dụng được cho mục đích giải trí, học tập và lập trình. Một cách khác hiệu quả hơn để có thể làm việc với chiếc Raspberry Pi là remote đến nó thông qua giao thức SSH."
+excerpt: "Sau khi cài đặt hệ điều hành Raspbian cho chiếc Raspberry Pi, ta có thể dùng một màn hình rời kết nối với nó qua cáp HDMI và cùng với bộ bàn phím, chuột, ta đã có một bộ mini PC sử dụng được cho mục đích giải trí, học tập và lập trình. Một cách khác hiệu quả hơn để có thể làm việc với chiếc Raspberry Pi là remote đến nó thông qua giao thức SSH."
 date: 2018-10-30
 categories: [linux, networking, raspberry]
 comments: true
