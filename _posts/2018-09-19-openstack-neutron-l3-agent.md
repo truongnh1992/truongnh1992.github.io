@@ -7,7 +7,7 @@ categories: [openstack, networking]
 comments: true
 image:
   feature: https://truongnh1992.github.io/static/img/l3-agent/FloatingIPs.png
-tags: [OpenStack, Neutron, Networking, L3-Agent]
+tags: [OpenStack, Neutron, Networking]
 ---
 
 **Contents:**

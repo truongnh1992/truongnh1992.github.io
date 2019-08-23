@@ -6,11 +6,9 @@ tags: [tutorials, kubernetes]
 categories: [tutorials, kubernetes]
 comments: true
 date: 2019-01-31
-image:
-  feature: /static/img/multi-master-ha/stacketcd.png
 ---
 
-> kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm.
+kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm.
 
 **Contents:**
 
