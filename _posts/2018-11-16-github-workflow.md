@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Github workflow for contributing to Kubernetes
-excerpt: "How to contribute to Kubernetes"
-date: 2018-11-16
+excerpt: "How to contribute to Kubernetes?"
 categories: [linux, tutorials]
 comments: true
 tags: [linux, tutorials]
 image: 
 	feature: /static/img/github/github_workflow.png
+date: 2018-11-16
 ---
 
 #### Contents

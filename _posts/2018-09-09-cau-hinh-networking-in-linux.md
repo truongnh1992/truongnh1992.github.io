@@ -1,13 +1,11 @@
 ---
 layout: post
 title: Cấu hình mạng tĩnh trên Linux
-excerpt: "Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thường được cấu hình một cách tự động bởi hệ điều hành và chúng ta sẽ có một địa chỉ IP động (*dynamic IP address*) được cấp phát cho mỗi card mạng (*NIC - Network Interface Card*)."
-date: 2018-09-09
+excerpt: "Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thường được cấu hình một cách tự động bởi hệ điều hành và chúng ta sẽ có một địa chỉ IP động (dynamic IP address) được cấp phát cho mỗi card mạng (NIC - Network Interface Card)."
 categories: [linux, networking]
 comments: true
 tags: [Networking, Linux]
-image:
-	feature: /static/img/network-inteface.jpg
+date: 2018-09-09
 ---
 
 Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thường được cấu hình một cách tự động bởi hệ điều hành và chúng ta sẽ có một địa chỉ IP động (*dynamic IP address*) được cấp phát cho mỗi card mạng (*NIC - Network Interface Card*).

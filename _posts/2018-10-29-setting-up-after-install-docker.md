@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Các bước sau khi cài đặt Docker trên hệ thống Linux
-excerpt: "Bài viết này sẽ trình bày các cài đặt hệ thống Linux để làm việc tốt hơn với Docker"
+excerpt: "Bài viết này sẽ trình bày các cài đặt hệ thống Linux để làm việc tốt hơn với Docker."
 date: 2018-10-29
-share-img: https://www.docker.com/sites/default/files/social/docker_twitter_share_new.png?4362984378
 categories: [linux, networking, tutorials]
 tags: [Linux, Networking, tutorials]
 ---
