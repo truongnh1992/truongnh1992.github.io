@@ -4,9 +4,7 @@ title: Github workflow for contributing to Kubernetes
 excerpt: "How to contribute to Kubernetes?"
 categories: [linux, tutorials]
 comments: true
-tags: [linux, tutorials]
-image: 
-	feature: /static/img/github/github_workflow.png
+tags: [Linux, Tutorials]
 date: 2018-11-16
 ---
 

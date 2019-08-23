@@ -5,7 +5,7 @@ excerpt: "Sau khi cài đặt hệ điều hành Raspbian cho chiếc Raspberry 
 date: 2018-10-30
 categories: [linux, networking, raspberry]
 comments: true
-tags: [linux, networking, raspberry]
+tags: [Linux, Networking, Raspberry]
 ---
 
 Sau khi cài đặt hệ điều hành [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) cho chiếc Raspberry Pi, ta có thể dùng một màn hình rời kết nối với nó qua cáp HDMI và cùng với bộ bàn phím, chuột, ta đã có một bộ *"mini PC"* sử dụng được cho mục đích giải trí, học tập và lập trình.  

@@ -9,7 +9,7 @@ categories: [linux, networking]
 comments: true
 tags: [Linux, Networking, Namespace]
 image: 
-    feature: /static/img/network-namespace/veth.png
+    feature: https://truongnh1992.github.io/static/img/network-namespace/veth.png
 ---
 
 **Những nội dung chính:**
