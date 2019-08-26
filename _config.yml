@@ -8,6 +8,7 @@ email:
 description: Linux Tech Blog
 url: # the base hostname & protocol for your site
 keywords: ["blog", "jekyll"]
+repository: truongnh1992/truongnh1992.github.io
 
 #
 ###################################
