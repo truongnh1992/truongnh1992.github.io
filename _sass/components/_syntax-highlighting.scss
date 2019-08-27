@@ -5,9 +5,9 @@
 
 pre, code {
   font-family: $font-family-monospace;
-  color: #525252;
+  color: #005cc5;
   font-size: 0.9em;
-  background-color: #f8f8f8;
+  background-color: #f6f8fa;
   font-size: ($font-size-base - 3);
 }
 code {
@@ -44,7 +44,7 @@ pre code {
     position: relative;
   }
   pre code {
-    color: #525252;
+    color: #005cc5;
     &::before {
       content: attr(data-lang);
       position: absolute;
