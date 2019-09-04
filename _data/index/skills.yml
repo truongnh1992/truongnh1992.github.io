@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Motivation, GitHub, C/C++, HTML/CSS, Docker/Container, Golang, Kubernetes
-percentage: 100, 90, 70, 60, 80, 55, 90
+aspects: Motivation, Linux, GitHub, C/C++, HTML/CSS, Docker/Container, Golang, Kubernetes
+percentage: 100, 80, 90, 70, 60, 80, 55, 90
