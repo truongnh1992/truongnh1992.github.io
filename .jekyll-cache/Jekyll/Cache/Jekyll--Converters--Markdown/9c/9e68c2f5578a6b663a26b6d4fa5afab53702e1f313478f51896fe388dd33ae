@@ -1,28 +1,24 @@
-I"§<h4 id="my-background">My background</h4>
+I"Å<h3 id="my-background">My background</h3>
 
 <p>My name is Nguyen Hai Truong</p>
 
-<p>Software Engineer with 4+ years of experience in software development, specializes in Embedded Linux, C/C++, Go and Shell Scripts. Having background on Computer Networking, OpenStack, Kubernetes and Docker/Container as well.</p>
+<p>Software Engineer with <strong><em>5 years of experience</em></strong> in software development, specializes in <strong>Embedded Linux</strong>, <strong>C/C++</strong>, <strong>Go</strong> and <strong>Shell Scripts</strong>. Having background on <strong>Computer Networking</strong>, <strong>OpenStack</strong>, <strong>Kubernetes</strong> and <strong>Docker/Container</strong> as well.</p>
 
-<h4 id="contributing-to-open-source-community">Contributing to Open-Source Community</h4>
+<h3 id="contributing-to-open-source-community">Contributing to Open-Source Community</h3>
 
-<ol>
-  <li>Founder / Community Lead of GDG Cloud Hanoi</li>
-</ol>
+<p><strong>Founder / Community Lead of GDG Cloud Hanoi</strong></p>
 
 <p><a href="https://gdcloudhanoi.com">GDG Cloud Hanoi</a> is a non-profit community of cloud developers who meet/share ideas on everything Google Cloud Platform related.</p>
 
 <p>GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we runs meetup for developers interested in resources and technology from Google Developers.</p>
 
-<ol>
-  <li>Co-founder of VietKubers (Vietnam Kubernetes Community)</li>
-</ol>
+<p><strong>Co-founder of VietKubers (Vietnam Kubernetes Community)</strong></p>
 
-<p>VietKubersâ€™s technical blog: https://vietkubers.github.io</p>
+<p>VietKubersâ€™s technical blog: <a href="https://vietkubers.github.io">https://vietkubers.github.io</a></p>
 
-<p>Meetup: https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/</p>
+<p>Meetup: <a href="https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/">https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/</a></p>
 
-<h4 id="presentations">Presentations</h4>
+<h3 id="presentations">Presentations</h3>
 
 <table>
   <thead>

@@ -1,10 +1,10 @@
-I"$<h4 id="my-background">My background</h4>
+I"	<h3 id="my-background">My background</h3>
 
 <p>My name is Nguyen Hai Truong</p>
 
-<p>Software Engineer with 4+ years of experience in software development, specializes in Embedded Linux, C/C++, Go and Shell Scripts. Having background on Computer Networking, OpenStack, Kubernetes and Docker/Container as well.</p>
+<p>Software Engineer with <strong><em>5 years of experience</em></strong> in software development, specializes in <strong><em>Embedded Linux</em></strong>, <strong><em>C/C++</em></strong>, <strong><em>Go</em></strong> and <strong><em>Shell Scripts</em></strong>. Having background on <strong><em>Computer Networking</em></strong>, <strong><em>OpenStack</em></strong>, <strong><em>Kubernetes</em></strong> and <strong><em>Docker/Container</em></strong> as well.</p>
 
-<h4 id="contributing-to-open-source-community">Contributing to Open-Source Community</h4>
+<h3 id="contributing-to-open-source-community">Contributing to Open-Source Community</h3>
 
 <p><strong>Founder / Community Lead of GDG Cloud Hanoi</strong></p>
 
@@ -18,7 +18,7 @@
 
 <p>Meetup: <a href="https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/">https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/</a></p>
 
-<h4 id="presentations">Presentations</h4>
+<h3 id="presentations">Presentations</h3>
 
 <table>
   <thead>
