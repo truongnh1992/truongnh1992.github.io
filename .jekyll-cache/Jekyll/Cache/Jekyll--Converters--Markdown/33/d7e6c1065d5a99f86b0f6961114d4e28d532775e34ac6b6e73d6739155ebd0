@@ -1,0 +1,162 @@
+I"�*<h4 id="contents">Contents</h4>
+
+<!-- MarkdownTOC -->
+<p><a href="#-what-is-cgroups">1. What’s cgroups?</a><br />
+<a href="#-how-to-use-cgroups">2. How to use cgroups?</a><br />
+<a href="#-references">3. References</a> <br />
+<!-- /MarkdownTOC --></p>
+
+<p><a name="-what-is-cgroups"><a></a></a></p>
+<h3 id="1-whats-cgroups">1. What’s cgroups?</h3>
+
+<p><code class="highlighter-rouge">cgroups</code> stands for <strong>Control Groups</strong>, it’s a feature of Linux kernel that allocates and isolates resources: CPU, memory, disk I/O and networking of one or more processes.<br />
+The below figure shows the configurations of <code class="highlighter-rouge">cgroups</code> in Linux kernel:</p>
+
+<p><img src="/static/img/LXC/cgroups-kernel.PNG" alt="cgroups" /></p>
+
+<p>The design of <code class="highlighter-rouge">cgroup</code> aims to provide a unified interface to manage processes or OS-level virtualization, including <code class="highlighter-rouge">Linux Containers</code> (LXC):</p>
+<ul>
+  <li><strong>Resource limiting:</strong> a group can be configured not to exceed a specified memory limit or use more than the desired amount of processors or be limited to specific peripheral devices.</li>
+  <li><strong>Prioritization:</strong>  one or more groups may be configured to utilize fewer or more CPUs or disk I/O throughput.</li>
+  <li><strong>Accounting:</strong> a group’s resource usage is monitored and measured.</li>
+  <li><strong>Control:</strong> groups of processes can be frozen or stopped and restarted.</li>
+</ul>
+
+<p><a name="-how-to-use-cgroups"><a></a></a></p>
+<h3 id="2-how-to-use-cgroups">2. How to use cgroups?</h3>
+
+<p>The user can access and manage cgroups directly and indirectly (with <code class="highlighter-rouge">LXC</code>, <code class="highlighter-rouge">libvirt</code> or <code class="highlighter-rouge">Docker</code>).<br />
+Install the necessary packages:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>libcgroup1 cgroup-tools
+</code></pre></div></div>
+<p>Now, the enabled <code class="highlighter-rouge">cgroups</code> can be seen via <code class="highlighter-rouge">proc filesystem</code> or <code class="highlighter-rouge">sysfs</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> /proc/cgroups
+
+<span class="c">#subsys_name    hierarchy       num_cgroups     enabled</span>
+cpuset  9       2       1
+cpu     4       134     1
+cpuacct 4       134     1
+blkio   7       134     1
+memory  5       163     1
+devices 11      134     1
+freezer 2       2       1
+net_cls 3       2       1
+perf_event      10      2       1
+net_prio        3       2       1
+hugetlb 8       2       1
+pids    6       136     1
+
+<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> /sys/fs/cgroup/
+
+total 0
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 blkio
+drwxr-xr-x 2 root root 60 Nov 13 01:00 cgmanager
+lrwxrwxrwx 1 root root 11 Nov 13 00:55 cpu -&gt; cpu,cpuacct
+lrwxrwxrwx 1 root root 11 Nov 13 00:55 cpuacct -&gt; cpu,cpuacct
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 cpu,cpuacct
+dr-xr-xr-x 3 root root  0 Nov 13 00:55 cpuset
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 devices
+dr-xr-xr-x 3 root root  0 Nov 13 00:55 freezer
+dr-xr-xr-x 3 root root  0 Nov 13 00:55 hugetlb
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 memory
+lrwxrwxrwx 1 root root 16 Nov 13 00:55 net_cls -&gt; net_cls,net_prio
+dr-xr-xr-x 3 root root  0 Nov 13 00:55 net_cls,net_prio
+lrwxrwxrwx 1 root root 16 Nov 13 00:55 net_prio -&gt; net_cls,net_prio
+dr-xr-xr-x 3 root root  0 Nov 13 00:55 perf_event
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 pids
+dr-xr-xr-x 6 root root  0 Nov 13 00:55 systemd
+</code></pre></div></div>
+<p><code class="highlighter-rouge">cgroups</code> can be configured directly via the <code class="highlighter-rouge">sysfs</code>. For example, let’s create a small bash script named <strong>test_cgroups.sh</strong> for demonstration:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="k">while</span> :
+<span class="k">do
+    </span><span class="nb">echo</span> <span class="s2">"Print line"</span> <span class="o">&gt;</span> /dev/tty
+    <span class="nb">sleep </span>5
+<span class="k">done</span>
+</code></pre></div></div>
+<p>Run above script:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chmod</span> +x test_cgroups.sh
+<span class="nv">$ </span>./test_cgroups.sh
+Print line
+Print line
+Print line
+...
+...
+</code></pre></div></div>
+<p>Change directory to <code class="highlighter-rouge">/sys/fs/cgroup/devices</code> where <code class="highlighter-rouge">devices</code> represents kind of resources that allows or denies access to devices by tasks in a <code class="highlighter-rouge">cgroup</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>sys/fs/cgroup/devices
+</code></pre></div></div>
+<p>Then, create a directory <code class="highlighter-rouge">cgroups_test_group</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkdir cgroups_test_group
+</code></pre></div></div>
+<p>After creation of the <code class="highlighter-rouge">cgroups_test_group</code> directory, the following files will be generated:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> /sys/fs/cgroup/devices/cgroups_test_group
+
+total 0
+<span class="nt">-rw-r--r--</span> 1 root root 0 Nov 16 02:05 cgroup.clone_children
+<span class="nt">-rw-r--r--</span> 1 root root 0 Nov 16 02:05 cgroup.procs
+<span class="nt">--w-------</span> 1 root root 0 Nov 16 02:05 devices.allow
+<span class="nt">--w-------</span> 1 root root 0 Nov 16 02:05 devices.deny
+<span class="nt">-r--r--r--</span> 1 root root 0 Nov 16 02:05 devices.list
+<span class="nt">-rw-r--r--</span> 1 root root 0 Nov 16 02:05 notify_on_release
+<span class="nt">-rw-r--r--</span> 1 root root 0 Nov 16 02:05 tasks
+</code></pre></div></div>
+<p>The <code class="highlighter-rouge">tasks</code> file contains PIDs (Process ID) of processes which will be attached to the <code class="highlighter-rouge">cgroups_test_group</code>, the <code class="highlighter-rouge">devices.deny</code> file contains list of denied devices. By default, a newly created group has no any limits for devices access. In order to forbid a device (in this case, it’s <code class="highlighter-rouge">/dev/tty</code>), the <code class="highlighter-rouge">devices.deny</code> file should be modified:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># echo "c 5:0 w" &gt; devices.deny
+</code></pre></div></div>
+<p>In the above command, the <code class="highlighter-rouge">c</code> indicates that <code class="highlighter-rouge">/dev/tty</code> is a character device, <code class="highlighter-rouge">5:0</code> is major and minor numbers of the device. The last <code class="highlighter-rouge">w</code> is write permission, so the above command forbids tasks to write to the <code class="highlighter-rouge">/dev/tty</code>.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> /dev/tty
+
+crw-rw-rw- 1 root <span class="nb">tty </span>5, 0 Nov 18 17:02 /dev/tty
+</code></pre></div></div>
+<p>After that, re-run the script <code class="highlighter-rouge">test_cgroups.sh</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./test_cgroups.sh
+Print line
+Print line
+Print line
+...
+...
+</code></pre></div></div>
+<p>then add the PID of this process to the <code class="highlighter-rouge">tasks</code> file:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># echo $(pidof -x test_cgroups.sh) &gt; /sys/fs/cgroup/devices/cgroups_test_group/tasks
+</code></pre></div></div>
+<p>The result will be as expected:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./test_cgroups.sh
+Print line
+Print line
+Print line
+./test_cgroups.sh: line 5: /dev/tty: Operation not permitted
+./test_cgroups.sh: line 5: /dev/tty: Operation not permitted
+...
+...
+</code></pre></div></div>
+<p>An other example when running <a href="https://www.docker.com/resources/what-container"><code class="highlighter-rouge">docker container</code></a></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS
+98225055fa39        ubuntu              <span class="s2">"/bin/bash"</span>         47 seconds ago      Up 30 seconds
+
+<span class="nv">$ </span><span class="nb">cat</span> /sys/fs/cgroup/device/docker/98225055fa394b388e988b067b77dda61e53027ee944e4e0fd7887e19cdcf341/tasks
+13556
+</code></pre></div></div>
+<p>During starting up of a <code class="highlighter-rouge">docker container</code>, <code class="highlighter-rouge">docker</code> creates a <code class="highlighter-rouge">cgroup</code> for processes in this container:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> ubuntu
+<span class="nv">$ </span>top
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+   1  root      20   0   18508   1848   1444 S   0.0  0.0   0:00.01 bash
+   12 root      20   0   36628   1924   1420 R   0.0  0.0   0:00.01 top
+</code></pre></div></div>
+<p>Now, the <code class="highlighter-rouge">cgroup</code> of above process will be seen on host machine:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemd-cgls
+Control group /:
+-.slice
+├─1429 /sbin/cgmanager <span class="nt">-m</span> <span class="nv">name</span><span class="o">=</span>systemd
+├─docker
+│ └─98225055fa394b388e988b067b77dda61e53027ee944e4e0fd7887e19cdcf341
+│   └─13556 /bin/bash
+</code></pre></div></div>
+
+<p><a name="-references"><a></a></a></p>
+<h3 id="3-references">3. References</h3>
+<p>[1] <a href="https://www.linuxjournal.com/content/everything-you-need-know-about-linux-containers-part-i-linux-control-groups-and-process">Linux Control Groups</a></p>
+:ET

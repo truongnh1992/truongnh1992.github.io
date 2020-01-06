@@ -1,0 +1,160 @@
+I"�(<p>Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng <a href="https://pages.github.com">Github Pages</a>. Với những bạn kỹ sư phần mềm hoặc lập trình viên đã quen làm việc với github thì mình tin rằng các bạn sẽ chỉ mất khoảng 30 phút để tạo một website cho riêng mình, còn những bạn học ngành khác thì có thể sẽ mất nhiều thời gian hơn… chắc khoảng một giờ đồng hồ gì đó :)</p>
+
+<p><strong>Trong bài viết:</strong></p>
+
+<!-- MarkdownTOC -->
+<ul>
+  <li><a href="#1-moi-truong-phat-trien">1. Môi trường phát triển</a>
+    <ul>
+      <li><a href="#server-website">1.1. Server website</a></li>
+      <li><a href="#he-dieu-hanh">1.2. Hệ điều hành</a></li>
+      <li><a href="#trinh-soan-thao">1.3. Trình soạn thảo</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-cac-tinh-nang-bo-sung-cua-website">2. Các tính năng bổ sung của website</a>
+    <ul>
+      <li><a href="#mot-so-cu-phap-markdown-co-ban">2.1. Một số cú pháp markdown cơ bản</a></li>
+      <li><a href="#muc-luc-voi-markdown-toc">2.2. Mục lục với markdown TOC</a></li>
+      <li><a href="#comments-duoi-moi-bai-viet">2.3. Comments dưới mỗi bài viết</a></li>
+      <li><a href="#phan-tich-du-lieu-trang-web">2.4. Phân tích dữ liệu trang web</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-tao-mot-bai-viet-moi">3. Tạo một bài viết mới</a><br />
+<!-- /MarkdownTOC --></li>
+</ul>
+
+<p><a name="1-moi-truong-phat-trien"><a></a></a></p>
+<h2 id="1-môi-trường-phát-triển">1. Môi trường phát triển</h2>
+
+<p><a name="server-website"><a></a></a></p>
+<h3 id="11-server-website">1.1. Server website</h3>
+
+<p>Website cá nhân của mình là: https://truongnh1992.github.io hoạt động với tên miền <code class="highlighter-rouge">github.io</code> - tên miền mặc định của <a href="https://pages.github.com">Github Pages</a>. Mình nghĩ rằng nếu bạn học ngành IT thì chắc hẳn sẽ quen với việc sử dụng <a href="https://git-scm.com">git</a> để quản lý các phiên bản mã nguồn (source codes) của các project và https://github.com là một trang rất nổi tiếng để lưu trữ và quản lý source codes đó.</p>
+
+<p>Toàn bộ mã nguồn của website này đều được công bố <a href="https://github.com/truongnh1992/truongnh1992.github.io">tại đây</a>. Website được tạo trên nền tảng <a href="https://jekyllrb.com">Jekyll</a> hỗ trợ web tĩnh, <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a> và có khả năng tích hợp HTML, CSS.</p>
+
+<p><a name="he-dieu-hanh"><a></a></a></p>
+<h3 id="12-hệ-điều-hành">1.2. Hệ điều hành</h3>
+
+<p>Hệ điều hành mình sử dụng là <a href="https://www.debian.org/releases/stable/amd64/ch01s02.html.vi">GNU/Linux</a> (Debian, Fedora, Ubuntu) và MacOS.</p>
+
+<p><a name="trinh-soan-thao"><a></a></a></p>
+<h3 id="13-trình-soạn-thảo">1.3. Trình soạn thảo</h3>
+
+<p>Editor được khuyên dùng <a href="https://www.sublimetext.com/3">Sublime Text</a> và <a href="https://www.vim.org">vim</a>.</p>
+
+<p><a name="2-cac-tinh-nang-bo-sung-cua-website"><a></a></a></p>
+<h2 id="2-các-tính-năng-bổ-sung-của-website">2. Các tính năng bổ sung của website</h2>
+
+<p><a name="mot-so-cu-phap-markdown-co-ban"><a></a></a></p>
+<h3 id="21-một-số-cú-pháp-markdown-cơ-bản">2.1. Một số cú pháp markdown cơ bản</h3>
+
+<p>Dưới đây là một số cú pháp thường dùng, các bạn có thể xem thêm các cú pháp nâng cao <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">tại đây</a>.</p>
+
+<ul>
+  <li><strong>In nghiêng</strong>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*Nguyễn Hải Trường*
+</code></pre></div>    </div>
+    <p><em>Nguyễn Hải Trường</em></p>
+  </li>
+  <li><strong>In đậm</strong>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**Đại học Bách Khoa Hà Nội**
+</code></pre></div>    </div>
+    <p><strong>Đại học Bách Khoa Hà Nội</strong></p>
+  </li>
+  <li><strong>Chèn link</strong>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[My Tech Blog](https://truongnh1992.github.io)
+</code></pre></div>    </div>
+    <p><a href="https://truongnh1992.github.io">My Tech Blog</a></p>
+  </li>
+  <li><strong>Chèn hình ảnh vào bài viết</strong>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![My workingspace](../img/workingspace.jpg)
+</code></pre></div>    </div>
+    <p><img src="/static/img/workingspace.jpg" alt="My workingspace" /></p>
+  </li>
+  <li><strong>Nhúng code vào bài viết</strong><br />
+Để hiển thị được source codes với syntax highlighting của mỗi ngôn ngữ lập trình, ta chèn đoạn code trong cặp dấu:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```programming language
+Enter your source codes here
+```
+</code></pre></div>    </div>
+    <p>Ví dụ:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```java
+public class HelloWorld {
+
+  public static void main(String[] args) {
+      System.out.println("Hello, World");
+  }
+}
+```
+</code></pre></div>    </div>
+    <p>Ta được:</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, World"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><a name="muc-luc-voi-markdown-toc"><a></a></a></p>
+<h3 id="22-mục-lục-với-markdown-toc">2.2. Mục lục với markdown TOC</h3>
+
+<p>Trong bài viết này, để đánh mục lục, mình cài gói <a href="https://github.com/jonschlinkert/markdown-toc">Markdown TOC</a> cho Sublime Text hoặc có thể viết với cú pháp sau:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- MarkdownTOC --&gt;
+- [1. Môi trường phát triển](#1-moi-truong-phat-trien) 
+	- [1.1. Server website](#server-website)  
+	- [1.2. Hệ điều hành](#he-dieu-hanh)  
+	- [1.3. Trình soạn thảo](#trinh-soan-thao)  
+- [2. Các tính năng bổ sung của website](#2-cac-tinh-nang-bo-sung-cua-website)  
+	- [2.1. Một số cú pháp markdown cơ bản](#mot-so-cu-phap-markdown-co-ban)  
+	- [2.2. Mục lục với markdown TOC](#muc-luc-voi-markdown-toc)  
+	- [2.3. Comments dưới mỗi bài viết](#comments-duoi-moi-bai-viet)  
+	- [2.4. Phân tích dữ liệu trang web](#phan-tich-du-lieu-trang-web)  
+- [3. Tạo một bài viết mới](#3-tao-mot-bai-viet-moi)  
+&lt;!-- /MarkdownTOC --&gt;
+
+&lt;a name="1-moi-truong-phat-trien"&gt;&lt;a/&gt;
+## 1. Môi trường phát triển
+
+&lt;a name="server-website"&gt;&lt;a/&gt;
+### 1.1. Server website
+...
+</code></pre></div></div>
+
+<p><a name="comments-duoi-moi-bai-viet"><a></a></a></p>
+<h3 id="23-comments-dưới-mỗi-bài-viết">2.3. Comments dưới mỗi bài viết</h3>
+
+<p>Nền tảng Jekyll hỗ trợ comments dùng công cụ <a href="https://disqus.com">Disqus</a> và <a href="https://developers.facebook.com/docs/plugins/comments">Facebook</a> comments.
+Đăng kí tài khoản <a href="https://disqus.com">Disqus</a> và thêm Disqus shortname của bạn vào tham số <code class="highlighter-rouge">disqus</code> trong file <code class="highlighter-rouge">_config.yml</code>. Và giờ đây, website của bạn đã hỗ trợ tính năng comments dưới mỗi bài viết rồi.</p>
+
+<p><a name="phan-tich-du-lieu-trang-web"><a></a></a></p>
+<h3 id="24-phân-tích-dữ-liệu-trang-web">2.4. Phân tích dữ liệu trang web</h3>
+
+<p>Để thống kê tổng số lượt truy cập, số lượt truy cập theo vùng địa lý, theo độ tuổi,… giá trị trang web… các bạn có thể dùng công cụ <a href="https://marketingplatform.google.com/about/analytics/">Google Analytics</a>. Tích hợp tính năng này vào website bằng cách thêm Google Tracking ID của bạn vào <code class="highlighter-rouge">google_analytics</code> trong file <code class="highlighter-rouge">_config.yml</code>.</p>
+
+<p><a name="3-tao-mot-bai-viet-moi"><a></a></a></p>
+<h2 id="3-tạo-một-bài-viết-mới">3. Tạo một bài viết mới</h2>
+
+<p>Mã nguồn của <a href="https://raw.githubusercontent.com/truongnh1992/truongnh1992.github.io/master/_posts/2018-09-30-how-to-create-this-site.md">bài viết này</a> nằm trong thư mục <a href="https://github.com/truongnh1992/truongnh1992.github.io/tree/master/_posts">_posts</a>.</p>
+
+<p>Tương tự, để tạo mới một bài viết bất kì, các bạn tạo một file có tên theo cú pháp <code class="highlighter-rouge">yyyy-mm-dd-ten-bai-viet.md</code> trong thư mục <code class="highlighter-rouge">_posts</code>, và phần khai báo như sau:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title: Cách tạo website cá nhân vi Github Pages
+excerpt: "Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng Github Pages."
+date: 2018-09-30
+categories: [linux, tutorials]
+comments: true
+tags: [Linux, Tutorials]
+image:
+    feature: https://truongnh1992.github.io/static/img/workingspace.jpg
+---
+</code></pre></div></div>
+
+<h3 id="kết">Kết</h3>
+<p>Trên đây mình đã tóm lược các bước để xây dựng website cá nhân với Github Pages, website dạng này rất thích hợp để viết Tech Blog. Hi vọng bài viết sẽ giúp ích được mọi người :)</p>
+:ET

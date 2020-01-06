@@ -1,0 +1,35 @@
+I"G
+<p>Sau khi cài đặt hệ điều hành <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> cho chiếc Raspberry Pi, ta có thể dùng một màn hình rời kết nối với nó qua cáp HDMI và cùng với bộ bàn phím, chuột, ta đã có một bộ <em>“mini PC”</em> sử dụng được cho mục đích giải trí, học tập và lập trình.</p>
+
+<p>Một cách khác hiệu quả hơn để có thể làm việc với chiếc Raspberry Pi là <strong>remote</strong> đến nó thông qua giao thức <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH (Secure Shell)</a>.</p>
+
+<p>Muốn <em>ssh</em> đến Pi, ta cần phải biết: <code class="highlighter-rouge">hostname</code> và <code class="highlighter-rouge">địa chỉ IP</code> của nó. Mặc định sau khi cài Raspbian, Pi sẽ có <code class="highlighter-rouge">hostname</code> là <strong>pi</strong>.</p>
+
+<p>Khi máy tính của bạn và Pi ở trong cùng một mạng LAN, dùng lệnh <a href="https://nmap.org"><code class="highlighter-rouge">nmap</code></a> quét toàn bộ subnet (mạng con) để xác định IP của các thiết bị khác trong subnet.</p>
+
+<p>Giả sử subnet có địa chỉ: <code class="highlighter-rouge">192.168.2.0/24</code>, chạy lệnh:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-sN</span> 192.168.2.<span class="k">*</span>
+</code></pre></div></div>
+<p>Kết quả trả về:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting Nmap 7.12 ( https://nmap.org ) at 2018-10-30 19:43 +07
+Nmap scan report for 192.168.2.1
+Host is up (0.033s latency).
+All 1000 scanned ports on 192.168.2.1 are open|filtered
+MAC Address: X4:DE:XF:EX:X9:6X (Tp-link Technologies)
+
+Nmap scan report for 192.168.2.102
+Host is up (0.011s latency).
+All 1000 scanned ports on 192.168.2.102 are open|filtered (828) or closed (172)
+MAC Address: X4:X2:XF:X1:X5:XF (raspberrypi)
+
+Nmap scan report for 192.168.2.101
+Host is up (0.000067s latency).
+All 1000 scanned ports on 192.168.2.101 are closed (500) or open|filtered (500)
+
+Nmap done: 256 IP addresses (3 hosts up) scanned in 16.01 seconds
+</code></pre></div></div>
+<p>Dễ thấy địa chỉ IP của Raspberry Pi là <code class="highlighter-rouge">192.168.2.102</code>, ssh đến nó theo cú pháp: <code class="highlighter-rouge">ssh hostname@IP-address</code></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@192.168.2.102
+</code></pre></div></div>
+:ET

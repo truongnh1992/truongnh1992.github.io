@@ -2,10 +2,9 @@
 layout: post
 title: Github workflow for contributing to Kubernetes
 excerpt: "How to contribute to Kubernetes?"
-categories: [linux, tutorials]
-comments: true
 tags: [Linux, Tutorials]
-date: 2018-11-16
+author: truongnh
+color: rgb(42,168,152)
 ---
 
 #### Contents

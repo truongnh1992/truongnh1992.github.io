@@ -1,0 +1,50 @@
+I"�<h5 id="my-background">My background</h5>
+
+<p>My name is Nguyen Hai Truong</p>
+
+<p>Software Engineer with 4+ years of experience in software development, specializes in Embedded Linux, C/C++, Go and Shell Scripts. Having background on Computer Networking, OpenStack, Kubernetes and Docker/Container as well.</p>
+
+<h5 id="contributing-to-open-source-community">Contributing to Open-Source Community</h5>
+
+<p><em>Founder / Community Lead of GDG Cloud Hanoi</em></p>
+
+<p><a href="https://gdcloudhanoi.com">GDG Cloud Hanoi</a> is a non-profit community of cloud developers who meet/share ideas on everything Google Cloud Platform related.</p>
+
+<p>GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we runs meetup for developers interested in resources and technology from Google Developers.</p>
+
+<p><em>Co-founder of VietKubers (Vietnam Kubernetes Community)</em></p>
+
+<p>VietKubers’s technical blog: https://vietkubers.github.io</p>
+
+<p>Meetup: https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/</p>
+
+<h5 id="presentations">Presentations</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Event</th>
+      <th>Topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>August 24th 2019</td>
+      <td><a href="https://2019.vietopeninfra.org">OpenInfra Days Vietnam 2019</a></td>
+      <td>Bare metal cluster with Kubernetes, Istio &amp; MetalLB</td>
+    </tr>
+    <tr>
+      <td>June 15th 2019</td>
+      <td><a href="https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/events/261417540/">Google Cloud Next ’19 Extended Hanoi</a></td>
+      <td>Kubernetes: Upgrading your cluster without downtime practice</td>
+    </tr>
+    <tr>
+      <td>January 5th 2019</td>
+      <td><a href="https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/events/257150787/">VietKubers Meetup #1</a></td>
+      <td>Deep dive into Container Networking</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET

@@ -1,0 +1,125 @@
+I"�3<p><strong><em>Refactoring</em></strong> được Việt hoá có nghĩa là: <em>Tái cấu trúc</em>. Vậy trong kĩ thuật lập trình, <em>tái cấu trúc mã nguồn</em> là gì?</p>
+
+<p>Để trả lời câu hỏi trên ta lấy ví dụ sau:</p>
+
+<p><strong><em>remember_me.py</em></strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Load the username, if it has been stored previously.
+# Otherwise, prompt for the username and store it
+</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+<span class="k">try</span><span class="p">:</span>
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+		<span class="n">username</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f_obj</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+	<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+		<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">f_obj</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"We'll remember you when you come back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"Welcome back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Chương trình trên sẽ được chạy thành công, nếu lần đầu chương trình được chạy, ta được:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>What's your name? Nguyen Hai Truong
+We'll remember you when you come back, Nguyen Hai Truong!
+</code></pre></div></div>
+<p>Hoặc:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome back, Nguyen Hai Truong!
+</code></pre></div></div>
+<p>Thử thay đổi mã nguồn trên một chút bằng cách chuyển toàn bộ logic của chương trình vào hàm <code class="highlighter-rouge">greet_user()</code>:</p>
+
+<p><strong><em>remember_me_v2.py</em></strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">greet_user</span><span class="p">():</span>
+	<span class="s">"""Greet the user by name"""</span>
+	<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+			<span class="n">username</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f_obj</span><span class="p">)</span>
+	<span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+		<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
+		<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+			<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">f_obj</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"We'll remember you when you come back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"Welcome back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+
+<span class="n">greet_user</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Chương trình nhìn có vẻ “sáng sủa” và gọn gàng hơn. Hàm <code class="highlighter-rouge">greet_user()</code> làm nhiều hơn là chỉ thực hiện “greeting the user” - nó cũng truy xuất username được lưu trữ nếu người dùng đã tồn tại và yêu cầu nhập username mới nếu người dùng không tồn tại.</p>
+
+<p><strong>Vậy tái cấu trúc là công việc cải thiện mã nguồn (source codes) bằng cách định nghĩa các hàm thực hiện một chức năng cụ thể, giúp cho codes “sạch sẽ” hơn, dễ dàng đọc hiểu và mở rộng (triển khai) hơn.</strong></p>
+
+<p>Bây giờ hãy <strong>refactor</strong> hàm <code class="highlighter-rouge">greet_user()</code> để nó không phải thực hiện quá nhiều chức năng cùng lúc:</p>
+
+<p><strong><em>remember_me_v3.py</em></strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">get_stored_username</span><span class="p">():</span>
+	<span class="s">"""Get stored username if available"""</span>
+	<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+			<span class="n">username</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f_obj</span><span class="p">)</span>
+	<span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">None</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">username</span>
+
+<span class="k">def</span> <span class="nf">greet_user</span><span class="p">():</span>
+	<span class="s">"""Greet the user by name"""</span>
+	<span class="n">username</span> <span class="o">=</span> <span class="n">get_stored_username</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">username</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"Welcome back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
+		<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+		<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+			<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">f_obj</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"We'll remember you when you come back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+
+<span class="n">greet_user</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Hàm <code class="highlighter-rouge">get_stored_username()</code> có một mục đích rõ ràng: hàm này sẽ truy xuất username và trả về username nếu nó tìm thấy. Trong trường hợp file <em>username.json</em> không tồn tại, hàm trả về giá trị <code class="highlighter-rouge">None</code>.</p>
+
+<p>Đoạn code trên vẫn chưa thực sự tối ưu, chương trình nên có thêm hàm <code class="highlighter-rouge">get_new_username()</code></p>
+
+<p><strong><em>remember_me_v4.py</em></strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">get_stored_username</span><span class="p">():</span>
+	<span class="s">"""Get stored username if available"""</span>
+	<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+			<span class="n">username</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f_obj</span><span class="p">)</span>
+	<span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">None</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">username</span>
+
+<span class="k">def</span> <span class="nf">get_new_username</span><span class="p">():</span>
+	<span class="s">"""Prompt for a username"""</span>
+	<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What's your name? "</span><span class="p">)</span>
+	<span class="n">filename</span> <span class="o">=</span> <span class="s">'username.json'</span>
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
+		<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">f_obj</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">username</span>
+
+<span class="k">def</span> <span class="nf">greet_user</span><span class="p">():</span>
+	<span class="s">"""Greet the user by name"""</span>
+	<span class="n">username</span> <span class="o">=</span> <span class="n">get_stored_username</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">username</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"Welcome back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">username</span> <span class="o">=</span> <span class="n">get_new_username</span><span class="p">()</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"We'll remember you when you come back, "</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+
+<span class="n">greet_user</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><em>Nguồn: <a href="https://www.amazon.com/Python-Crash-Course-Hands-Project-Based/dp/1593276036">Python Crash Course: A Hands-On, Project-Based Introduction to Programming</a></em></p>
+:ET

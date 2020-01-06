@@ -2,12 +2,10 @@
 layout: post
 title: Cách tạo website cá nhân với Github Pages
 excerpt: "Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng Github Pages."
-date: 2018-09-30
-categories: [linux, tutorials]
-comments: true
 tags: [Linux, Tutorials]
-image: 
-    feature: https://truongnh1992.github.io/static/img/workingspace.jpg
+thumbnail: https://truongnh1992.github.io/static/img/workingspace.jpg
+author: truongnh
+color: rgb(42,140,152)
 ---
 
 Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng [Github Pages](https://pages.github.com). Với những bạn kỹ sư phần mềm hoặc lập trình viên đã quen làm việc với github thì mình tin rằng các bạn sẽ chỉ mất khoảng 30 phút để tạo một website cho riêng mình, còn những bạn học ngành khác thì có thể sẽ mất nhiều thời gian hơn... chắc khoảng một giờ đồng hồ gì đó :)

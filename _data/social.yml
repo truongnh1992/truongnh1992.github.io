@@ -1,0 +1,36 @@
+# Icons on the footer
+rss: true         # Make sure you created a feed.xml with feed.xml layout
+email_address: "contact@gdgcloudhanoi.com"    # Full email address, e.g. "sam@example.com"
+behance:
+bitbucket:
+dribbble:
+facebook: "GDGCloudHanoi"
+flickr:
+gitlab:
+github: "truongnh1992"
+instagram:
+keybase:
+linkedin: "https://www.linkedin.com/in/truongnh1992/"         # Full URL
+pinterest:
+reddit:
+soundcloud:
+stack_overflow:
+stack_exchange:   # Full URL
+steam:
+tumblr:
+twitter: "GDGCloudHanoi"          # "twitter username"
+vimeo:
+wordpress:
+youtube:
+
+# Share button options
+share:
+  facebook: true
+  twitter: true
+  tumblr:
+  pinterest:
+  pocket:
+  reddit: true
+  linkedin: true
+  wordpress:
+  email: true

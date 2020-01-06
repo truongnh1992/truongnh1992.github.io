@@ -1,0 +1,136 @@
+I"�(<p>Bài viết này sẽ trình bày các cài đặt hệ thống Linux để làm việc tốt hơn với <a href="https://www.docker.com/">Docker</a>.</p>
+
+<p><strong>Những nội dung chính:</strong></p>
+
+<!-- MarkdownTOC -->
+<ul>
+  <li><a href="#-manage-docker-as-a-non-root-user">1. Quản lý Docker với một người dùng non-root</a></li>
+  <li><a href="#-configure-docker-to-start-on-boot">2. Cấu hình Docker để khởi động cùng với hệ thống</a></li>
+  <li><a href="#-configure-where-the-docker-daemon-listens-for-connections">3. Cấu hình nơi Docker daemon lắng nghe các kết nối</a>
+    <ul>
+      <li><a href="#-configuring-remote-access-with-systemd-unit-file">3.1. Cấu hình truy cập từ xa với systemd</a></li>
+      <li><a href="#-configuring-remote-access-with-daemon-json">3.2. Cấu hình truy cập từ xa với daemon.json</a><br />
+<!-- /MarkdownTOC --></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a name="-manage-docker-as-a-non-root-user"><a></a></a></p>
+<h2 id="1-quản-lý-docker-với-một-người-dùng-non-root">1. Quản lý Docker với một người dùng non-root</h2>
+
+<p>Docker daemon gắn với một <a href="https://en.wikipedia.org/wiki/Unix_domain_socket">UNIX socket</a> thay vì một cổng <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>. Mặc định, một Unix socket được sở hữu bởi người dùng <code class="highlighter-rouge">root</code> và những người dùng khác trên hệ thống chỉ có thể truy cập nó bằng cách dùng lệnh <code class="highlighter-rouge">sudo</code>. Docker daemon luôn chạy như người dùng <code class="highlighter-rouge">root</code>.</p>
+
+<p>Nếu bạn không muốn phải chạy lệnh <code class="highlighter-rouge">docker</code> với <code class="highlighter-rouge">sudo</code>, hãy tạo một nhóm người dùng (group) có tên là <code class="highlighter-rouge">docker</code> và thêm người dùng hiện tại vào nhóm đó. Khi Docker daemon khởi động, nó sẽ tạo một Unix socket được truy cập bởi các thành viên của nhóm người dùng <code class="highlighter-rouge">docker</code>.</p>
+
+<blockquote>
+  <p>Nhóm người dùng <code class="highlighter-rouge">docker</code> cấp các quyền tương đương với người dùng <code class="highlighter-rouge">root</code>.</p>
+</blockquote>
+
+<ul>
+  <li>Tạo nhóm người dùng <code class="highlighter-rouge">docker</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>groupadd docker
+</code></pre></div>    </div>
+  </li>
+  <li>Thêm người dùng vào nhóm <code class="highlighter-rouge">docker</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Đăng xuất và đăng nhập lại phiên của người dùng hiện tại, kiểm tra xem người dùng hiện tại đã được thêm vào nhóm <code class="highlighter-rouge">docker</code> hay chưa?
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">groups</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Chạy <code class="highlighter-rouge">docker</code> mà không cần dùng <code class="highlighter-rouge">sudo</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> ubuntu bash
+</code></pre></div>    </div>
+    <p>Dòng lệnh trên sẽ download một test image về và chạy nó trong một container. Done:)</p>
+  </li>
+</ul>
+
+<p><a name="-configure-docker-to-start-on-boot"><a></a></a></p>
+<h2 id="2-cấu-hình-docker-để-khởi-động-cùng-với-hệ-thống">2. Cấu hình Docker để khởi động cùng với hệ thống</h2>
+
+<p>Hầu hết các bản phần phối Linux (RHEL, CentOS, Fedora, Ubuntu 16.04 hoặc mới hơn) dùng <code class="highlighter-rouge">systemd</code> để quản lý các service khởi động cùng với hệ thống. Bản Ubuntu 14.10 hoặc cũ hơn dùng <code class="highlighter-rouge">upstart</code>.</p>
+
+<ul>
+  <li>Dùng <code class="highlighter-rouge">systemd</code>:</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>docker
+
+Synchronizing state of docker.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install <span class="nb">enable </span>docker
+</code></pre></div></div>
+
+<p>Để vô hiệu quá docker:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl disable docker
+</code></pre></div></div>
+
+<ul>
+  <li>Dùng <code class="highlighter-rouge">upstart</code>:</li>
+</ul>
+
+<p>Docker được tự động cấu hình để khởi động cùng với hệ thống dùng <code class="highlighter-rouge">upstart</code>. Để vô hiệu hóa, ta dùng lệnh sau đây:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo </span>manual | <span class="nb">sudo tee</span> /etc/init/docker.override
+</code></pre></div></div>
+
+<p><a name="-configure-where-the-docker-daemon-listens-for-connections"><a></a></a></p>
+<h2 id="3-cấu-hình-nơi-docker-daemon-lắng-nghe-các-kết-nối">3. Cấu hình nơi Docker daemon lắng nghe các kết nối</h2>
+
+<p>Mặc định, Docker daemon lắng nghe các kết nối trên một Unix socket để chấp nhận các yêu cầu (requests) từ các máy khách cụ bộ (local clients). Có thể cho phép Docker chấp nhận các yêu cầu từ các máy chủ từ xa (remote hosts) bằng cách cấu hình nó để lắng nghe trên một địa chỉ IP và cổng (port) cũng nhưng là một Unix socket. Ở đây có thể hiểu rằng: <code class="highlighter-rouge">Unix socket = IP + Port</code>.</p>
+
+<p><a name="-configuring-remote-access-with-systemd-unit-file"><a></a></a></p>
+<h3 id="31-cấu-hình-truy-cập-từ-xa-với-systemd">3.1. Cấu hình truy cập từ xa với <code class="highlighter-rouge">systemd</code></h3>
+
+<ul>
+  <li>Mở file <code class="highlighter-rouge">docker.service</code> bằng lệnh:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl edit docker.service
+</code></pre></div>    </div>
+  </li>
+  <li>Thêm hoặc chỉnh sửa nội dung dưới đây vào file
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://127.0.0.1:2375
+</code></pre></div>    </div>
+  </li>
+  <li>Reload lại cấu hình <code class="highlighter-rouge">systemctl</code>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl daemon-reload
+</code></pre></div>    </div>
+  </li>
+  <li>Khởi động lại Docker
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl restart docker.service
+</code></pre></div>    </div>
+  </li>
+  <li>Kiểm tra lại thay đổi đã được áp dụng chưa bằng cách xem đầu ra của <code class="highlighter-rouge">netstat</code> để xác nhận rằng <code class="highlighter-rouge">dockerd</code> đang được lắng nghe trên cổng đã được cấu hình.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>netstat <span class="nt">-lntp</span> | <span class="nb">grep </span>dockerd
+
+tcp        0      0 127.0.0.1:2375          0.0.0.0:<span class="k">*</span>               LISTEN      1196/dockerd
+</code></pre></div></div>
+
+<p><a name="-configuring-remote-access-with-daemon-json"><a></a></a></p>
+<h3 id="32-cấu-hình-truy-cập-từ-xa-với-daemonjson">3.2. Cấu hình truy cập từ xa với <code class="highlighter-rouge">daemon.json</code></h3>
+
+<ul>
+  <li>Thiết lập mảng <code class="highlighter-rouge">hosts</code> trong file <code class="highlighter-rouge">/etc/docker/daemon.json</code> để kết nối đến Unix socket và địa chỉ IP
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>vi /etc/docker/daemon.json
+</code></pre></div>    </div>
+  </li>
+  <li>Thêm vào nội dung sau vào file <code class="highlighter-rouge">/etc/docker/daemon.json</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+"hosts": ["unix:///var/run/docker.sock", "tcp://127.0.0.1:2375"]
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Khởi động lại Docker
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl restart docker.service
+</code></pre></div>    </div>
+  </li>
+  <li>Kiểm tra lại thay đổi đã được áp dụng chưa bằng cách xem đầu ra của <code class="highlighter-rouge">netstat</code> để xác nhận rằng <code class="highlighter-rouge">dockerd</code> đang được lắng nghe trên cổng đã được cấu hình.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>netstat <span class="nt">-lntp</span> | <span class="nb">grep </span>dockerd
+
+tcp        0      0 127.0.0.1:2375          0.0.0.0:<span class="k">*</span>               LISTEN      1196/dockerd
+</code></pre></div></div>
+:ET

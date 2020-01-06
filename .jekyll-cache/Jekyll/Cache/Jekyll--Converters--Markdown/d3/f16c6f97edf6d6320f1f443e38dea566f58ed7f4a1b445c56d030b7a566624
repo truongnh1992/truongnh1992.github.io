@@ -1,0 +1,93 @@
+I"Ò<h4 id="contents">Contents</h4>
+
+<!-- MarkdownTOC -->
+<p><a href="#-big-picture">1. Big picture</a><br />
+<a href="#-fork-a-repository">2. Fork a repository</a><br />
+<a href="#-clone-fork-repository-to-local">3. Clone fork repository to local</a><br />
+<a href="#-create-a-branch">4. Create a branch to add a new feature or fix issues</a><br />
+<a href="#-commit">5. Commit and Push</a> <br />
+<a href="#-create-a-pull-request">6. Create a Pull Request</a> <br />
+<!-- /MarkdownTOC --></p>
+
+<p><a name="-big-picture"><a></a></a></p>
+<h3 id="1-big-picture">1. Big picture</h3>
+
+<p><img src="/static/img/github/github_workflow.png" alt="workflow" /></p>
+
+<p><a name="-fork-a-repository"><a></a></a></p>
+<h3 id="2-fork-a-repository">2. Fork a repository</h3>
+<ul>
+  <li>Goto https://github.com/kubernetes/kubernetes</li>
+  <li>Hit the <code class="highlighter-rouge">Fork</code> button to fork your own copy of repo <strong>kubernetes</strong> to your github account</li>
+</ul>
+
+<p><img src="/static/img/github/fork.png" alt="Fork" /></p>
+
+<p><a name="-clone-fork-repository-to-local"><a></a></a></p>
+<h3 id="3-clone-the-forked-repository-to-local">3. Clone the forked repository to local</h3>
+
+<p>Clone the forked repo in <a href="#2-fork-a-repository">above step</a> to your local working directory:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/<span class="nv">$user</span>/kubernetes.git
+
+<span class="nv">$ </span><span class="nb">cd </span>kubernetes
+
+<span class="nv">$ </span>git remote add upstream https://github.com/kubernetes/kubernetes.git
+
+<span class="c"># Never push to upstream master</span>
+<span class="nv">$ </span>git remote set-url <span class="nt">--push</span> upstream no_push
+
+<span class="c"># Confirm that your remotes make sense:</span>
+<span class="nv">$ </span>git remote <span class="nt">-v</span>
+</code></pre></div></div>
+<p><code class="highlighter-rouge">$user</code> = {your github account name}</p>
+
+<p><a name="-create-a-branch"><a></a></a></p>
+<h3 id="4-create-a-branch-to-add-a-new-feature-or-fix-issues">4. Create a branch to add a new feature or fix issues</h3>
+
+<p>Update local working directory:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>kubernetes
+
+<span class="nv">$ </span>git fetch upstream
+
+<span class="nv">$ </span>git checkout master
+
+<span class="nv">$ </span>git rebase upstream/master
+</code></pre></div></div>
+
+<p><strong>Please donâ€™t use <code class="highlighter-rouge">git pull</code> instead of <code class="highlighter-rouge">git fetch / rebase</code>. <code class="highlighter-rouge">git pull</code> does a merge, which leaves merge commits. These make the commit history messy and violate the principle commits.</strong></p>
+
+<p>Create a new branch:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">-b</span> mybranch
+</code></pre></div></div>
+
+<p><a name="-commit"><a></a></a></p>
+<h3 id="5-commit-and-push">5. Commit and Push</h3>
+
+<h5 id="commit">Commit</h5>
+
+<p>Make any change on the branch <code class="highlighter-rouge">mybranch</code> then build and test your codes.<br />
+Include in what will be committed:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add &lt;file&gt;
+</code></pre></div></div>
+<p>Commit your changes:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit
+</code></pre></div></div>
+<p>Enter your commit message to describe the changes. See the tips for a good commit message at <a href="https://chris.beams.io/posts/git-commit/">here</a>.<br />
+Likely you go back and edit/build/test some more then <code class="highlighter-rouge">git commit --amend</code></p>
+
+<h5 id="push">Push</h5>
+
+<p>Push your branch <code class="highlighter-rouge">mybranch</code> to your forked repo on github.com.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git push <span class="nt">-f</span> <span class="nv">$remotename</span> mybranch
+</code></pre></div></div>
+
+<p><a name="-create-a-pull-request"><a></a></a></p>
+<h3 id="6-create-a-pull-request">6. Create a Pull Request</h3>
+
+<ul>
+  <li>Go to your fork at https://github.com/$user/kubernetes</li>
+  <li>Hit the button <img src="/static/img/github/compare-pullrequest" alt="PR" /> next to branch <code class="highlighter-rouge">mybranch</code></li>
+  <li>Flow the following processes to create a new pull request</li>
+</ul>
+:ET

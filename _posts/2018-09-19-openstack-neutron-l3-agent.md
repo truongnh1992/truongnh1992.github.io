@@ -2,12 +2,10 @@
 layout: post
 title: OpenStack Neutron L3 Agent
 excerpt: "Neutron-l3-agent: performs layer 3 routing between tenant private networks, the external network, and others."
-date: 2018-09-19
-categories: [openstack, networking]
-comments: true
-image:
-  feature: https://truongnh1992.github.io/static/img/l3-agent/FloatingIPs.png
+thumbnail: https://truongnh1992.github.io/static/img/l3-agent/FloatingIPs.png
 tags: [OpenStack, Neutron, Networking]
+author: truongnh
+color: rgb(42,166,152)
 ---
 
 **Contents:**

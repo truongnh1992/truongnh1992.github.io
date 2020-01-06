@@ -1,0 +1,95 @@
+I"�<p>Nhân một buổi chiều rảnh rỗi, mình ngồi viết bài này hướng dẫn các bạn code một chương trình nho nhỏ bằng Python để điều khiển đèn LED nháy trên <a href="https://www.raspberrypi.org/products/raspberry-pi-2-model-b/">Rasberry Pi 2</a>.</p>
+
+<p>Chiếc Rasberry Pi của mình là Rasberry Pi 2, mình tậu em nó từ hồi năm cuối Đại học (2015), hàng UK nên dùng rất bền, mua về nhà cũng vọc vạch được khá nhiều trò hay ho với cái board này: Cài <a href="https://osmc.tv/download/">OSMC</a> lên rồi cắm vô chiếc “stupid” TV nhà mình để biến nó thành smart hơn và cũng hỗ trợ đầy đủ app Youtube, multimedia server các kiểu…</p>
+
+<p>Pi cũng rất thích hợp để nhóc em trai mình học lập trình, với cấu hình RAM: 1GB, SoC: BCM2836 kèm thẻ nhớ 8GB của nó là quá đủ để code Python, C… rồi.</p>
+
+<p>Chiếc Pi của mình trông nó như thế này:</p>
+
+<p><img src="/static/img/raspberrypi/mypi.jpg" alt="My workingspace" /></p>
+
+<p><strong>Contents:</strong></p>
+
+<!-- MarkdownTOC -->
+<p><a href="#-phancung">1. Phần cứng</a><br />
+<a href="#-phanmem">2. Phần mềm</a><br />
+<a href="#-laptrinh">3. Lập trình</a><br />
+<a href="#-manguon">4. Mã nguồn chương trình</a><br />
+<!-- /MarkdownTOC --></p>
+
+<p>Để thực hiện việc điều kiển nháy LED bằng code Python, thì việc đầu tiên cần làm là chuẩn bị những phần cứng và phần mềm cấn thiết.</p>
+
+<p><a name="-phancung"><a></a></a></p>
+<h2 id="1-phần-cứng">1. Phần cứng</h2>
+<ul>
+  <li>Board mạch Raspberry Pi</li>
+  <li>Board trắng để cắm đèn LED, dây nối và jump</li>
+  <li>Điện trở 220 Ohm</li>
+</ul>
+
+<p><img src="/static/img/raspberrypi/hardware.jpg" alt="Hardware" /></p>
+
+<p><a name="-phanmem"><a></a></a></p>
+<h2 id="2-phần-mềm">2. Phần mềm</h2>
+<p>Mình sẽ cài <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> lên Pi, <strong>Raspbian</strong> là hệ điều hành nhân Linux được tuỳ biến riêng cho Rasberry Pi. <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Hướng dẫn này</a> sẽ nêu chi tiết các bước cài đặt. Remote đến Pi thông qua giao thức ssh để bắt tay vào lập trình, chi tiết <a href="https://truongnh1992.github.io/linux/networking/raspberry/2018/10/30/remote-to-raspberrypi.html">tại đây</a>.</p>
+
+<p><a name="-laptrinh"><a></a></a></p>
+<h2 id="3-lập-trình">3. Lập trình</h2>
+<p>Giờ đến công đoạn cuối cùng là code và cài cắm đèn LED vào Pi.</p>
+
+<p><img src="/static/img/raspberrypi/gpio-pins-pi2.jpg" alt="pins-gpio" /></p>
+
+<p class="image-caption"><em>Raspberry Pi 2 có 40 chân GPIO (general-purpose input/output). Ảnh: rasberrypi.org</em></p>
+
+<p>Sơ đồ chân GPIO phục vụ cho việc lập trình như hình dưới đây:</p>
+
+<p><img src="/static/img/raspberrypi/gpio-numbers-pi2.jpg" alt="pins-gpio" /></p>
+
+<p class="image-caption"><em>Ảnh: rasberrypi.org</em></p>
+
+<p>Mình sẽ cắm dây nối đèn LED vào board trắng thông qua jumb để kết nối với chân GPIO trên Pi theo sơ đồ sau:</p>
+
+<p><img src="/static/img/raspberrypi/noiday.jpg" alt="noiday" /></p>
+
+<p>Đèn LED được mắc nối tiếp với điện trở, cực dương của LED nối với <strong>chân số 19</strong> tức GPIO10 của Raspberry Pi còn cực âm được nối với <strong>chân số 9</strong> tức Ground nối đất của Raspberry Pi</p>
+
+<p><a name="-manguon"><a></a></a></p>
+<h2 id="mã-nguồn-chương-trình">Mã nguồn chương trình</h2>
+
+<p><code class="highlighter-rouge">blink.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">RPi.GPIO</span> <span class="k">as</span> <span class="n">GPIO</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">numTimes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter total number of times to blink: "</span><span class="p">))</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter length of each blink (seconds): "</span><span class="p">))</span>
+
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setwarnings</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BOARD</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Blink</span><span class="p">(</span><span class="n">numTimes</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numTimes</span><span class="p">):</span>
+        <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">"Iteration "</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+        <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+
+<span class="n">Blink</span><span class="p">(</span><span class="n">numTimes</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Done"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Chạy chương trình trên, nhập vào số lần nháy mong muốn và <em>“tần số nháy”</em></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python blink.py
+Enter total number of <span class="nb">times </span>to blink: 50
+Enter length of each blink <span class="o">(</span>seconds<span class="o">)</span>: 0.5
+</code></pre></div></div>
+<p>Và đây là kết quả:</p>
+
+<p><img src="/static/img/raspberrypi/demo_led.gif" alt="Demo" /></p>
+
+<p>Hi vọng bài viết sẽ giúp các bạn DIY được một ứng dụng nho nhỏ và thú vị này.</p>
+
+<p>Hải Phòng, 27-10-2018.</p>
+:ET

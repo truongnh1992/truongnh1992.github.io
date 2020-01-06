@@ -2,12 +2,10 @@
 layout: post
 title: Install Istio and deploy Bookinfo application on a Kubernetes cluster
 excerpt: "Istio is an opensource platform to connect, manage and secure microservices. This article will show you the way to deploy Istio and Bookinfo on a K8s cluster steps-by-steps."
-categories: [tutorials, kubernetes, istio]
-comments: true
-date: 2019-08-27
-image:
-    feature: https://truongnh1992.github.io/static/img/istio.jpg
-tags: [tutorials, kubernetes, istio]
+thumbnail: https://truongnh1992.github.io/static/img/istio.jpg
+tags: [Kubernetes, Istio]
+author: truongnh
+color: rgb(42,140,152)
 ---
 
 Istio is an opensource platform to connect, manage and secure microservices. This article will show you the way to deploy Istio and Bookinfo app on a K8s cluster steps-by-steps.

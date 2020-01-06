@@ -1,0 +1,295 @@
+I"nO<p><strong>Những nội dung chính:</strong></p>
+
+<!-- MarkdownTOC -->
+<p><a href="#-what-is-network-namespace">1. Network namespace là gì?</a><br />
+<a href="#-working-with-network-namespace">2. Làm việc với network namespace</a><br />
+<a href="#-ping-between-2-namespaces">3. Ping 2 namespaces</a><br />
+<a href="#-commands-refers">4. Tổng hợp những dòng lệnh đã dùng trong bài viết</a><br />
+<!-- /MarkdownTOC --></p>
+
+<p><a name="-what-is-network-namespace"><a></a></a></p>
+<h2 id="1-network-namespace-là-gì">1. Network namespace là gì?</h2>
+
+<p>Network namespace giúp chúng ta có các mạng riêng biệt trên một host.</p>
+
+<p>Mỗi một namespace sẽ có những giao diện (<strong><em>interface</em></strong>) và bảng định tuyến (<strong><em>routing table</em></strong>) của riêng nó và tách biệt với các namespace khác. Ngoài ra, tiến trình (<strong><em>process</em></strong>) trên hệ thống có thể được liên kết với một network-namespace cụ thể.</p>
+
+<p>Network namespace được sử dụng nhiều trong các dự án OpenStack và Docker. Để có thể hiểu sâu được những dự án đó, bạn phải sử dụng thông thạo network-namespace.</p>
+
+<p><a name="-working-with-network-namespace"><a></a></a></p>
+<h2 id="2-làm-việc-với-network-namespace">2. Làm việc với network namespace</h2>
+
+<p>Khi khởi động Linux, hệ thống sẽ có một namespace và mỗi tiến trình (<strong><em>process</em></strong>) khi được tạo mới sẽ kế thừa (<strong><em>inherit</em></strong>) namespace này từ tiến trình cha (<a href="https://en.wikipedia.org/wiki/Parent_process"><strong><em>parent process</em></strong></a>). Vì vậy, tất cả các tiến trình đều kế thừa network-namespace của tiến trình <strong><em>init</em></strong> (PID=1).</p>
+
+<p><img src="/static/img/network-namespace/default-namespace.png" alt="Default namespace" /></p>
+
+<h3 id="danh-sách-các-namespace">Danh sách các namespace</h3>
+
+<p>Để làm việc với network-namespace, sử dụng lệnh <code class="highlighter-rouge">ip netns</code></p>
+
+<p>Liệt kê các network-namespace trên hệ thống:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip netns list
+
+qrouter-68d092ba-2509-462c-87fb-2db5e9678eb5  
+qdhcp-5dfc8455-bb8d-46af-a815-29bcc74a4640
+</code></pre></div></div>
+
+<h3 id="tạo-mới-một-namespace">Tạo mới một namespace</h3>
+
+<p>Để tạo mới một namespace:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip netns add truongnh1
+<span class="nv">$ </span>ip netns add truongnh2
+</code></pre></div></div>
+<p>2 namespace được tạo mới: <strong>truongnh1</strong> &amp; <strong>truongnh2</strong></p>
+
+<p><img src="/static/img/network-namespace/add-namespace.png" alt="Add namespace" /></p>
+
+<p>Như hình vẽ trên, 2 namespace mới đã được tạo độc lập với namespace mặc định của hệ thống.</p>
+
+<p>Một lần nữa liệt kê các network-namespace:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip netns list
+
+truongnh2  
+truongnh1  
+qrouter-68d092ba-2509-462c-87fb-2db5e9678eb5
+qdhcp-5dfc8455-bb8d-46af-a815-29bcc74a4640
+</code></pre></div></div>
+<p>Mỗi khi một namespace được tạo mới có một file tương ứng có cùng tên với tên của namespace tạo ra trong thư mục <code class="highlighter-rouge">/var/run/netns</code>.
+Lúc này:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> /var/run/netns  
+
+qdhcp-5dfc8455-bb8d-46af-a815-29bcc74a4640
+qrouter-68d092ba-2509-462c-87fb-2db5e9678eb5
+truongnh1
+truongnh2
+</code></pre></div></div>
+
+<h3 id="thực-thi-lệnh-commands-trong-namespaces">Thực thi lệnh (commands) trong namespaces</h3>
+
+<p>Thực thi một lệnh trong một namespace:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip a
+
+1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1
+    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</code></pre></div></div>
+
+<p>Ví dụ ở trên, lệnh <code class="highlighter-rouge">ip a</code> chạy trong namespace có tên <strong>truongnh1</strong>.</p>
+
+<p><a name="-ping-between-2-namespaces"><a></a></a></p>
+<h2 id="3-ping-2-namespaces">3. Ping 2 namespaces</h2>
+
+<p>Một kịch bản đơn giản được đưa ra:</p>
+<ul>
+  <li>Mô phỏng 2 node (mỗi namespace sẽ đại diện cho 1 node)</li>
+  <li>Kết nối 2 namespace tới một switch ảo (<strong>virtual switch</strong>)</li>
+  <li>ping từ namespace này đến namespace kia</li>
+</ul>
+
+<h3 id="tạo-virtual-switch">Tạo virtual switch</h3>
+
+<p>Cài đặt Open vSwitch và khởi động service của nó</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>openvswitch-switch  
+<span class="nv">$ </span><span class="nb">sudo</span> /etc/init.d/openvswitch-switch start
+</code></pre></div></div>
+
+<p>Tiếp theo, tạo 1 virtual switch trong namespace mặc định của hệ thống có tên là <strong>my_switch</strong>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ovs-vsctl add-br my_switch
+</code></pre></div></div>
+
+<p>Kiểm tra xem <strong>my_switch</strong> đã được tạo thành công hay chưa?</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ovs-vsctl show
+
+4e279dd7-5211-4f79-a8bc-76422c831e0b
+    Manager <span class="s2">"ptcp:6640:127.0.0.1"</span>
+        is_connected: <span class="nb">true
+    </span>Bridge br-ex
+        Controller <span class="s2">"tcp:127.0.0.1:6633"</span>
+            is_connected: <span class="nb">true
+        </span>fail_mode: secure
+        Port br-ex
+            Interface br-ex
+                <span class="nb">type</span>: internal
+        Port phy-br-ex
+            Interface phy-br-ex
+                <span class="nb">type</span>: patch
+                options: <span class="o">{</span><span class="nv">peer</span><span class="o">=</span>int-br-ex<span class="o">}</span>
+    Bridge my_switch
+        Port my_switch
+            Interface my_switch
+                <span class="nb">type</span>: internal
+
+</code></pre></div></div>
+
+<p>Để kết nối namespace đến <strong>my_switch</strong> vừa được tạo, dùng cặp <strong><em>veth</em></strong> - sẽ được giái thích sơ lược như dưới đây:</p>
+
+<h3 id="veth-virtual-ethernet">veth (virtual ethernet)</h3>
+
+<p><strong><em>veth</em></strong> là một loại thiết bị mạng mà luôn luôn đi theo 1 cặp (pairs). Có thể tưởng tượng rằng, từ <strong><em>pair</em></strong> nhắc đến ở đây như là một cái ống: mọi thứ gửi đến một đầu ống sẽ đi ra ngoài ở đầu bên kia.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link </span>add <span class="nb">type </span>veth
+
+<span class="nv">$ </span>ip address
+
+14: veth0@veth1: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether 76:75:43:9f:a8:9e brd ff:ff:ff:ff:ff:ff
+15: veth1@veth0: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether fa:92:ed:48:bd:b4 brd ff:ff:ff:ff:ff:ff
+</code></pre></div></div>
+
+<p>Có 2 device đi theo một cặp: mọi thứ khi được gửi đến <strong>veth0@veth1</strong> sẽ đi ra ở <strong>veth1@veth0</strong>.</p>
+
+<p>Bây giờ, khi xóa 1 trong 2 <strong>veth</strong> ở trên thì device còn lại cũng sẽ bị xóa theo.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link </span>del veth0
+</code></pre></div></div>
+
+<h3 id="veth">veth</h3>
+
+<p>Quay trở lại việc kết nối namespace với <strong>my_switch</strong>, tạo <strong>veth</strong> kết nối namespace <strong>truongnh1</strong> với <strong>my_switch</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link </span>add truongnh1-netns <span class="nb">type </span>veth peer name truongnh1-ovs 
+</code></pre></div></div>
+
+<p>Câu lệnh trên đã xác định tên của mỗi thành phần trong cặp. Vì vậy, <strong>truongnh1-netns</strong> sẽ được thiết lập ở trong namespace <strong>truongnh1</strong> và <strong>truongnh1-ovs</strong> sẽ kết nối với virtual switch.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip a
+
+16: truongnh1-ovs@truongnh1-netns: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether d2:e3:de:1d:22:e5 brd ff:ff:ff:ff:ff:ff
+17: truongnh1-netns@truongnh1-ovs: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether 92:fb:c5:a8:6a:df brd ff:ff:ff:ff:ff:ff
+</code></pre></div></div>
+
+<p>Đặt <strong>truongnh1-netns</strong> vào trong namespace <strong>truongnh1</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link set </span>truongnh1-netns netns truongnh1
+</code></pre></div></div>
+
+<p><strong>Nhấn mạnh rằng: namespace là một môi trường mạng độc lập và namespace mặc định của hệ thống là tách biệt với các namespace khác</strong>. Nếu điều này là đúng, <strong>truongnh1-netns</strong> sẽ không được thấy trong namespace mặc định của hệ thống kể từ khi nó được đặt trong namespace <strong>truongnh1</strong>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ip a
+
+13: my_switch: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1
+    <span class="nb">link</span>/ether a2:71:a7:0e:62:40 brd ff:ff:ff:ff:ff:ff
+16: truongnh1-ovs@if17: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether d2:e3:de:1d:22:e5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+
+<span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip a
+
+1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1
+    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+17: truongnh1-netns@if16: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    <span class="nb">link</span>/ether 92:fb:c5:a8:6a:df brd ff:ff:ff:ff:ff:ff link-netnsid 0
+</code></pre></div></div>
+<p>Như đã thấy, <strong>truongnh1-netns</strong> hiện tại đã ở trong namespace <strong>truongnh1</strong>.</p>
+
+<p>Kết nối veth còn lại trong cặp (<strong>truongnh1-ovs</strong>) với <strong>my_switch</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ovs-vsctl add-port my_switch truongnh1-ovs
+<span class="nv">$ </span><span class="nb">sudo </span>ovs-vsctl show
+
+4e279dd7-5211-4f79-a8bc-76422c831e0b
+    Manager <span class="s2">"ptcp:6640:127.0.0.1"</span>
+        is_connected: <span class="nb">true
+    </span>Bridge my_switch
+        Port <span class="s2">"truongnh1-ovs"</span>
+            Interface <span class="s2">"truongnh1-ovs"</span>
+        Port my_switch
+            Interface my_switch
+                <span class="nb">type</span>: internal
+</code></pre></div></div>
+
+<p><strong>truongnh1-ovs</strong> đã trở thành 1 port của <strong>my_switch</strong>.</p>
+
+<p>Làm các bước tương tự với namespace <strong>truongnh2</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link </span>add truongnh2-netns <span class="nb">type </span>veth peer name truongnh2-ovs
+<span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link set </span>truongnh2-netns netns truongnh2
+<span class="nv">$ </span><span class="nb">sudo </span>ovs-vsctl add-port my_switch truongnh2-ovs
+</code></pre></div></div>
+
+<p>Đến đây, mỗi namespace đã có một cặp <strong>veth</strong> vì thế <strong>my_switch</strong> có 2 port: <strong>truongnh1-ovs</strong> và <strong>truongnh2-ovs</strong></p>
+
+<p><img src="/static/img/network-namespace/veth.png" alt="Create veth" /></p>
+
+<p>Điều này có nghĩa là 2 namespace <strong>truongnh1</strong> và <strong>truongnh2</strong> đã có thể “thông nhau”? Câu trả lời là KHÔNG. Việc cần làm tiếp theo là gán địa chỉ cho nó và mang nó lên (bring devices up).</p>
+
+<h3 id="bringing-up-devices">Bringing up devices</h3>
+
+<p>Trong namespace mặc định của hệ thống:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link set </span>truongnh1-ovs up
+<span class="nv">$ </span><span class="nb">sudo </span>ip <span class="nb">link set </span>truongnh2-ovs up
+</code></pre></div></div>
+
+<p>Trong namespace truongnh1 và truongnh2:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip <span class="nb">link set </span>dev lo up
+<span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip <span class="nb">link set </span>dev truongnh1-netns up
+<span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh2 ip <span class="nb">link set </span>dev lo up
+<span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh2 ip <span class="nb">link set </span>dev truongnh2-netns up
+</code></pre></div></div>
+
+<h3 id="gán-địa-chỉ-ip">Gán địa chỉ IP</h3>
+
+<p>Bước tiếp theo sẽ gán địa chỉ IP cho các device truongnh1-netns và truongnh2-netns trong các namespace truongnh1, truongnh2 tương ứng.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip addr add 10.0.0.1/24 dev truongnh1-netns
+<span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh2 ip addr add 10.0.0.2/24 dev truongnh2-netns
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ip a
+
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    <span class="nb">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+17: truongnh1-netns@if16: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    <span class="nb">link</span>/ether 92:fb:c5:a8:6a:df brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 10.0.0.1/24 scope global truongnh1-netns
+       valid_lft forever preferred_lft forever
+    inet6 fe80::90fb:c5ff:fea8:6adf/64 scope <span class="nb">link 
+       </span>valid_lft forever preferred_lft forever
+
+</code></pre></div></div>
+
+<h3 id="ping-test">Ping test</h3>
+
+<p>Các namespace truongnh1 và truongnh2 đã được nối với my_switch, các device được bật và gán địa chỉ IP. Thực hiện lệnh <code class="highlighter-rouge">ping</code> từ truongnh1 đến truongnh2:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ip netns <span class="nb">exec </span>truongnh1 ping 10.0.0.2
+
+PING 10.0.0.2 <span class="o">(</span>10.0.0.2<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 10.0.0.2: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.680 ms
+64 bytes from 10.0.0.2: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.075 ms
+64 bytes from 10.0.0.2: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.089 ms
+64 bytes from 10.0.0.2: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.079 ms
+^C
+<span class="nt">---</span> 10.0.0.2 ping statistics <span class="nt">---</span>
+4 packets transmitted, 4 received, 0% packet loss, <span class="nb">time </span>2997ms
+rtt min/avg/max/mdev <span class="o">=</span> 0.075/0.230/0.680/0.260 ms
+</code></pre></div></div>
+
+<p><a name="-commands-refers"><a></a></a></p>
+<h2 id="4-tổng-hợp-những-dòng-lệnh-đã-dùng-trong-bài-viết">4. Tổng hợp những dòng lệnh đã dùng trong bài viết</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List all namespace, except for the default/global one.</span>
+<span class="nv">$ </span>ip netns
+
+<span class="c"># Execute command inside a specific namespace                                    </span>
+<span class="nv">$ </span>ip netns <span class="nb">exec</span> &lt;namespace_name&gt; &lt;<span class="nb">command</span><span class="o">&gt;</span>
+ 
+<span class="c"># Sets specified interface in the specified namespace </span>
+<span class="nv">$ </span>ip <span class="nb">link set</span> &lt;interface&gt; netns &lt;namespace&gt;
+ 
+<span class="c"># Bring interface up               </span>
+<span class="nv">$ </span>ip <span class="nb">link set</span> &lt;interface&gt; up       
+ 
+<span class="c"># Add veth pair                         </span>
+<span class="nv">$ </span>ip <span class="nb">link </span>add <span class="nb">type </span>veth
+ 
+<span class="c"># Add veth pair by specifying the name for each peer</span>
+<span class="nv">$ </span>ip <span class="nb">link </span>add &lt;veth-peer1&gt; <span class="nb">type </span>veth peer name &lt;veth-peer2&gt;
+ 
+<span class="c"># Adds a new bridge</span>
+<span class="nv">$ </span>ovs-vsctl add-br &lt;bridge_name&gt;
+ 
+<span class="c"># Adds a new port in the specific bridge</span>
+<span class="nv">$ </span>ovs-vsctl add-port &lt;bridge_name&gt; &lt;port_name&gt;
+</code></pre></div></div>
+
+<p><em>Bài viết được dịch sang Tiếng Việt từ bài gốc tại: http://abregman.com</em>.</p>
+:ET

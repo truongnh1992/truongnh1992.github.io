@@ -1,0 +1,106 @@
+I"�<h3 id="1-install-windows-manager-and-desktop-manager-for-ubuntu">1. Install windows manager and desktop manager for Ubuntu</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">--no-install-recommends</span> ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-core
+</code></pre></div></div>
+
+<h3 id="2-install-and-configure-vnc-server">2. Install and configure VNC server</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>vnc4server
+</code></pre></div></div>
+
+<h4 id="21-set-password-for-vnc-server">2.1 Set password for vnc server</h4>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vncserver
+</code></pre></div></div>
+
+<h4 id="22-configure-xstartup-file">2.2 Configure xstartup file</h4>
+<p>Before changing the configuration of VNC server, it have to be stopped.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vncserver <span class="nt">-kill</span> :1
+</code></pre></div></div>
+
+<p>Change the file <code class="highlighter-rouge">xstartup</code> with a text editor</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi ~/.vnc/xstartup
+</code></pre></div></div>
+
+<p>The content of file <code class="highlighter-rouge">xstartup</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># Uncomment the following two lines for normal desktop:</span>
+<span class="c"># unset SESSION_MANAGER</span>
+<span class="c"># exec /etc/X11/xinit/xinitrc</span>
+
+<span class="o">[</span> <span class="nt">-x</span> /etc/vnc/xstartup <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> /etc/vnc/xstartup
+<span class="o">[</span> <span class="nt">-r</span> <span class="nv">$HOME</span>/.Xresources <span class="o">]</span> <span class="o">&amp;&amp;</span> xrdb <span class="nv">$HOME</span>/.Xresources
+xsetroot <span class="nt">-solid</span> grey
+vncconfig <span class="nt">-iconic</span> &amp;
+x-terminal-emulator <span class="nt">-geometry</span> 80x24+10+10 <span class="nt">-ls</span> <span class="nt">-title</span> <span class="s2">"</span><span class="nv">$VNCDESKTOP</span><span class="s2"> Desktop"</span> &amp;
+x-window-manager &amp;
+
+gnome-panel &amp;
+gnome-settings-daemon &amp;
+metacity &amp;
+nautilus &amp;
+</code></pre></div></div>
+
+<p>Now, restart the VNC server.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vncserver
+</code></pre></div></div>
+
+<h3 id="3-setup-the-vnc-server-as-a-systemd-service">3. Setup the VNC server as a <code class="highlighter-rouge">systemd service</code></h3>
+
+<p>Create a new file in the directory <code class="highlighter-rouge">/etc/systemd/system/</code></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>vim /etc/systemd/system/vncserver@:1.service
+</code></pre></div></div>
+
+<p>The content of file <code class="highlighter-rouge">vncserver@:1.service</code>:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>Start TightVNC server at startup
+<span class="nv">After</span><span class="o">=</span>syslog.target network.target
+
+<span class="o">[</span>Service]
+<span class="nv">Type</span><span class="o">=</span>forking
+<span class="nv">User</span><span class="o">=</span><span class="nv">$USER</span>
+<span class="nv">PAMName</span><span class="o">=</span>login
+<span class="nv">PIDFile</span><span class="o">=</span>/home/<span class="nv">$USER</span>/.vnc/%H%i.pid
+<span class="c">#ExecStartPre=/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/vncserver <span class="nt">-depth</span> 24 <span class="nt">-geometry</span> 1920x1200 %i
+<span class="nv">ExecStop</span><span class="o">=</span>/usr/bin/vncserver <span class="nt">-kill</span> %i
+
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div></div>
+
+<p>Then,</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl daemon-reload
+</code></pre></div></div>
+
+<p>Enable the service file.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>vncserver@<span class="se">\:</span>1.service
+</code></pre></div></div>
+
+<p>Kill the instance is running</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vncserver <span class="nt">-kill</span> :1
+</code></pre></div></div>
+
+<p>Start the <code class="highlighter-rouge">systemd</code> service.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl start vncserver@<span class="se">\:</span>1.service
+</code></pre></div></div>
+
+<p>If the service runs correctly,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl status vncserver@\:1.service
+
+● vncserver@:1.service - Start TightVNC server at startup
+   Loaded: loaded (/etc/systemd/system/vncserver@:1.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2019-01-30 09:18:46 +07; 4h 8min ago
+ Main PID: 1285 (Xvnc4)
+   CGroup: /system.slice/system-vncserver.slice/vncserver@:1.service
+           ‣ 1285 Xvnc4 :1 -desktop k8s:1 (vietkubers) -auth /home/vietkubers/.Xauthority -geometry 1920x1200 -depth 24 -rfbwait 30000 -rfbauth /home/vietkubers/.vnc/passwd -rfbport 5901 -pn -fp /usr/X11R6/lib/X11/fonts/Type1/,/usr/X11R6/
+
+Jan 30 09:18:43 k8s systemd[1]: Starting Start TightVNC server at startup...
+Jan 30 09:18:43 k8s systemd[1271]: pam_unix(login:session): session opened for user vietkubers by (uid=0)
+Jan 30 09:18:46 k8s systemd[1]: Started Start TightVNC server at startup.
+lines 1-10/10 (END)
+</code></pre></div></div>
+
+<h3 id="happy-hacking">Happy hacking!</h3>
+
+:ET

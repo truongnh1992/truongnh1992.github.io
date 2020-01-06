@@ -1,47 +1,59 @@
 ---
 layout: default
 ---
+{% include share_thumbnail.html page=page %}
 
-<div id="post">
-  <header class="post-header">
-    <h1 title="{{ page.title | escape }}">{{ page.title }}</h1>
-    <span class="post-meta">
-      <span class="post-date">
-        {{ page.date | date: "%-d %b %Y" | upcase }}
-      </span>
-      •
-      {% include read_time.html %}
-    </span>
-
+<article {% if page.feature-img or page.color %}class="feature-image"{% endif %}>
+  <header id="main" style="">
+    {% unless page.hide_title %}
+      <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
+      {% include post_info.html author=page.author date=page.date %}
+    {% endunless %}
   </header>
+  <section class="post-content">
+  {% if page.bootstrap %}
+    <div class="bootstrap-iso">
+    {% endif %}
+      {{ content }}
+    {% if page.bootstrap %}
+    </div>
+  {% endif %}
+  </section>
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+  <!-- Social media shares -->
+  {% include share_buttons.html %}
+
+   <!-- Tag list -->
+  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
+  {% include tags_list.html tags=tag_list %}
+
+</article>
+
+<!-- Disqus -->
+{% if site.disqus_shortname or site.theme_settings.disqus_shortname %}
+<div class="comments">
+  {% include disqus.html %}
 </div>
-
-<div class="share-buttons">
-  <h6>Share on: </h6>
-  <ul>
-    <li>
-      <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
-    </li>
-    <li>
-      <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
-    </li>
-    <li>
-      <a href="https://news.ycombinator.com/submitlink?u={{ site.url }}{{ page.url }}" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
-    </li>
-    <li>
-      <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
-    </li>
-  </ul>
-</div><!-- end share-buttons -->
-
-{% if site.owner.disqus-shortname and page.comments == true %}
-<div id="disqus_thread"></div>
-{% include disqus.html %}
 {% endif %}
+
+<!-- Post navigation -->
+{% if site.post_navigation  or site.theme_settings.post_navigation %}
+  {% include post_nav.html %}
+{% endif %}
+
+<!-- To change color of links in the page -->
+<style>
+  {% if page.color %}
+    .feature-image a { color: {{ page.color }} !important; }
+    div#post-nav a { color: {{ page.color }} !important; }
+    footer a { color: {{ page.color }} !important; }
+    .site-header nav a:hover {  color: {{ page.color }} !important; }
+    header#main { background-color: {{ page.color }} !important; }
+  {% endif %}
+
+  header#main {
+    background-repeat:no-repeat;
+    {% if page.feature-img %} background-image: url('{{ page.feature-img | relative_url }}');
+    {% elsif page.color %}background-image: url('{{ site.color_image | relative_url }}');  {% endif %}
+  }
+</style>
