@@ -4,15 +4,13 @@ title: About
 permalink: /about/
 ---
 
-### <span style="color:#126bb9">| My background</span>
+## <span style="color:#126bb9">> My name is Nguyen Hai Truong</span>
 
-My name is Nguyen Hai Truong
+Software Engineer with **5 years of experience** in software development, specializes in **Embedded Linux**, **C/C++**, **Go** and **Shell Scripts**. Having background on **Computer Networking**, **OpenStack**, **Kubernetes** and **Docker/Container** as well.  
 
-Software Engineer with ***5 years of experience*** in software development, specializes in ***Embedded Linux***, ***C/C++***, ***Go*** and ***Shell Scripts***. Having background on ***Computer Networking***, ***OpenStack***, ***Kubernetes*** and ***Docker/Container*** as well.  
-
-> Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhanoi-1992.appspot.com/o/NguyenHaiTruong-CV.pdf?alt=media&token=5bbbc87b-2862-46a5-b1d7-9cafe577f18f).
-
-### <span style="color:#126bb9">| Contributing to Open-Source Community</span>
+Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhanoi-1992.appspot.com/o/NguyenHaiTruong-CV.pdf?alt=media&token=5bbbc87b-2862-46a5-b1d7-9cafe577f18f).  
+  
+## <span style="color:#126bb9">> Contributing to Open-Source Community</span>
 
 #### <span style="color:#a21d48">Founder / Community Lead of GDG Cloud Hanoi</span>
 
@@ -22,11 +20,10 @@ GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Han
 
 #### <span style="color:#a21d48">Co-founder of VietKubers (Vietnam Kubernetes Community)</span>
 
-VietKubers's technical blog: [https://vietkubers.github.io](https://vietkubers.github.io)
+VietKubers's technical blog: https://vietkubers.github.io
 
-Meetup: [https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/](https://www.meetup.com/Vietkubers-Vietnam-Kubernetes-Community/)
 
-### <span style="color:#126bb9">| Presentations</span>
+## <span style="color:#126bb9">> Presentations</span>
 
 | Time          | Event         | Topic  |
 | ------------- |-------------| -----|
