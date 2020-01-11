@@ -3,13 +3,13 @@
 #url: "https://blog.gdgcloudhanoi.com"
 
 # THEME-SPECIFIC CONFIGURATION
-title: "TruongNH"                                    # site's title
+title: "truongnh1992"                                    # site's title
 description: "Linux Tech Blog"                                # used by search engines
 avatar: static/img/nht.jpg                                    # Empty for no avatar in navbar
 favicon: static/img/favicon.ico                                   # Icon displayed in the tab
 
 # Header and footer text
-header_text: "Truong's Blog"                                # Change Blog header text
+header_text: "Learn something new, everyday."                                # Change Blog header text
 header_feature_image: static/img/computer.jpeg 
 footer_text: Powered by <a href="https://gdgcloudhanoi.com/">GDG Cloud Hanoi</a>
 
