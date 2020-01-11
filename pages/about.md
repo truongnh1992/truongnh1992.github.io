@@ -1,29 +1,24 @@
 ---
 layout: page
 title: About
+subtitle: "Hello, my name is Nguyen Hai Truong."
 permalink: /about/
 ---
-
-## <span style="color:#126bb9">> My name is Nguyen Hai Truong</span>
 
 Software Engineer with **5 years of experience** in software development, specializes in **Embedded Linux**, **C/C++**, **Go** and **Shell Scripts**. Having background on **Computer Networking**, **OpenStack**, **Kubernetes** and **Docker/Container** as well.  
 
 Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhanoi-1992.appspot.com/o/NguyenHaiTruong-CV.pdf?alt=media&token=5bbbc87b-2862-46a5-b1d7-9cafe577f18f).  
   
-## <span style="color:#126bb9">> Contributing to Open-Source Community</span>
-
-#### <span style="color:#a21d48">Founder / Community Lead of GDG Cloud Hanoi</span>
+## <span style="color:#0f9d58; font-family: 'Google Sans'">Founder / Community Lead of GDG Cloud Hanoi</span>
 
 [GDG Cloud Hanoi](https://gdcloudhanoi.com) is a non-profit community of cloud developers who meet/share ideas on everything Google Cloud Platform related.
 
 GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we runs meetup for developers interested in resources and technology from Google Developers.
 
-#### <span style="color:#a21d48">Co-founder of VietKubers (Vietnam Kubernetes Community)</span>
-
-VietKubers's technical blog: https://vietkubers.github.io
+![gdgcloudhanoi](/static/img/gdgcloudhanoi.png)
 
 
-## <span style="color:#126bb9">> Presentations</span>
+## <span style="color:#0f9d58; font-family: 'Google Sans'">Presentations</span>
 
 | Time          | Event         | Topic  |
 | ------------- |-------------| -----|
