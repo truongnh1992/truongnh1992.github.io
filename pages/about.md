@@ -12,7 +12,7 @@ Software Engineer with **5 years of experience** in software development, specia
 ](https://www.linkedin.com/in/truongnh1992) [<i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
 ](https://twitter.com/truongnh92) [<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
 ](https://facebook.com/haitruong.bkhn)
-Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhanoi-1992.appspot.com/o/NguyenHaiTruong-CV.pdf?alt=media&token=5bbbc87b-2862-46a5-b1d7-9cafe577f18f).  
+Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhanoi-1992.appspot.com/o/NguyenHaiTruong-CV.pdf?alt=media&token=96808769-0770-4fee-bf21-143ad53ad7c6).  
   
 ## <span style="color:#0f9d58; font-family: 'Google Sans'">Founder / Community Lead of GDG Cloud Hanoi</span>
 
