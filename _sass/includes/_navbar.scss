@@ -16,9 +16,8 @@
 .site-header {
   //padding-bottom: 1%;
   padding: 2% 2% 1% 2%;
-  background: $brand-color;
+  background: #2c4762;
   display: inline-block;
-  float: left;
   width: 100%;
 
   .separator {
@@ -31,8 +30,9 @@
   }
 
   a {
-    color: $header-link-color;
+    color: #fff;
     font-family: Roboto;
+    font-size: 20px;
   }
 
   .avatar {

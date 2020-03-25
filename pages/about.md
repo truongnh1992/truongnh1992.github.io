@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "Hello, I'm Nguyen Hai Truong."
-feature-img: "static/img/computer.jpeg"
+title: "About"
+subtitle: "Hello, I'm Nguyen Hai-Truong."
 permalink: /about/
-icon: "fa-address-card"
 ---
 
 Software Engineer with **5 years of experience** in software development, specializes in **Embedded Linux**, **C/C++**, **Go** and **Shell Scripts**. Having background on **Computer Networking**, **OpenStack**, **Kubernetes** and **Docker/Container** as well.  
