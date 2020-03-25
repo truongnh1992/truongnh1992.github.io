@@ -23,7 +23,7 @@ git clone https://github.com/truongnh1992/truongnh1992.github.io.git
 #### 3. Run the blog on localhost
 
 ```console
-truongnh@k8s:~/truongnh1992.github.io$ sudo bundle exec jekyll serve
+truongnh@k8s:~/truongnh1992.github.io$ bundle exec jekyll serve
 Configuration file: /home/vietkubers/truongnh1992.github.io/_config.yml
             Source: /home/vietkubers/truongnh1992.github.io
        Destination: /home/vietkubers/truongnh1992.github.io/_site
