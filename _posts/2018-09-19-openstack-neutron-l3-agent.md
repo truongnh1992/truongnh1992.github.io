@@ -4,7 +4,6 @@ title: OpenStack Neutron L3 Agent
 excerpt: "Neutron-l3-agent: performs layer 3 routing between tenant private networks, the external network, and others."
 tags: [OpenStack, Neutron, Networking]
 author: truongnh
-color: rgb(42,166,152)
 ---
 
 **Contents:**
@@ -20,7 +19,7 @@ color: rgb(42,166,152)
 
 <a name="-what-is-l3-agent"><a/>
 ## 1. What's L3 Agent?
-
+---
   
 ![static/img](/static/img/l3-agent/network-traffic-copy.png)  
 
@@ -31,7 +30,7 @@ color: rgb(42,166,152)
 
 <a name="-floating-ips"><a/>
 ## 2. Floating IPs
-
+---
 ![FloatingIPs](/static/img/l3-agent/FloatingIPs.png)  
 
 In the above figure, there are two instances: instance 1 and instance 2 and they have IP addresses that come from the private network (behind a NAT router). Everything that is behind the NAT router cannot be addressed directly so the **10.0.0.2** and **10.0.0.3** IP addresses cannot be accessed directly from the Internet.  
@@ -47,7 +46,7 @@ Floating IPs are IP addresses are exposed at the external side of the NAT router
 
 <a name="-security-group"><a/>
 ## 3. Security group
-
+---
 In order to answer the question: **What's security group?** Let make a demonstration.
 
 <a name="demonstration"><a/>
