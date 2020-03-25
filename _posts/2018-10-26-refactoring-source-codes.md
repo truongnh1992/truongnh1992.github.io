@@ -4,7 +4,6 @@ title: Refactoring source codes (Tái cấu trúc mã nguồn)
 excerpt: "Refactoring được Việt hoá có nghĩa là: Tái cấu trúc. Vậy trong kĩ thuật lập trình, tái cấu trúc mã nguồn là gì?  "
 tags: [Python]
 author: truongnh
-color: rgb(42,140,152)
 ---
 
 ***Refactoring*** được Việt hoá có nghĩa là: *Tái cấu trúc*. Vậy trong kĩ thuật lập trình, *tái cấu trúc mã nguồn* là gì?  

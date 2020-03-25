@@ -9,7 +9,6 @@ favicon: static/img/favicon.ico                                   # Icon display
 
 # Header and footer text
 header_text: "Learn something new, everyday."                                # Change Blog header text
-header_feature_image: static/img/computer.jpeg 
 footer_text: Powered by <a href="https://gdgcloudhanoi.com/">GDG Cloud Hanoi</a>
 
 # Blog

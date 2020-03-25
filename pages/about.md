@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Hello, I'm Nguyen Hai Truong."
-feature-img: "static/img/computer.jpeg"
 permalink: /about/
 icon: "fa-address-card"
 ---
