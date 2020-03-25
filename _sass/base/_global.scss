@@ -32,7 +32,7 @@ html {
 
 body {
   color: $text-color;
-  font-family: 'Open Sans';
+  font-family: 'Arial';
   font-size: 16px;
   word-wrap: break-word;
 }
@@ -43,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto;
+  font-family: 'Arial';
   line-height: 1.6;
   margin: 0.67em 0;
   font-size: 18px;
@@ -55,6 +55,7 @@ h6 {
 
 h1 {
   font-size: 30px;
+  color: #27598a;
 }
 
 h2 {
