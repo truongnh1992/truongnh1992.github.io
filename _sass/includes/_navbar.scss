@@ -35,13 +35,12 @@
   }
 
   .avatar {
-    height: 3em;
-    width: 3em;
+    height: 55px;
+    width: 55px;
     float: left;
-    margin-top: -18px;
+    margin-top: -16px;
     padding: 1px 1px;
     margin-right: 8px;
-    border-radius: 50%;
   }
 
   .site-title {
@@ -101,7 +100,7 @@
 @media screen and (max-width: $break) {
   .site-header {
     img.avatar {
-      margin-top: -7px
+      margin-top: -2px
     }
 
     .site-title {
