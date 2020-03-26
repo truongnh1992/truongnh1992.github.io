@@ -19,7 +19,7 @@ Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhan
 
 GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we run meetup for developers interested in resources and technology from Google Developers.
 
-Website: https://gdgcloudhanoi.com
+Website: [https://gdgcloudhanoi.com](https://gdgcloudhanoi.com)
 
 
 ## <span style="color:#0f9d58; font-family: 'Google Sans'">Presentations</span>
