@@ -17,7 +17,9 @@ Checkout [my CV](https://firebasestorage.googleapis.com/v0/b/website-gdgcloudhan
 
 **[GDG Cloud Hanoi](https://gdcloudhanoi.com)** is a non-profit community of cloud developers who meet/share ideas on everything Google Cloud Platform related.
 
-GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we runs meetup for developers interested in resources and technology from Google Developers.
+GDG Cloud Hanoi is dedicated to building a strong community for GCP users in Hanoi, we run meetup for developers interested in resources and technology from Google Developers.
+
+Website: https://gdgcloudhanoi.com
 
 
 ## <span style="color:#0f9d58; font-family: 'Google Sans'">Presentations</span>
