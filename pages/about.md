@@ -5,7 +5,7 @@ subtitle: "Hello, I'm Nguyen Hai-Truong."
 permalink: /about/
 ---
 
-Software Engineer with **5 years of experience** in software development, specializes in **Embedded Linux**, **C/C++**, **Go** and **Shell Scripts**. Having background on **Computer Networking**, **OpenStack**, **Kubernetes** and **Docker/Container** as well.  
+Software Engineer with **5 years of experience** in software development, specializes in **Embedded Linux**, **C/C++**, **Go** and **Shell Scripts**. Having background on **Computer Networking**, **OpenStack**, **Kubernetes**, **Docker/Container** and **Google Cloud** as well.  
 
 [<i class="fa fa-github fa-2x" aria-hidden="true"></i>](https://github.com/truongnh1992/) [<i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
 ](https://www.linkedin.com/in/truongnh1992) [<i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
