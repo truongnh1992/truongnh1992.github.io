@@ -4,9 +4,10 @@ title: How to use docker run command
 excerpt: "The docker run command is used to launch and run containers. Learning how to use docker run command is a recommendation for any developers who want to get familiar with Docker."
 tags: [Docker]
 thumbnail: "assets/thumbnails/docker.png"
-feature-img: "assets/thumbnails/docker.png"
 author: truongnh
 ---
+
+![docker](/assets/thumbnails/docker.png)
 
 The docker run command is used to launch and run containers. Learning how to use `docker run` command is a recommendation for any developers who want to get familiar with Docker.
 
