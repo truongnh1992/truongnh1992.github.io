@@ -95,7 +95,7 @@ header {
     padding: $padding-large/2.5 $padding-large;
 
     .meta {
-      color: rgba($feature-image-text-color, .7);
+      color: rgba(44, 58, 100, 0.7);
     }
   }
 
@@ -117,7 +117,7 @@ header {
   }
 
   @media screen and (min-width: $break) {
-    background-size: 120% auto;
+    background-size: 0%;
   }
 
   @media screen and (max-width: $break) {
