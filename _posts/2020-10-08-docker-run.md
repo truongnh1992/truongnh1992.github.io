@@ -14,21 +14,20 @@ The docker run command is used to launch and run containers. Learning how to use
 When working with Docker, software developers mostly use the `docker run` command to:
 
 <!-- MarkdownTOC -->
-[1. Docker run command](#-docker-run-command)  
 
-[2. Run a container with a defined name](#-run-a-container-with-a-defined-name)  
+[Run a container with a defined name](#-run-a-container-with-a-defined-name)  
 
-[3. Run a container in the foreground](#-run-a-container-in-the-foreground)  
+[Run a container in the foreground](#-run-a-container-in-the-foreground)  
 
-[4. Run a container in the detached mode](#-run-a-container-in-the-detached-mode)  
+[Run a container in the detached mode](#-run-a-container-in-the-detached-mode)  
 
-[5. Run a container in the interactive mode](#-run-a-container-in-the-interactive-mode)  
+[Run a container in the interactive mode](#-run-a-container-in-the-interactive-mode)  
 
-[6. Port-forwarding a container](#-port-forwarding-a-container)  
+[Port-forwarding a container](#-port-forwarding-a-container)  
 
-[7. Mounting volumes of a container](#-mounting-volumes-of-a-container)
+[Mounting volumes of a container](#-mounting-volumes-of-a-container)
 
-[8. Remove a container once it stopped](#-remove-a-container-once-it-stopped)
+[Remove a container once it stopped](#-remove-a-container-once-it-stopped)
 <!-- /MarkdownTOC -->
 
 Now, we will go to the detail of how to use the `docker run` with corresponding examples.
@@ -292,4 +291,3 @@ Thanks for reading and please leave your suggestion in the below comment section
 *Author: [truongnh1992](https://github.com/truongnh1992)* - Email: nguyenhaitruonghp[at]gmail[dot]com
 
 **P/s:** I also published this article on linoxide.com
-
