@@ -93,7 +93,7 @@ This message shows that your installation appears to be working correctly.
 ...
 ```
 
-**Note:** From the Docker version 1.13, due to the new syntax of its release, we use `docker container run` instead of `docker run`.
+> **Note:** From the Docker version 1.13, due to the new syntax of its release, we use `docker container run` instead of `docker run`.
 
 
 <a name="-run-a-container-with-a-defined-name"><a/>
