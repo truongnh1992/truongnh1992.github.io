@@ -29,7 +29,7 @@ authors: truongnh                                       # In _data/authors.yml
 language:                                               # In _data/language.yml
 
 # PAGINATION
-paginate: 10
+paginate: 5
 paginate_path: "blog/page:num"
 
 # PORTFOLIO
