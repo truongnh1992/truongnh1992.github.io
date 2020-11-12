@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 #baseurl: ""
-#url: "https://blog.gdgcloudhanoi.com"
+url: "https://truongnh.gdgcloudhanoi.com"
 
 # THEME-SPECIFIC CONFIGURATION
 title: "Nguyen Hai-Truong's Blog"                                    # site's title
@@ -10,7 +10,7 @@ favicon: static/img/favicon.ico                                   # Icon display
 
 # Header and footer text
 header_text: "Learn something new, everyday."                                # Change Blog header text
-header_feature_image: static/img/computer.jpeg 
+# header_feature_image: static/img/computer.jpeg 
 footer_text: Powered by <a href="https://gdgcloudhanoi.com/">GDG Cloud Hanoi</a>
 
 # Blog
