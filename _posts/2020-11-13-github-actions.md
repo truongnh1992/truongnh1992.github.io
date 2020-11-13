@@ -3,7 +3,6 @@ layout: post
 title: Cài đặt CI/CD với Github Actions
 excerpt: "Bài viết này sẽ hướng dẫn chi tiết cách setup một Github Action CI/CD pipeline với Docker containers."
 tags: [Github, DevOps]
-feature-img: "/static/img/github-actions.png"
 author: truongnh
 ---
 
