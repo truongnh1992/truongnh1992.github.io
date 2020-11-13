@@ -6,7 +6,11 @@ tags: [Docker]
 author: truongnh
 ---
 
-![docker](/assets/thumbnails/pexels/docker.png)
+<img src="/assets/thumbnails/pexels/docker.png">
+
+{:.image-caption}
+*Docker logo*
+
 
 The docker run command is used to launch and run containers. Learning how to use `docker run` command is a recommendation for any developers who want to get familiar with Docker.
 
