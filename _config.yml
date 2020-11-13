@@ -5,8 +5,8 @@ url: "https://truongnh.gdgcloudhanoi.com"
 # THEME-SPECIFIC CONFIGURATION
 title: "Nguyen Hai-Truong's Blog"                                    # site's title
 description: "Linux Tech Blog"                                # used by search engines
-avatar: static/img/GDG.png                                  # Empty for no avatar in navbar
-favicon: static/img/favicon.ico                                   # Icon displayed in the tab
+#avatar: static/img/GDG.png                                  # Empty for no avatar in navbar
+#favicon: static/img/favicon.ico                                   # Icon displayed in the tab
 
 # Header and footer text
 header_text: "Learn something new, everyday."                                # Change Blog header text
