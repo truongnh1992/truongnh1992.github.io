@@ -3,7 +3,7 @@ layout: default
 ---
 {% include share_thumbnail.html page=page %}
 
-<article {% if page.feature-img or page.color %}class="feature-image"{% endif %}>
+<article {% if page.feature-img or page.color %}class="feature-image"{% endif %} style="padding: 2% 29%;">
   <header id="main" style="">
     {% unless page.hide_title %}
       <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
