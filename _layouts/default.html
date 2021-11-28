@@ -1,17 +1,69 @@
 <!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.0.0
-    Copyright 2016-2019 Sylhare
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
 <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="Ham Vocke">
+  <meta name="description" content="{{ site.description }}">
+  <link rel="author" href="/humans.txt" />
+  {% if page.external_url %}
+  <link rel="canonical" href="{{ page.external_url }}">
+  {% else %}
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+  {% endif %}
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/j-kyll.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/syntax.css" type="text/css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab:700|Open+Sans:300,400,700" type="text/css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png?v=m2lLvX9Kmj">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png?v=m2lLvX9Kmj">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png?v=m2lLvX9Kmj">
+  <link rel="manifest" href="/assets/img/favicon/manifest.json?v=m2lLvX9Kmj">
+  <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg?v=m2lLvX9Kmj" color="#e74c3c">
+  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico?v=m2lLvX9Kmj">
+  <meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml?v=m2lLvX9Kmj">
+  <meta name="theme-color" content="#e74c3c">
   {% include head.html %}
-  <body>
-    {% include navbar.html %}
-    <div class="content">
-      {{ content }}
+</head>
+<body>
+  <header id="topBar">
+    <div id="logo">
+      <a href="/" title="home">
+        <img src="/assets/img/logo128.png" alt="ham logo">
+        <h1>{{ site.title }}</h1>
+        <p class="subtitle">{{ site.subtitle }}</p>
+      </a>
     </div>
-    {% include footer.html %}
-  </body>
+    <nav role="navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li class="nav-icon"><a href="https://github.com/truongnh1992">{% include icon.html icon="github" %}</a></li>
+        <li class="nav-icon"><a href="https://twitter.com/truongnh92">{% include icon.html icon="twitter" %}</a></li>
+        <li class="nav-icon"><a href="https://www.linkedin.com/in/truongnh1992/">{% include icon.html icon="linkedin" %}</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    {{ content }}
+  </main>
+
+  <footer id="footer">
+    <div class="contact">
+      © Nguyen Hai Truong
+      <div class="icons">
+        <a href="mailto:{{site.email}}">{% include icon.html icon="mail" %}</a>
+        <a href="https://github.com/truongnh1992">{% include icon.html icon="github" %}</a>
+        <a href="https://twitter.com/truongnh92">{% include icon.html icon="twitter" %}</a>
+        <a href="https://www.linkedin.com/in/truongnh1992">{% include icon.html icon="linkedin" %}</a>
+        <a href="/tags">{% include icon.html icon="tag" %}</a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

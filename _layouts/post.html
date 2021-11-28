@@ -1,59 +1,63 @@
 ---
 layout: default
 ---
-{% include share_thumbnail.html page=page %}
 
-<article {% if page.feature-img or page.color %}class="feature-image"{% endif %} style="padding: 2% 29%;">
-  <header id="main" style="">
-    {% unless page.hide_title %}
-      <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
-      {% include post_info.html author=page.author date=page.date %}
-    {% endunless %}
-  </header>
-  <section class="post-content">
-  {% if page.bootstrap %}
-    <div class="bootstrap-iso">
-    {% endif %}
-      {{ content }}
-    {% if page.bootstrap %}
-    </div>
-  {% endif %}
-  </section>
+<h1 class="post-title">{{ page.title }}</h1>
+<div class="meta-info">
+  <div class="tags">
+    {% include icon.html icon="tag" %}
+    {% for tag in page.tags %}
+    <span><a href="/tags/{{ tag }}">{{ tag }}</a></span>
+    {% endfor %}
+  </div>
 
-  <!-- Social media shares -->
-  {% include share_buttons.html %}
+  <div class="post-date">
+    {% include icon.html icon="calendar" %}
+    <time>{{ page.date | date_to_string }}</time>
+  </div>
 
-   <!-- Tag list -->
-  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
-  {% include tags_list.html tags=tag_list %}
-
-</article>
-
-<!-- Disqus -->
-{% if site.disqus_shortname or site.theme_settings.disqus_shortname %}
-<div class="comments">
-  {% include disqus.html %}
+  {% include reading_time.html %}
 </div>
-{% endif %}
 
-<!-- Post navigation -->
-{% if site.post_navigation  or site.theme_settings.post_navigation %}
-  {% include post_nav.html %}
-{% endif %}
+<div class="post">
+  {{ content }}
+</div>
 
-<!-- To change color of links in the page -->
-<style>
-  {% if page.color %}
-    .feature-image a { color: {{ page.color }} !important; }
-    div#post-nav a { color: {{ page.color }} !important; }
-    footer a { color: {{ page.color }} !important; }
-    .site-header nav a:hover {  color: {{ page.color }} !important; }
-    header#main { background-color: {{ page.color }} !important; }
-  {% endif %}
+<div class="author">
+  <img src="/assets/img/truong.jpg" class="profile img-circle" alt="photo ham">
+  <h4>Nguyen Hai Truong</h4>
+  <p class="lead">
+  Cloud Architect at FPT Smart Cloud.
+ Head of GDG Cloud Hanoi - a non-profit community of cloud developers who meet/share ideas on everything GCP-related.
+  <div class="contact">
+    <div class="icons">
+      <a href="mailto:{{site.email}}">{% include icon.html icon="mail" %}</a> &nbsp;
+      <a href="https://github.com/truongnh1992">{% include icon.html icon="github" %}</a> &nbsp;
+      <a href="https://twitter.com/truongnh92">{% include icon.html icon="twitter" %}</a> &nbsp;
+      <a href="https://www.linkedin.com/in/truongnh1992">{% include icon.html icon="linkedin" %}</a>
+    </div>
+  </div>
+</div>
 
-  header#main {
-    background-repeat:no-repeat;
-    {% if page.feature-img %} background-image: url('{{ page.feature-img | relative_url }}');
-    {% elsif page.color %}background-image: url('{{ site.color_image | relative_url }}');  {% endif %}
-  }
-</style>
+    {% if page.comments %}
+    <div class="comments">
+      <h2>Comments</h2>
+      <div id="disqus_thread"></div>
+    </div>
+    <script type="text/javascript">
+    var disqus_shortname = 'onehamarmy';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] ||
+      document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>
+      Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </noscript>
+
+    {% endif %}
