@@ -1,6 +1,29 @@
-www.hamvocke.com
-================
+Hello,
 
-Source code for my website and blog. 
+Welcome to my personal Tech Blog :)
 
-Read my nonsense over at [www.hamvocke.com](http://www.hamvocke.com). Or don't, that's up to you.
+https://truongnh1992.github.io/
+
+
+### How to build this blog?
+
+#### 1. Install Bundler
+```console
+gem install bundler
+bundle update
+```
+
+#### 2. Clone source code
+
+```console
+git clone https://github.com/truongnh1992/truongnh1992.github.io.git
+```
+
+#### 3. Run the blog on localhost
+
+```console
+$ bundle exec jekyll serve
+
+Server address: http://127.0.0.1:4000
+Server running... press ctrl-c to stop.
+```
