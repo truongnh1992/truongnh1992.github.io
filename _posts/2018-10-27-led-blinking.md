@@ -3,7 +3,6 @@ layout: post
 title: DIY Nháy LED với Python trên Raspberry Pi 2
 excerpt: "Chiếc Rasberry Pi của mình là Rasberry Pi 2, mình tậu em nó từ hồi năm cuối Đại học (2015), hàng UK nên dùng rất bền, mua về nhà cũng vọc vạch được khá nhiều trò hay ho với cái board này: Cài OSMC (https://osmc.tv/download/) lên rồi cắm vô chiếc stupid TV nhà mình để biến nó thành smart hơn và cũng hỗ trợ đầy đủ app Youtube, multimedia server các kiểu..."
 tags: [Python, Raspberry]
-image: /static/img/raspberrypi/mypi.jpg
 author: truongnh
 ---
 

@@ -3,13 +3,14 @@ layout: post
 title: CI/CD với Github Actions
 excerpt: "Bài viết này sẽ hướng dẫn chi tiết cách setup một Github Action CI/CD pipeline để tự động build mã nguồn mỗi khi bạn push lên Github Repo thành một Docker Image và đẩy lên Docker Hub."
 tags: [Github, DevOps]
-author: truongnh
-image: /assets/img/uploads/github-action.png
-comments: true
+image: /static/img/github-actions.png
+comment: true
 ---
 
-<img src="/assets/img/uploads/github-action.png">
+<img src="/static/img/github-actions.png">
 
+{:.image-caption}
+*Source: https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/*
 
 Một khảo sát của Jetbrains [(2020 Jetbrains developer survey)](https://www.jetbrains.com/lp/devecosystem-2020/) chỉ ra rằng: hiện có tới 44% nhà phát triển đang sử dụng các công cụ CI/CD với Docker Containers. Họ dùng [Docker Hub](https://hub.docker.com) để lưu trữ và chia sẻ các `docker images`.
 

@@ -5,8 +5,6 @@ excerpt: "Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thư�
 comments: true
 tags: [Networking, Linux]
 author: truongnh
-image: /static/img/network-inteface.jpg
-comments: true
 ---
 
 Khi làm việc trên môi trường GNU/Linux, địa chỉ IP thường được cấu hình một cách tự động bởi hệ điều hành và chúng ta sẽ có một địa chỉ IP động (*dynamic IP address*) được cấp phát cho mỗi card mạng (*NIC - Network Interface Card*).
