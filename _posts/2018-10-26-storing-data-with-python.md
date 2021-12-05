@@ -3,7 +3,7 @@ layout: post
 title: Python, storing Data using the JSON
 excerpt: "Dữ liệu của một chương trình viết bằng Python có thể chứa nhiều loại thông tin khác nhau, chẳng hạn như một game sẽ yêu cầu người chơi nhập vào username và chương trình này sẽ lưu lại điểm số sau mỗi lượt chơi, các tuỳ chọn thiết lập trong game... Dù thông tin ở dạng nào đi nữa thì chúng cũng sẽ được lưu trong các cấu trúc dữ liệu mà ngôn ngữ lập trình Python hỗ trợ như: danh sách (lists) hoặc từ điển (dictionaries). Khi người dùng đóng chương trình, những thông tin được tạo ra trong quá trình chạy chương trình (phải) được lưu lại. Một biện pháp đơn giản để thực hiện việc này là lưu trữ data bằng cách sử dụng mô-đun (module) json."
 tags: [Python]
-author: truongnh
+comments: true
 ---
 
 Dữ liệu của một chương trình viết bằng [Python](https://www.python.org/) có thể chứa nhiều loại thông tin khác nhau, chẳng hạn như một game sẽ yêu cầu người chơi nhập vào username và chương trình này sẽ lưu lại điểm số sau mỗi lượt chơi, các tuỳ chọn thiết lập trong game... Dù thông tin ở dạng nào đi nữa thì chúng cũng sẽ được lưu trong các cấu trúc dữ liệu mà ngôn ngữ lập trình Python hỗ trợ như: danh sách (**lists**) hoặc từ điển (**dictionaries**). Khi người dùng đóng chương trình, những thông tin được tạo ra trong quá trình chạy chương trình (phải) được lưu lại. Một biện pháp đơn giản để thực hiện việc này là lưu trữ data bằng cách sử dụng mô-đun (module) **json**.  

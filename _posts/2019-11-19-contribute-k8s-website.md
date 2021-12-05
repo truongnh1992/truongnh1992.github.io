@@ -3,7 +3,7 @@ layout: post
 title: Dịch tài liệu Kubernetes sang Tiếng Việt
 excerpt: "Hiện tại đang có một số bạn muốn giúp dịch tài liệu của Kubernetes sang Tiếng Việt. K8s là dự án mã nguồn mở nên các hoạt động này là từ phía cộng đồng. Bạn nào có hứng thú với việc contribute thì đọc hướng dẫn này nhé."
 tags: [Kubernetes]
-author: truongnh
+comments: true
 ---
 
 #### Contents
