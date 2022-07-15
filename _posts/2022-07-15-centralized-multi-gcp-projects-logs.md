@@ -12,9 +12,7 @@ Assume that all of your company workloads are running on Google Cloud. There are
 It's very inconvenient when team members want to check logs of applications on different projects. Fortunately, Google Cloud allows us to ship all the logs from different projects into one place.
 
 <img src="/assets/img/centralized-gcp-logs.png">
-
-{:.image-caption}
-Architecture
+_Architecture overview_
 
 ### Filter logs at the organization level with a sink
 We can use an aggregated sink to combine and route logs from the GCP projects in an organization or folder.
@@ -56,7 +54,7 @@ gcloud logging sinks create sink-specific-logs --organization=$ORGANIZATION_ID -
 logging.googleapis.com/projects/logging.googleapis.com/projects/$YOUR_PROJECT_ID/locations/global/buckets/specific-log
 ```
 
-#### Check the log entries
+#### Step 3: Refine scope in Logs Explorer
 
 Go to the Cloud Logging console and click `REFINE SCOPE`
 
@@ -65,6 +63,8 @@ Go to the Cloud Logging console and click `REFINE SCOPE`
 Then, select the `Scope by storage` and select the only `specific-log` log bucket created in **Step 1**.
 
 <img src="/assets/img/scopebystorage.png">
+
+#### Step 4: Check the log entries
 
 Now, you can choose the project you want to check logs on the left pane.
 
