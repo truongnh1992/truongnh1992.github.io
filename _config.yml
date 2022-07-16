@@ -14,9 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Nguyen Hai Truong
-subtitle: learn something new, everyday.
+subtitle: Father, Husband, Engineer
 email: nguyenhaitruonghp@gmail.com
-description: Learn something new, everyday.
+description: Father, Husband, Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.truongnh.cloud" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: truongnh92
