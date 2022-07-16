@@ -4,7 +4,7 @@ title: Deploying multi-master nodes (High Availability) K8S
 excerpt: "kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm."
 tags: [Kubernetes]
 image: /static/img/multi-master-ha/stacketcd.png
-comments: true
+comments: false
 ---
 
 kubeadm is a tool which is a part of the Kubernetes project. It helps you deploy a Kubernetes cluster but it still has some limitations and one of these is that it doesn't support multi-master nodes (HA). This article will show you the way to create a HA Cluster with kubeadm.

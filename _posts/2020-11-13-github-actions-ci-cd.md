@@ -4,7 +4,7 @@ title: CI/CD với Github Actions
 excerpt: "Bài viết này sẽ hướng dẫn chi tiết cách setup một Github Action CI/CD pipeline để tự động build mã nguồn mỗi khi bạn push lên Github Repo thành một Docker Image và đẩy lên Docker Hub."
 tags: Github DevOps CI/CD
 image: /static/img/github-actions.png
-comments: true
+comments: false
 ---
 
 <img src="/static/img/github-actions.png">

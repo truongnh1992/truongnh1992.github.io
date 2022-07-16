@@ -3,7 +3,7 @@ layout: post
 title: Github workflow for contributing to Kubernetes
 excerpt: "How to contribute to Kubernetes?"
 tags: [Linux, Tutorials]
-comments: true
+comments: false
 image: /static/img/github/github_workflow.png
 ---
 
