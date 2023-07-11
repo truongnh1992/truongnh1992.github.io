@@ -32,6 +32,9 @@ google_analytics: UA-126117321-1
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
 plugins:
   - jekyll-paginate
 
