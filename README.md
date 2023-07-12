@@ -2,7 +2,7 @@ Hello,
 
 Welcome to my personal Tech Blog :)
 
-https://truongnh1992.github.io/
+https://truongnh.dev
 
 
 ### How to build this blog?

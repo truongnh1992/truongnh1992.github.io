@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Workload Identity Federation for Github Provider
+categories: GCP
 excerpt: "Assume we want to deploy a CloudRun service to a GCP project from GitHub Action. GitHub needs to be authorized with GCP. We can generate the JSON key of a service account (that has sufficient IAM roles) and store it in the Github Repo as Secrets. Then we use this Service Account key to call GCP APIs. ⇒ It’s hazardous (in case that key is leaked)."
-tags: GCP DevOps SRE
 image: /assets/img/wif.png
 comments: false
 ---
@@ -27,7 +27,7 @@ gcloud iam workload-identity-pools create github-wif-pool \
 ### 2. Create a Workload Identity Pool Provider
 A *Workload Identity Pool Provider* describes the relationship between Google Cloud and an external Identity Provider (IdP). In this article, the IdP is GitHub OIDC Provider.
 GCP IAM uses a token of the GitHub OIDC provider to authorize the permission on GCP resources.
-```
+```bash
 gcloud iam workload-identity-pools providers create-oidc githubwif \
 --location="global" --workload-identity-pool="github-wif-pool" \
 --issuer-uri="https://token.actions.githubusercontent.com" \
@@ -41,7 +41,7 @@ For example, we'll use this service account `SA-NAME@PROJECT-ID.iam.gserviceacco
 We need to grant the role `roles/iam.workloadIdentityUser` to the above service account.
 
 If we only allow IAM to authen the request coming from a specific Github repository `your-github-username/your-repo`
-```
+```bash
 gcloud iam service-accounts add-iam-policy-binding SA-NAME@PROJECT-ID.iam.gserviceaccount.com \
 --project=PROJECT-ID \
 --role="roles/iam.workloadIdentityUser" \

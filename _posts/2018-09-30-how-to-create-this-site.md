@@ -2,7 +2,7 @@
 layout: post
 title: Cách tạo website cá nhân với Github Pages
 excerpt: "Bài viết này sẽ hướng dẫn các bạn cách xây dựng một website cá nhân bằng Github Pages."
-tags: [Linux, Tutorials]
+categories: [Linux, Tutorials]
 comments: false
 images: /static/img/workingspace.jpg
 ---

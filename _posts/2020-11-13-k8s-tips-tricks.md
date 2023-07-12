@@ -2,7 +2,7 @@
 layout: post
 title: Một số tips hữu ích khi làm việc với K8s
 excerpt: "Công việc của một DevOps Engineer sẽ hiệu quả và năng suất hơn nếu làm chủ được những công cụ này."
-tags: Kubernetes DevOps
+categories: Kubernetes DevOps
 image: /assets/img/k8s-tips.jpeg
 comments: false
 ---

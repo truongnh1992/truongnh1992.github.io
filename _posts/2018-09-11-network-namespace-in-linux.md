@@ -4,7 +4,7 @@ title: Linux Network Namespace
 excerpt: "Network namespace giúp chúng ta có các mạng riêng biệt trên một host.
 
 Mỗi một namespace sẽ có những giao diện (interface) và bảng định tuyến (routing table) của riêng nó và tách biệt với các namespace khác. Ngoài ra, tiến trình (process) trên hệ thống có thể được liên kết với một network-namespace cụ thể."
-tags: [Linux, Networking, Namespace]
+categories: [Linux, Networking, Namespace]
 image: /static/img/network-namespace/default-namespace.png
 ---
 

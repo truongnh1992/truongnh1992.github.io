@@ -1,8 +1,0 @@
-/* the humans responsible & colophon */
-/* humanstxt.org */
-
-/* TEAM */
-  Owner: Nguyen Hai Truong
-  Site: http://www.truongnh1992.github.io
-  Twitter: truongnh1992
-  Location: Hanoi, Vietnam

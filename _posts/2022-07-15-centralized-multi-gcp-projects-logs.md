@@ -2,7 +2,7 @@
 layout: post
 title: Centralized multiple GCP Projects logs
 excerpt: "This article will show you how to accomplish log-file unification with access control using GCP’s Cloud Logging service."
-tags: GCP DevOps SRE
+categories: GCP DevOps SRE
 image: /assets/img/centralized-gcp-logs.png
 comments: false
 ---
@@ -37,7 +37,7 @@ The common log bucket can be one of the projects in your organization.
 
 For example, let's create a log bucket on the project with project-id: `$YOUR_PROJECT_ID`
 
-```
+```bash
 gcloud logging buckets create --location=global --retention-days=7 --project=$YOUR_PROJECT_ID specific-log
 ```
 
@@ -49,7 +49,7 @@ Result:
 
 You can create an aggregated sink by running the following command:
 
-```
+```bash
 gcloud logging sinks create sink-specific-logs --organization=$ORGANIZATION_ID --include-children \
 logging.googleapis.com/projects/logging.googleapis.com/projects/$YOUR_PROJECT_ID/locations/global/buckets/specific-log
 ```
