@@ -1,6 +1,6 @@
 Hello,
 
-Welcome to my personal Tech Blog :)
+Welcome to my Tech Blog :)
 
 https://truongnh.dev
 
