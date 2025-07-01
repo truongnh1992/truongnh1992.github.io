@@ -69,7 +69,7 @@ main {
   }
 
   .content {
-    @media screen and (min-width: $mobileW + 1) {
+    @media screen and (min-width: #{$mobileW + 1px}) {
       max-width: calc(100% - #{$leftWidth});
       margin-left: $leftWidth;
       width: 100%;
@@ -86,7 +86,7 @@ main {
     @media screen and (max-width: $smallMobileW) {
       padding: 5vh 20px;
     }
-    @media screen and (min-width: $mobileW + 1) {
+    @media screen and (min-width: #{$mobileW + 1px}) {
       position: fixed;
       max-width: 280px;
     }
@@ -267,11 +267,64 @@ main {
     font-family: Georgia, serif;
   }
 }
+.post .image-caption {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 6px 0 5px 0 !important;
+  font-size: 14px;
+}
 .posts-labelgroup {
   margin: 0 0 0.67em 0;
   display: flex;
   align-items: baseline;
   border-bottom: 1px solid #eee;
+  flex-direction: column;
+}
+
+.tab-container {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.tab-label {
+  font-size: 15px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  font-weight: normal;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  flex: 1;
+  text-align: center;
+  
+  &:hover {
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  &.active {
+    color: #333;
+    border-bottom-color: #0a59b0;
+    background-color: #f5f5f5;
+  }
+}
+
+.tab-content {
+  display: none;
+  width: 100%;
+  
+  &.active {
+    display: block;
+  }
+}
+
+.daily-life-section {
+  padding: 20px 0;
 }
 
 #posts-label {
