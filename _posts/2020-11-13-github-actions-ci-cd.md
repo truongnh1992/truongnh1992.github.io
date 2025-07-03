@@ -37,11 +37,8 @@ Dockerfile sẽ được sử dụng để build file mã nguồn [main.go](http
 GitHub Actions sử dụng các `YAML` file để định nghĩa các thành phần của một `workflow`.
 
 * **`Workflow`**: Workflow là một quy trình tự động mà bạn tạo trên Github Repository. Một workflow có thể bao gồm một hoặc nhiều jobs được lên lịch và được trigger bởi event.
-
 * **`Jobs`**: Một job là một tập các `steps` được thực thi trên cùng một runner. Runner ở đây **không phải** là vận động viên chạy bộ đâu nhé :D => "The runner is the application that runs a job from a GitHub Actions workflow". Runner sẽ lắng nghe tất cả các jobs đang sẵn có, chạy từng job một và report các process, logs và kết quả chạy cho GitHub. Bạn có thể hiểu đơn giản là đối với GitHub-hosted runners, mỗi job trong một workflow sẽ chạy trong một `virtual environment` based on Ubuntu Linux, Microsoft Windows hoặc macOS.
-
 * **`Steps`**: Một step là một task đơn lẻ chạy các commands trong một job. Một step có thể là một `action` hoặc một shell command. Mỗi step trong một Job thực thi trong cùng runner, điều này cho phép các action chia sẻ dữ liệu với nhau.
-
 * **`Actions`**: Action là đơn vị nhỏ nhất trong một workflow. Các actions là các lệnh độc lập (standalone commands) được kết hợp thành các `steps` để tạo nên một `job`.
 
 Để tạo mới một Github Action workflow, bạn sẽ phải tạo một directory `.github/workflows` trong GitHub repo. Ở ví dụ trong hướng dẫn này, mình sẽ tạo workflow file có tên là `build.yml`:
@@ -89,7 +86,6 @@ Click vào **Create** rồi copy Token bên dưới, và mình sẽ sử dụng 
 Quay trở lại với Github Repo, đi đến Settings tab và bạn cần tạo hai `GitHub Secrets`:
 
 * DOCKER_HUB_ACCESS_TOKEN: Copy từ **Personal Access Token** ở bước trên
-
 * DOCKER_HUB_USERNAME: đây là Docker Hub username của bạn
 
 <img src="/static/img/github-actions/secrets_github.png">

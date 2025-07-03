@@ -4,6 +4,7 @@ title: "Chúc mừng sinh nhật con gái tròn 5 tuổi"
 date: 2025-06-18 08:00:00 +0700
 image: /assets/img/daughter-1.jpg
 categories: [daily-life]
+excerpt: "Hôm nay con gái vừa tròn 5 tuổi 🎉"
 tags: [family]
 ---
 
