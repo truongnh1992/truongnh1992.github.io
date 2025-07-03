@@ -18,6 +18,20 @@
 		color: #ddd;
 	}
 
+	.post blockquote {
+		background-color: #333;
+		border-left-color: $dark_link_color;
+		color: #ccc;
+		
+		&:before {
+			color: $dark_link_color;
+		}
+		
+		cite {
+			color: #aaa;
+		}
+	}
+
 	.social [class^="icon-"] {
 		color: $dark_text_color
 	}

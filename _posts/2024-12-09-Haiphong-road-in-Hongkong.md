@@ -7,7 +7,7 @@ categories: [daily-life]
 tags: [travel]
 ---
 
-`Nhân một chuyến công tác sang Hương Cảng.`
+> Nhân một chuyến công tác sang Hương Cảng.
 
 Có một con đường ở Hong Kong mang tên Hải Phòng - Haiphong Road (海防道) ở phía nam công viên Cửu Long.
 

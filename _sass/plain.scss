@@ -266,6 +266,44 @@ main {
   h6 {
     font-family: Georgia, serif;
   }
+  blockquote {
+    border-left: 4px solid $linkColor;
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    font-style: italic;
+    color: #555;
+    position: relative;
+    
+    &:before {
+      content: '"';
+      font-size: 4em;
+      color: $linkColor;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+      font-family: Georgia, serif;
+      opacity: 0.3;
+    }
+    
+    p {
+      margin: 0;
+      padding-left: 40px;
+    }
+    
+    cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 10px;
+      
+      &:before {
+        content: "— ";
+      }
+    }
+  }
 }
 .post .image-caption {
   text-align: center;
