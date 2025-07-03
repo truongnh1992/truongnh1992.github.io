@@ -4,10 +4,17 @@
 @import "plain";
 
 {% if site.plainwhite.search %}
-  @import "search";
+@import "search";
 {% endif %}
 
 {%- if site.plainwhite.dark_mode -%}
-  @import "toggle";
-  @import "dark";
+@import "toggle";
+@import "dark";
 {%- endif -%}
+
+/* Custom styles to reduce social media icon size by 60% */
+.social li i {
+  font-size: 60% !important;
+  transform: scale(0.6);
+  transform-origin: center;
+}
