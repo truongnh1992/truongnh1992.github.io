@@ -108,7 +108,7 @@ INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 Lúc này bạn có thể hỏi đáp với Agent do chình mình vừa tạo.
 <img src="/assets/img/myagent.png">
 
-Khi bạn nhập câu hỏi vào giao diện trên, cùng lúc Terminal cũng output ra log sau, phù hợp với cài đặt trong file `agent.py` phía trên.
+Khi bạn nhập câu hỏi vào giao diện trên, cùng lúc Terminal cũng output ra log sau, phù hợp với cài đặt trong file `agent.py` trước đó.
 
 ```
 LLM Request:
