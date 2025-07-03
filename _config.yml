@@ -11,6 +11,10 @@ show_excerpts: true # set to true to show excerpts on the homepage
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
   sass_dir: _sass
+
+# Permalink configuration for concise URLs
+permalink: /:title.html
+
 plainwhite:
   name: Nguyen Hai Truong
   tagline: Father - Husband - GDE
