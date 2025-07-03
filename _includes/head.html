@@ -23,6 +23,31 @@
   .social li img {
     vertical-align: baseline !important;
   }
+  
+  /* Drop cap effect for first letter of posts - spans exactly 3 lines */
+  .post-content p:first-child::first-letter,
+  .content p:first-child::first-letter {
+    font-size: 3.7em;
+    font-weight: bold;
+    line-height: 1;
+    float: left;
+    margin: 0 6px 0 0;
+    padding: 0;
+    color: #1976d2;
+    font-family: inherit;
+  }
+  
+  /* Exclude drop caps from blockquotes */
+  .post-content blockquote p:first-child::first-letter,
+  .content blockquote p:first-child::first-letter {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    float: none;
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+  }
 </style>
 <title>{{ page.title | default: site.title }}</title>
 {% seo %}

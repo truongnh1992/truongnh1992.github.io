@@ -117,12 +117,8 @@ backend kubernetes-master-nodes
         server k8s-master3 10.0.2.13:6443 check fall 3 rise 2
 ```
 
-  
-
 - The health check for an apiserver is a TCP check on the port which the kube-apiserver listen on. The default value: **6443**    
-
 - In frontend section: bind to `ha machine` IP address (10.0.2.33)  
-
 - In backend section: Notice the hostname and IP address of 3 master nodes    
 
 
@@ -151,7 +147,6 @@ controlPlaneEndpoint: "10.0.2.33:6443"
 
 
 - The `kubernetesVersion` is the Kubernetes version which is using. This configuration uses `stable`    
-
 - The `controlPlaneEndpoint` is the `ha machine`'s IP address with port 6443     
 
 

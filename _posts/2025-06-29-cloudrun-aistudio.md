@@ -12,7 +12,7 @@ comments: false
 
 You've just had a brilliant idea for an AI-powered application. Maybe it's a tool to generate images, a chatbot, or an app that summarizes complex documents. You've prototyped it in Google AI Studio, tweaked your prompt to perfection, and watched the Gemini model produce exactly what you need.
 
-> `The excitement is real`. But then comes the next thought: **deployment**.
+> The excitement is real. But then comes the next thought: **deployment**.
 
 <img src="/assets/img/GoogleAIStudionxCloudRun.png">
 
