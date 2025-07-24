@@ -243,10 +243,12 @@ main {
   padding-left: 30px;
 }
 .post {
-  font-family: "Georgia", serif;
+  font-family: "Georgia", serif !important;
   font-weight: 300;
   color: #222;
   line-height: 1.9em;
+  font-size: 17px !important;
+  
   p {
     margin-top: 10px;
   }

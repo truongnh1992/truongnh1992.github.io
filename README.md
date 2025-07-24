@@ -2,7 +2,7 @@ Hello,
 
 Welcome to my Tech Blog :)
 
-https://truongnh.dev
+https://truongnh-gde.dev
 
 
 ### How to build this blog?
