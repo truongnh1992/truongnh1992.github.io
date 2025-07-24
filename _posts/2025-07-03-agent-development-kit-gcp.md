@@ -2,11 +2,11 @@
 layout: post
 title: Tạo nhanh một "Tác nhân AI" với ADK trên Google Cloud
 categories: [GCP, ADK, Gemini]
-excerpt: "Tác nhân AI (AI agent) là một chương trình độc lập (tự trị, tự điều khiển, tự động), giao tiếp với mô hình AI để thực hiện một hoạt động dựa trên mục tiêu bằng cách sử dụng các công cụ và ngữ cảnh mà nó có, đồng thời có khả năng tự đưa ra quyết định căn cứ vào các sự thật."
+excerpt: "Tác nhân AI (AI agent) là một hệ thống hoặc chương trình phần mềm được thiết kế để có thể hoạt động một cách độc lập, giao tiếp với mô hình AI để thực hiện các tác vụ cụ thể bằng cách sử dụng các công cụ và ngữ cảnh mà nó có. Nó có khả năng tự đưa ra quyết định và thực hiện hành động mà không cần sự can thiệp liên tục từ con người. AI Agents khác với các hệ thống tự động hóa truyền thống ở chỗ có khả năng học hỏi, thích ứng và cải thiện hiệu suất theo thời gian."
 image: /assets/img/ADK.png
 ---
 
-Tác nhân AI **(AI agent)** là một chương trình độc lập (tự trị, tự điều khiển, tự động), giao tiếp với mô hình AI để thực hiện một hoạt động dựa trên mục tiêu bằng cách sử dụng các công cụ và ngữ cảnh mà nó có, đồng thời có khả năng tự đưa ra quyết định căn cứ vào các sự thật.
+Tác nhân AI **(AI agent)** là một hệ thống hoặc chương trình phần mềm được thiết kế để có thể hoạt động một cách độc lập, giao tiếp với mô hình AI để thực hiện các tác vụ cụ thể bằng cách sử dụng các công cụ và ngữ cảnh mà nó có. Nó có khả năng tự đưa ra quyết định và thực hiện hành động mà không cần sự can thiệp liên tục từ con người. AI Agents khác với các hệ thống tự động hóa truyền thống ở chỗ có khả năng học hỏi, thích ứng và cải thiện hiệu suất theo thời gian.
 
 ### ADK là gì?
 
@@ -120,4 +120,11 @@ You are an agent. Your internal name is "Smart_agent".
 
  The description about you is "A helpful assistant for user questions."
 ```
-Happy hacking :)
+
+### Phiên Hands-on "Building Your First Ever Agent with Google ADK"
+
+Vào ngày 19/7/2025, mình cũng có bài hướng dẫn Xây dựng AI Agent với Google ADK tại sự kiện **Google Cloud Next Extended Hanoi**.
+
+Các bạn có thể tham khảo chi tiết tại repo này: [https://github.com/truongnh1992/adk-demo](https://github.com/truongnh1992/adk-demo)
+
+![image](assets/img/SlideTruong.jpg)
