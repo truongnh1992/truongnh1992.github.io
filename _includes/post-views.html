@@ -1,0 +1,70 @@
+<!-- Post View Counter -->
+<span class="date-separator">•</span>
+<div class="post-views" id="post-views-{{ page.url | slugify }}">
+  <span class="view-count" data-url="{{ page.url }}">
+    <span class="loading">📊 Loading views...</span>
+  </span>
+</div>
+
+<script>
+// Simple view counter using localStorage for demo
+// In production, this would connect to Google Analytics API
+(function() {
+  const postUrl = '{{ page.url }}';
+  const viewCountSpan = document.querySelector('[data-url="' + postUrl + '"] .loading');
+  
+  // Get current view count from localStorage
+  const storageKey = 'views_' + postUrl.replace(/[^a-zA-Z0-9]/g, '_');
+  let viewCount = parseInt(localStorage.getItem(storageKey) || '0');
+  
+  // Increment view count
+  viewCount++;
+  localStorage.setItem(storageKey, viewCount.toString());
+  
+  // Display view count
+  if (viewCountSpan) {
+    viewCountSpan.textContent = '📊 ' + viewCount + (viewCount === 1 ? ' view' : ' views');
+    viewCountSpan.className = 'view-number';
+  }
+})();
+</script>
+
+<style>
+.date-separator {
+  margin: 0 6px;
+  color: #999;
+  font-size: 0.8em;
+}
+
+.post-views {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.85em;
+  color: #666;
+  vertical-align: middle;
+}
+
+
+
+.view-count .loading {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.view-count .view-number {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .date-separator {
+    color: #666;
+  }
+  
+  .post-views {
+    color: #aaa;
+  }
+}
+</style>
