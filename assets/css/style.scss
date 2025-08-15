@@ -18,3 +18,9 @@
   transform: scale(0.6);
   transform-origin: center;
 }
+
+/* Make tagline font smaller */
+.tagline {
+  font-size: 0.85em !important;
+  font-weight: 400;
+}

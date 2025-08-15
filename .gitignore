@@ -7,3 +7,5 @@ _site*
 *~
 *.swp
 Gemfile.lock
+.bundle/
+vendor/
