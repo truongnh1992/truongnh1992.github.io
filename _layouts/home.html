@@ -29,7 +29,6 @@ layout: default
               <div class="post-date">
                 <i class="icon-calendar"></i>
                 {{ post.date | date: date_format }}
-                {% assign page = post %}{% include post-views.html %}
               </div>
               {%- if post.categories.size > 0-%}
               <ul class="post-categories">
@@ -62,7 +61,6 @@ layout: default
               <div class="post-date">
                 <i class="icon-calendar"></i>
                 {{ post.date | date: date_format }}
-                {% assign page = post %}{% include post-views.html %}
               </div>
               {%- if post.tags.size > 0-%}
               <ul class="post-categories">
