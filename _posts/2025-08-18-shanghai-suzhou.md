@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dắt lưng 10 vạn quan tiền đến Thượng Hải và Tô Châu"
-image: /assets/img/china2025/tigerhill8.jpg
+image: /assets/img/china2025/preview.png
 excerpt: "Nhân một chuyến sang Thượng Hải dự sự kiện Google I/O Connect 2025 và summit Google Developer Experts khu vực Châu Á Thái Bình Dương."
 categories: [daily-life]
 tags: [travel]
@@ -44,6 +44,13 @@ Ban tổ chức có chuẩn bị cái backdrop này cho mọi người kí tên 
 
 ![sh-1](/assets/img/china2025/shanghai_4.png)
 <div style="text-align: center; font-style: italic; color: #888;">Team Việt Nam và những người bạn Thái Lan: Fony, Mils, Jirawat và Warat</div>
+
+Đi chạy buổi sáng cùng Weiyuan, Trung Võ, Fony và anh Đức.
+
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+  <img src="/assets/img/china2025/run1.jpeg" alt="Shanghai scene" style="width: 65%; height: auto;">
+  <img src="/assets/img/china2025/run2.jpeg" alt="Shanghai scene" style="width: 35%; height: auto;">
+</div>
 
 Buổi tối, sau khi kết thúc *GDE Summit APAC*, chị Nhi Nguyễn - Community Manager của 3 nước Việt Nam, Thái Lan và Philippines có đứng ra tổ chức bữa ăn tối chung để mọi người cùng giao lưu và làm quen với những gương mặt mới.
 > Cảm ơn anh Tú vì đã lo hậu cần, "đi chợ" chọn được những món ăn hợp ý anh chị em :D
