@@ -3,7 +3,7 @@ layout: post
 title: Building a Production-Ready AI Agent with Google ADK, Gemini 3, and MCP on Cloud Run
 categories: [GCP, ADK, Gemini 3, MCP]
 excerpt: "In the rapidly evolving world of AI agents, the Model Context Protocol (MCP) has emerged as a game-changer for standardizing how AI models connect to external tools. This article will help you walk through steps to build something special: a production-ready AI agent that doesn't just run tools locally, but connects to a remote MCP server deployed on Google Cloud Run."
-image: /assets/img/ADK.png
+image: assets/img/Gemini_MCP_ADK_Cloudrun.png
 ---
 
 In the rapidly evolving world of AI agents, the **Model Context Protocol (MCP)** has emerged as a game-changer for standardizing how AI models connect to external tools. This article will help you walk through steps to build something special: a production-ready AI agent that doesn't just run tools locally, but connects to a **remote MCP server deployed on Google Cloud Run**.
@@ -30,10 +30,15 @@ Before we dive into code, let's look at what we're building.
 *   [WeatherAPI.com](https://www.weatherapi.com/) ( for weather API Key, free tier is fine)
 *   Python 3.12+ and `uv` (modern Python package manager)
 
+Before we begin, clone the source code from [this repository](https://github.com/truongnh1992/mcp-on-cloudrun) to follow along.
+
+```sh
+git clone https://github.com/truongnh1992/mcp-on-cloudrun.git
+```
 
 ## Part 1: The MCP Server
 
-We'll start by building the backend. We're using `fastmcp` to define tools, but here's the secret sauce: we're wrapping it in a **Starlette** application to expose custom HTTP endpoints compatible with the MCP protocol over the internet.
+Let's start by building the backend MCP server. We'll use `fastmcp` to define our tools and wrap them in an application, which allows us to expose the tools via HTTP endpoints that can be accessed remotely over the internet.
 
 ### 1. Define the Tools (`weather.py`)
 
@@ -174,8 +179,5 @@ So, to summarize: The **Model** is the thinker, the **Agent** is the doer, and *
 *   **Google ADK simplifies UI**: You don't need to build a frontend from scratch; ADK provides a chat interface with streaming support out of the box.
 *   **Cloud Run is perfect for tools**: Serverless is the ideal home for sporadic tool usage-efficient, cost-effective, and scalable.
 
-## Next Steps
-
-Want to build this yourself? Check out the full source code in the [repository](https://github.com/truongnh1992/mcp-on-cloudrun).
 
 Happy coding! 🚀
