@@ -41,22 +41,6 @@
 		border-bottom: 1px solid #272727;
 	}
 
-	@import 'ext/solarized-dark';
-	.highlight, .highlight *
-	{
-		background-color: #00080a;
-		color: #93a1a1;
-	}
-
-	div.highlight-dark {
-		padding: 5px 20px;
-	}
-	pre.highlight-dark, code {
-		font-family: 'Consolas', Menlo, monospace;
-		line-height: 1.4em;
-		tab-size: 4;
-	}
-
 	.post-categories {
 		li {
 			background-color: #333;

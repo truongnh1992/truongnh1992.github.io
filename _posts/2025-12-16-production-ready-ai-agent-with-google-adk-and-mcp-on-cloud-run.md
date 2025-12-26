@@ -90,9 +90,12 @@ async def mcp_handler(request):
         
     # Handle 'initialize' and 'tools/list' similarly...
 
-app = Starlette(routes=[
-    Route('/', mcp_handler, methods=['POST']),
-])
+app = Starlette(
+    routes=[
+        Route('/', mcp_handler, methods=['POST']),
+        Route('/sse', mcp_handler, methods=['POST']),
+    ]
+)
 ```
 
 ### 3. Deploy to Google Cloud Run
