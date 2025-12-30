@@ -1,11 +1,14 @@
-.DS_Store
-.jekyll-cache/*
-_site*
-.sass-cache
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-*backup/
-*~
-*.swp
-Gemfile.lock
-.bundle/
 vendor/
+.bundle/
+.DS_Store
+Gemfile.lock
+
+# GA4 Proxy - local development only
+ga4-proxy/__pycache__/
+ga4-proxy/*.pyc
+ga4-proxy/.env
+ga4-proxy/venv/

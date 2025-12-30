@@ -116,6 +116,80 @@
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: inherit;
   }
+  
+  /* GA4 View Counter Styles */
+  .post-views {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #666;
+    font-size: 0.9em;
+    margin-right: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+  }
+  
+  .post-views i {
+    font-size: 1.1em;
+  }
+  
+  .post-views.loading {
+    opacity: 0.6;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .post-views.loading .loading-text {
+    font-size: 0.85em;
+    font-style: italic;
+  }
+  
+  .post-views.loaded {
+    opacity: 1;
+    animation: none;
+    background-color: #e7f3ff;
+    color: #1976d2;
+  }
+  
+  .post-views.loaded i {
+    color: #1976d2;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .post-views {
+      font-size: 0.85em;
+      padding: 2px 6px;
+      margin-right: 8px;
+    }
+  }
+  
+  /* Dark mode support (if dark mode is enabled) */
+  @media (prefers-color-scheme: dark) {
+    .post-views {
+      background-color: #2d3748;
+      color: #a0aec0;
+    }
+    
+    .post-views.loaded {
+      background-color: #2c5282;
+      color: #90cdf4;
+    }
+    
+    .post-views.loaded i {
+      color: #90cdf4;
+    }
+  }
 </style>
 <title>{{ page.title | default: site.title }}</title>
 {% seo %}

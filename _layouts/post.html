@@ -44,6 +44,9 @@ layout: default
     <div class="post-date">
       <i class="icon-calendar"></i>{{ page.date | date: date_format }}
     </div>
+    <div id="ga4-view-count" class="post-views loading">
+      <i class="icon-eye"></i> <span class="loading-text">Loading views...</span>
+    </div>
     {%- if page.categories.size > 0 -%}
     <ul class="post-categories">
       {%- for tag in page.categories -%}
