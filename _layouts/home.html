@@ -30,9 +30,6 @@ layout: default
                 <i class="icon-calendar"></i>
                 {{ post.date | date: date_format }}
               </div>
-              <div class="ga4-view-count post-views loading" data-page-path="{{ post.url }}">
-                <i class="icon-eye"></i> <span class="loading-text">...</span>
-              </div>
               {%- if post.categories.size > 0-%}
               <ul class="post-categories">
                 {%- for tag in post.categories -%}
@@ -64,9 +61,6 @@ layout: default
               <div class="post-date">
                 <i class="icon-calendar"></i>
                 {{ post.date | date: date_format }}
-              </div>
-              <div class="ga4-view-count post-views loading" data-page-path="{{ post.url }}">
-                <i class="icon-eye"></i> <span class="loading-text">...</span>
               </div>
               {%- if post.tags.size > 0-%}
               <ul class="post-categories">
