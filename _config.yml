@@ -28,7 +28,7 @@ plainwhite:
   condensed_mobile:
   # Navigation menu
   navigation:
-    - title: "<img src='/assets/@home.png' alt='Home' style='width: 18px; height: 18px; vertical-align: middle;'>"
+    - title: "<img src='/assets/@home.png' alt='Home' style='width: 21px; height: 21px; vertical-align: middle;'>"
       url: "/"
   # generate social links in footer
   social_links:

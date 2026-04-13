@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Đường Hải Phòng tại Hồng Kông"
-image: /assets/img/daughter-1.jpg
+image: /assets/img/hp-road-1.jpg
 excerpt: "Có một con đường ở Hong Kong mang tên Hải Phòng - Haiphong Road (海防道) ở phía nam công viên Cửu Long."
 categories: [daily-life]
 tags: [travel]
