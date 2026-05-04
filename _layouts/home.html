@@ -9,101 +9,101 @@ layout: default
 {{ content }}
 
 {%- if site.posts.size > 0 -%}
-  <ul class="posts">
-    <li class="posts-labelgroup" id="posts-labelgroup">
+  <div class="posts">
+    <div class="posts-labelgroup" id="posts-labelgroup">
       <div class="tab-container">
         <h1 id="posts-label" class="tab-label active" onclick="switchTab('posts')">technical articles</h1>
         <h1 id="daily-life-label" class="tab-label" onclick="switchTab('daily-life')">my daily life</h1>
       </div>
-    </li>
+    </div>
 
     <div id="posts-content" class="tab-content active">
-      {%- for post in site.posts -%}
-        {%- unless post.categories contains "daily-life" -%}
-          <li class="post-card">
+      <div class="posts-grid">
+        {%- for post in site.posts -%}
+          {%- unless post.categories contains "daily-life" -%}
             {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
-            {%- if post.image -%}
-            <a class="post-card-thumb" href="{{ post.url | relative_url }}">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
-            </a>
-            {%- endif -%}
-            <div class="post-card-body{% unless post.image %} post-card-body--full{% endunless %}">
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                <h2 class="post-title">{{ post.title | escape }}</h2>
-              </a>
-              <div class="post-meta">
-                <div class="post-date">
-                  <i class="icon-calendar"></i>
-                  {{ post.date | date: date_format }}
-                  {%- assign words = post.content | number_of_words -%}
-                  {%- assign mins = words | divided_by: 200 -%}
-                  {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
-                  <span class="read-time">&#183; {{ mins }} min read</span>
-                </div>
-              </div>
-              <div class="post">
-                {%- if site.show_excerpts -%}
-                  {{ post.excerpt }}
+            {%- assign words = post.content | number_of_words -%}
+            {%- assign mins = words | divided_by: 200 -%}
+            {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+            <a class="post-card" href="{{ post.url | relative_url }}">
+              <div class="post-card-thumb">
+                {%- if post.image -%}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+                {%- else -%}
+                  <div class="post-card-thumb-placeholder"></div>
                 {%- endif -%}
               </div>
-            </div>
-          </li>
-        {%- endunless -%}
-      {%- endfor -%}
+              <div class="post-card-body">
+                <h2 class="post-title">{{ post.title | escape }}</h2>
+                {%- if site.show_excerpts -%}
+                  <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 60 }}</p>
+                {%- endif -%}
+              </div>
+              <div class="post-card-footer">
+                <img class="post-card-avatar" src="{{ site.baseurl }}/{{ site.plainwhite.portfolio_image }}" alt="{{ site.plainwhite.name }}">
+                <span class="post-card-author">{{ site.plainwhite.name }}</span>
+                <span class="post-card-dot">·</span>
+                <span class="post-card-date">{{ post.date | date: date_format }}</span>
+                <span class="post-card-dot">·</span>
+                <span class="post-card-readtime">{{ mins }} min read</span>
+              </div>
+            </a>
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
     </div>
 
     <div id="daily-life-content" class="tab-content">
       {%- assign daily_life_posts = site.posts | where: "categories", "daily-life" -%}
       {%- if daily_life_posts.size > 0 -%}
-        {%- for post in daily_life_posts -%}
-          <li class="post-card">
+        <div class="posts-grid">
+          {%- for post in daily_life_posts -%}
             {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
-            {%- if post.image -%}
-            <a class="post-card-thumb" href="{{ post.url | relative_url }}">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
-            </a>
-            {%- endif -%}
-            <div class="post-card-body{% unless post.image %} post-card-body--full{% endunless %}">
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                <h2 class="post-title">{{ post.title | escape }}</h2>
-              </a>
-              <div class="post-meta">
-                <div class="post-date">
-                  <i class="icon-calendar"></i>
-                  {{ post.date | date: date_format }}
-                  {%- assign words = post.content | number_of_words -%}
-                  {%- assign mins = words | divided_by: 200 -%}
-                  {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
-                  <span class="read-time">&#183; {{ mins }} min read</span>
-                </div>
-              </div>
-              <div class="post">
-                {%- if site.show_excerpts -%}
-                  {{ post.excerpt }}
+            {%- assign words = post.content | number_of_words -%}
+            {%- assign mins = words | divided_by: 200 -%}
+            {%- if mins < 1 -%}{%- assign mins = 1 -%}{%- endif -%}
+            <a class="post-card" href="{{ post.url | relative_url }}">
+              <div class="post-card-thumb">
+                {%- if post.image -%}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+                {%- else -%}
+                  <div class="post-card-thumb-placeholder"></div>
                 {%- endif -%}
               </div>
-            </div>
-          </li>
-        {%- endfor -%}
-      {%- else -%}
-        <li>
-          <div class="daily-life-section">
-            <h2 class="post-title">My Daily Life</h2>
-            <div class="post-meta">
-              <div class="post-date">
-                <i class="icon-calendar"></i>
-                {{ "now" | date: "%b %-d, %Y" }}
+              <div class="post-card-body">
+                <h2 class="post-title">{{ post.title | escape }}</h2>
+                {%- if site.show_excerpts -%}
+                  <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 60 }}</p>
+                {%- endif -%}
               </div>
-            </div>
-            <div class="post">
-              <p>Welcome to my daily life section! Here I share personal moments, thoughts, and everyday experiences.</p>
-              <p><em>No daily life posts yet. Check back soon for personal stories and daily reflections!</em></p>
+              <div class="post-card-footer">
+                <img class="post-card-avatar" src="{{ site.baseurl }}/{{ site.plainwhite.portfolio_image }}" alt="{{ site.plainwhite.name }}">
+                <span class="post-card-author">{{ site.plainwhite.name }}</span>
+                <span class="post-card-dot">·</span>
+                <span class="post-card-date">{{ post.date | date: date_format }}</span>
+                <span class="post-card-dot">·</span>
+                <span class="post-card-readtime">{{ mins }} min read</span>
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="daily-life-section">
+          <h2 class="post-title">My Daily Life</h2>
+          <div class="post-meta">
+            <div class="post-date">
+              <i class="icon-calendar"></i>
+              {{ "now" | date: "%b %-d, %Y" }}
             </div>
           </div>
-        </li>
+          <div class="post">
+            <p>Welcome to my daily life section! Here I share personal moments, thoughts, and everyday experiences.</p>
+            <p><em>No daily life posts yet. Check back soon for personal stories and daily reflections!</em></p>
+          </div>
+        </div>
       {%- endif -%}
     </div>
-  </ul>
+  </div>
 
   <script>
     function switchTab(tabName) {
