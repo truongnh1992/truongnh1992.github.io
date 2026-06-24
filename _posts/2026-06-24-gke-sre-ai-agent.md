@@ -1,11 +1,13 @@
 ---
 layout: post
 title: gke-scout, your AI On-Call SRE for Google Kubernetes Engine
-categories: [GCP, GKE, AI Agent, Google Antigravity]
+categories: [GCP, GKE, AI Agent, Google Antigravity, Gemini]
 excerpt: "A CLI tool that acts as an AI on-call SRE for GKE. Point it at a broken workload, and it investigates read-only through a safety guardrail, then writes an evidence-cited root-cause report. It uses Gemini (via the Antigravity CLI) and the GKE MCP server under the hood, but never mutates your cluster."
 image: assets/img/GKE-scout-architecture.jpg
 ---
 I built `gke-scout`, a CLI tool that acts as an AI on-call SRE for GKE. Point it at a broken workload, and it investigates read-only through a safety guardrail, then writes an evidence-cited root-cause report. It uses Gemini (via the Antigravity CLI) and the GKE MCP server under the hood, but never mutates your cluster.
+
+> Google Cloud credits are provided for this project. Thank Google :)
 
 **TL;DR**
 
