@@ -75,7 +75,7 @@ main {
 
   @media screen and (min-width: $bigScreenW) {
     margin: 0 auto;
-    max-width: 1080px;
+    max-width: 1280px;
   }
   @media screen and (max-width: 1280px) {
     margin: 0 75px;
@@ -342,7 +342,12 @@ main {
 }
 
 .post-layout {
-  position: relative;
+  display: flex;
+  gap: 32px;
+
+  @media screen and (max-width: 1440px) {
+    display: block;
+  }
 }
 
 .posts,
@@ -362,6 +367,8 @@ main {
 
 .post-container {
   padding-left: 30px;
+  flex: 1;
+  min-width: 0;
 }
 
 // ── Post cards on home ─────────────────────────────────────────
@@ -486,14 +493,15 @@ main {
 
 // ── Related posts sidebar ──────────────────────────────────────
 .related-posts-sidebar {
+  flex-shrink: 0;
   width: 220px;
-  position: absolute;
-  top: 0;
-  left: calc(100% + 24px);
   max-height: calc(100vh - 60px);
   overflow-y: auto;
+  position: sticky;
+  top: 30px;
+  align-self: flex-start;
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1440px) {
     display: none;
   }
 
