@@ -123,30 +123,6 @@ Two key optimizations:
 
 **2. Tool call minimization:** The skill explicitly forbids calling discovery tools (`get_k8s_version`, `list_k8s_api_resources`, `get_k8s_cluster_info`) and instructs the agent to emit a `STRUCTURED_RESULT` immediately once it has a diagnosis -- no unnecessary follow-up investigations.
 
-### The Output Contract
-
-The agent emits a fenced JSON block that the orchestrator regex-parses:
-
-````
-```STRUCTURED_RESULT
-{
-  "root_cause": "The key 'DEMO_USER' is missing from ConfigMap 'demo-data-config'",
-  "confidence": "high",
-  "findings": [
-    {
-      "summary": "Pod stuck in CreateContainerConfigError",
-      "evidence": [
-        "get_k8s_resource returned pod with status 'CreateContainerConfigError'",
-        "list_k8s_events reports: couldn't find key DEMO_USER in ConfigMap..."
-      ]
-    }
-  ]
-}
-```
-````
-
-This decouples report generation from the LLM's free-form text output. The orchestrator converts the structured result into a clean Markdown report with sections for root cause, confidence, and evidence-cited findings.
-
 
 ## What I Learned
 
